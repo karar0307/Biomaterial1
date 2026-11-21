@@ -1,0 +1,1066 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Biomaterials Study Guide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+<style>
+/* Layout: sticky bar (language + lecture tabs), then one lecture at a time as a stack of cards: concept sections, live widgets, flashcards, quiz. */
+:root{
+  --bg:#F1F5F9; --surface:#FFFFFF; --ink:#11212D; --muted:#566878; --line:#D3DDE6;
+  --accent:#1F4FD1; --accent-ink:#FFFFFF; --accent-soft:#E3EBFC; --teal:#0A766F; --teal-soft:#DDF1EF;
+  --ok:#17784A; --ok-soft:#DCF3E7; --bad:#B3261E; --bad-soft:#FBE3E1; --warn-soft:#FFF1D6;
+  --f-head:"Space Grotesk","Inter",system-ui,sans-serif; --f-body:"Inter","IBM Plex Sans Arabic",system-ui,sans-serif; --f-ar:"IBM Plex Sans Arabic","Inter",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0D1721; --surface:#15222E; --ink:#E5ECF2; --muted:#94A6B5; --line:#273846;
+  --accent:#7B9DFF; --accent-ink:#0D1721; --accent-soft:#1D2D52; --teal:#52C7BC; --teal-soft:#14343A;
+  --ok:#4CC38A; --ok-soft:#133526; --bad:#FF8F86; --bad-soft:#3D1B19; --warn-soft:#3A2F14; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D1721; --surface:#15222E; --ink:#E5ECF2; --muted:#94A6B5; --line:#273846;
+  --accent:#7B9DFF; --accent-ink:#0D1721; --accent-soft:#1D2D52; --teal:#52C7BC; --teal-soft:#14343A;
+  --ok:#4CC38A; --ok-soft:#133526; --bad:#FF8F86; --bad-soft:#3D1B19; --warn-soft:#3A2F14; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--surface)}
+.wrap{max-width:1080px;margin:0 auto}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);margin:0 calc(-1*max(16px,env(safe-area-inset-left,0px)));padding:10px max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line)}
+.top-in{max-width:1080px;margin:0 auto}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--f-head);font-weight:700;font-size:17px;letter-spacing:-.01em}
+.brand small{display:block;font-family:var(--f-body);font-weight:400;font-size:12px;color:var(--muted)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--ink);font:inherit;font-size:13px;padding:6px 12px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.lt{display:flex;gap:6px;overflow-x:auto;padding:10px 0;scrollbar-width:thin}
+.lt button{flex:0 0 auto;display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:13px;line-height:1.25;padding:7px 12px;border-radius:8px;cursor:pointer;text-align:start}
+.lt button b{font-family:var(--f-head);font-size:15px;color:var(--accent)}
+.lt button[aria-current="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.lt .bd{font-size:11px;color:var(--ok);font-weight:600}
+button:focus-visible,.nd:focus-visible,.op:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main{padding-top:22px;display:flex;flex-direction:column;gap:16px}
+.lh{display:flex;gap:16px;align-items:center;padding:4px 0 6px}
+.lh .num{font-family:var(--f-head);font-weight:700;font-size:44px;line-height:1;color:var(--accent);min-width:44px}
+h1{font-family:var(--f-head);font-size:clamp(22px,4vw,30px);line-height:1.2;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.src{margin:4px 0 0;color:var(--muted);font-size:13px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;min-width:0}
+.ch{font-family:var(--f-head);font-size:17px;margin:0 0 10px;text-wrap:balance}
+.sh{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;cursor:pointer;font-family:var(--f-head);font-weight:700;font-size:17px;line-height:1.3}
+.sh:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.sh i{flex:0 0 auto;width:9px;height:9px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:transform .15s}
+.sh[aria-expanded="false"] i{transform:rotate(-45deg)}
+.sh[aria-expanded="false"]+.sb{display:none}
+.sb{margin-top:12px;display:flex;flex-direction:column;gap:10px}
+.bi{display:grid;gap:6px 28px;min-width:0}
+.bi>*{margin:0;min-width:0;overflow-wrap:anywhere}
+.ar{font-family:var(--f-ar);line-height:1.95}
+body[data-lang="both"] .bi{grid-template-columns:1fr 1fr}
+body[data-lang="both"] .bi .ar{color:var(--ink);border-inline-start:2px solid var(--teal-soft);padding-inline-start:12px}
+body[data-lang="en"] .ar{display:none!important}
+body[data-lang="ar"] .en{display:none!important}
+.t{display:inline}
+body[data-lang="both"] .t .ar{display:block;font-size:.92em;color:var(--teal)}
+@media (max-width:860px){body[data-lang="both"] .bi{grid-template-columns:1fr}}
+.pts{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.pts li{position:relative;padding-inline-start:16px}
+.pts li::before{content:"";position:absolute;inset-inline-start:0;top:.7em;width:6px;height:6px;border-radius:2px;background:var(--accent)}
+.note{background:var(--warn-soft);border-radius:8px;padding:10px 12px;font-size:14px}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:start;vertical-align:top}
+th{font-family:var(--f-head);font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:500}
+td{font-variant-numeric:tabular-nums}
+.tbs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.tb,.btn,.chip{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:6px 12px;cursor:pointer;text-align:start}
+.tb[aria-selected="true"],.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.tb[aria-selected="true"] .ar,.chip[aria-pressed="true"] .ar{color:inherit}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.tp{display:flex;flex-direction:column;gap:10px}
+.wg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+@media (max-width:760px){.wg{grid-template-columns:1fr}}
+.fld{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+.fld input,.fld select{font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:7px 10px;width:100%}
+.fr{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.out{display:grid;gap:8px;align-content:start}
+.kv{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:6px;font-variant-numeric:tabular-nums}
+.kv b{font-family:var(--f-head);font-size:17px;color:var(--accent);white-space:nowrap}
+.big{font-family:var(--f-head);font-weight:700;font-size:34px;color:var(--accent)}
+svg text{fill:var(--ink);font-family:var(--f-body);font-size:12px}
+svg .ar{font-family:var(--f-ar)}
+svg .ln{stroke:var(--muted);stroke-width:1.5;fill:none}
+.nd{cursor:pointer}
+.nd circle{fill:var(--accent);stroke:var(--surface);stroke-width:3}
+.nd.c circle{fill:var(--teal)}
+.nd[aria-pressed="true"] circle{stroke:var(--ink)}
+.svgbox{max-width:100%;overflow-x:auto}
+.bar2{display:flex;height:26px;border-radius:6px;overflow:hidden;background:var(--line)}
+.bar2 span{display:block;height:100%;transition:width .2s}
+.bar3{position:relative;height:30px;display:flex;border-radius:6px;overflow:hidden;font-size:11px}
+.bar3 span{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600}
+.mk{position:absolute;top:-4px;bottom:-4px;width:3px;background:var(--ink);transition:left .15s}
+.dens{display:grid;gap:6px}
+.dens .r{display:grid;grid-template-columns:150px 1fr 40px;gap:8px;align-items:center;font-size:13px}
+.dens .r i{display:block;height:14px;border-radius:4px;background:var(--accent)}
+.fc{perspective:900px}
+.fcc{min-height:150px;border:1px solid var(--line);border-radius:10px;background:var(--bg);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;cursor:pointer;font-size:17px;width:100%;color:var(--ink);font-family:inherit}
+.fcc.back{background:var(--teal-soft)}
+.fcc .t .ar{font-size:1em}
+.ct{font-size:13px;color:var(--muted)}
+.qn{font-size:12px;color:var(--muted);margin-bottom:6px}
+.qq{font-weight:500;font-size:16px;margin-bottom:12px}
+.qo{display:grid;gap:8px}
+.op{font:inherit;text-align:start;background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:10px 12px;cursor:pointer}
+.op.ok{background:var(--ok-soft);border-color:var(--ok)}
+.op.bad{background:var(--bad-soft);border-color:var(--bad)}
+.fb{margin-top:12px;display:flex;flex-direction:column;gap:10px}
+.nav2{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.cmp{display:grid;gap:4px;font-size:14px;font-variant-numeric:tabular-nums}
+.leg{font-size:12px;color:var(--muted)}
+.cr circle{fill:none;stroke:var(--accent);stroke-width:2;transition:all .5s}
+.cr circle.m{fill:var(--teal);stroke:var(--teal);r:13px}
+.cr .cw{fill:var(--bad);stroke:none}
+.sq{stroke-width:4;fill:none;stroke:var(--line)}
+.sq.on{stroke:var(--accent)}
+body[data-lang="both"] .t .ar{text-align:left}
+.fcc .t .ar,.seg .t .ar{text-align:center!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<div class="top"><div class="top-in"><div class="bar"><div class="brand">Biomaterials Study Guide<small>Dr. Murtadha Alher &middot; 6 lectures &middot; English / العربية</small></div>
+<div class="seg" id="lg" role="group" aria-label="Language"><button data-l="en" aria-pressed="false">English</button><button data-l="both" aria-pressed="true">EN + AR</button><button data-l="ar" aria-pressed="false">العربية</button></div></div>
+<nav class="lt" id="lt" aria-label="Lectures"></nav></div></div>
+<div class="wrap"><main id="main"></main></div>
+<script>
+const $id=id=>document.getElementById(id);
+const t=p=>`<span class="t"><span class="en" lang="en">${p[0]}</span><span class="ar" lang="ar" dir="rtl">${p[1]}</span></span>`;
+const bi=(p,tag='p')=>`<div class="bi"><${tag} class="en" lang="en">${p[0]}</${tag}><${tag} class="ar" lang="ar" dir="rtl">${p[1]}</${tag}></div>`;
+let uidN=0;const uid=()=>'u'+(++uidN);
+let inits=[];let lang='both',cur=0;const best={};
+try{lang=localStorage.getItem('bm-lang')||'both'}catch(e){}
+const D=[];
+
+function sec(b){return `<section class="card"><button class="sh" aria-expanded="true">${t(b.h)}<i></i></button><div class="sb">${(b.p||[]).map(p=>bi(p)).join('')}${b.u?`<ul class="pts">${b.u.map(u=>`<li>${bi(u,'span')}</li>`).join('')}</ul>`:''}${b.note?`<div class="note">${bi(b.note)}</div>`:''}</div></section>`}
+
+function tbl(b){const c=x=>typeof x==='string'?x:t(x);return `<section class="card">${b.h?`<h2 class="ch">${t(b.h)}</h2>`:''}<div class="tw"><table><thead><tr>${b.cols.map(x=>`<th>${c(x)}</th>`).join('')}</tr></thead><tbody>${b.rows.map(r=>`<tr>${r.map(x=>`<td>${c(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>${b.note?`<div class="note" style="margin-top:10px">${bi(b.note)}</div>`:''}</section>`}
+
+function tabs(b){const id=uid();
+  inits.push(()=>{const r=$id(id),btns=r.querySelectorAll('.tb'),pan=r.querySelector('.tp');
+    const show=k=>{btns.forEach((x,n)=>x.setAttribute('aria-selected',n===k));const it=b.items[k];
+      pan.innerHTML=(it.p||[]).map(p=>bi(p)).join('')+(it.u?`<ul class="pts">${it.u.map(u=>`<li>${bi(u,'span')}</li>`).join('')}</ul>`:'')+(it.note?`<div class="note">${bi(it.note)}</div>`:'')};
+    btns.forEach((x,n)=>x.onclick=()=>show(n));show(0)});
+  return `<section class="card" id="${id}">${b.h?`<h2 class="ch">${t(b.h)}</h2>`:''}<div class="tbs" role="tablist">${b.items.map(it=>`<button class="tb" role="tab">${t(it.n)}</button>`).join('')}</div><div class="tp"></div></section>`}
+
+function reveal(b){const id=uid();
+  inits.push(()=>{const r=$id(id);r.querySelector('.btn').onclick=e=>{const o=r.querySelector('.rv');o.hidden=!o.hidden;e.currentTarget.setAttribute('aria-pressed',!o.hidden)};
+    r.querySelector('.rv').innerHTML=b.run()});
+  return `<section class="card" id="${id}"><h2 class="ch">${t(b.h)}</h2>${(b.p||[]).map(p=>bi(p)).join('')}<div class="row" style="margin-top:10px"><button class="btn pri">${t(['Show / hide solution','أظهر / أخفِ الحل'])}</button></div><div class="rv sb" hidden style="margin-top:12px"></div></section>`}
+
+function block(b){
+  if(b.t==='sec')return sec(b);if(b.t==='table')return tbl(b);if(b.t==='tabs')return tabs(b);if(b.t==='rev')return reveal(b);
+  if(b.t==='w')return W[b.k](b);return ''}
+
+function cardsHTML(i){return `<section class="card" id="fcs"><h2 class="ch">${t(['Flashcards: tap a card to flip','بطاقات المراجعة: اضغط على البطاقة لقلبها'])}</h2><div class="fc"><button class="fcc" id="fcc"></button></div><div class="row" style="margin-top:10px;align-items:center"><button class="btn" id="fp">${t(['Previous','السابق'])}</button><button class="btn" id="fn">${t(['Next','التالي'])}</button><span class="ct" id="fct"></span></div></section>`}
+function initCards(i){const C=D[i].cards;let k=0,back=false;const el=$id('fcc');
+  const draw=()=>{const c=C[k];el.className='fcc'+(back?' back':'');el.innerHTML=back?`<div>${bi([c[2],c[3]])}</div>`:`<div style="font-family:var(--f-head);font-weight:700">${t([c[0],c[1]])}</div>`;$id('fct').textContent=(k+1)+' / '+C.length};
+  el.onclick=()=>{back=!back;draw()};$id('fp').onclick=()=>{k=(k+C.length-1)%C.length;back=false;draw()};$id('fn').onclick=()=>{k=(k+1)%C.length;back=false;draw()};draw()}
+
+function quizHTML(i){return `<section class="card" id="quiz"><h2 class="ch">${t(['Quiz: check yourself','اختبر نفسك'])}</h2><div class="qb"></div></section>`}
+function initQuiz(i){const Q=D[i].quiz;const root=$id('quiz').querySelector('.qb');let k=0,s=0;
+  const draw=()=>{
+    if(k>=Q.length){best[i]=Math.max(best[i]||0,s);updNav();
+      root.innerHTML=`<div class="big">${s} / ${Q.length}</div>${bi(s===Q.length?['Perfect. You can move on to the next lecture.','ممتاز. يمكنك الانتقال إلى المحاضرة التالية.']:['Review the sections and flashcards above, then try again.','راجع الأقسام والبطاقات أعلاه ثم أعد المحاولة.'])}<div class="row" style="margin-top:12px"><button class="btn pri" id="qr">${t(['Try again','أعد المحاولة'])}</button></div>`;
+      $id('qr').onclick=()=>{k=0;s=0;draw()};return}
+    const q=Q[k];
+    root.innerHTML=`<div class="qn">${k+1} / ${Q.length}</div><div class="qq">${bi(q.q)}</div><div class="qo">${q.o.map((o,n)=>`<button class="op" data-n="${n}">${t(o)}</button>`).join('')}</div><div class="fb" hidden></div>`;
+    root.querySelectorAll('.op').forEach(b=>b.onclick=()=>{const n=+b.dataset.n;const ok=n===q.a;if(ok)s++;
+      root.querySelectorAll('.op').forEach((x,m)=>{x.disabled=true;if(m===q.a)x.classList.add('ok');else if(m===n)x.classList.add('bad')});
+      const fb=root.querySelector('.fb');fb.hidden=false;
+      fb.innerHTML=`<div><b>${t(ok?['Correct.','إجابة صحيحة.']:['Not quite.','ليست صحيحة.'])}</b></div>${bi(q.e)}<div class="row"><button class="btn pri" id="qx">${t(k+1<Q.length?['Next question','السؤال التالي']:['See score','عرض النتيجة'])}</button></div>`;
+      $id('qx').onclick=()=>{k++;draw()}});
+  };draw()}
+
+function navHTML(i){return `<div class="nav2">${i>0?`<button class="btn" data-go="${i-1}">&larr; ${t(['Previous lecture','المحاضرة السابقة'])}</button>`:'<span></span>'}${i<D.length-1?`<button class="btn pri" data-go="${i+1}">${t(['Next lecture','المحاضرة التالية'])} &rarr;</button>`:'<span></span>'}</div>`}
+
+const SHORT=[['Introduction','المقدمة'],['Solid Structure','البنية الصلبة'],['Metallic','المعادن'],['Phase Diagrams','مخططات الأطوار'],['Ceramic Crystals','بلورات السيراميك'],['Bioceramics','السيراميك الحيوي']];
+function updNav(){$id('lt').innerHTML=SHORT.map((s,n)=>`<button data-go="${n}" ${n===cur?'aria-current="true"':''}><b>${n+1}</b><span>${t(s)}${best[n]!=null?`<span class="bd"> ${best[n]}/${D[n].quiz.length}</span>`:''}</span></button>`).join('')}
+function setLang(l){lang=l;document.body.dataset.lang=l;try{localStorage.setItem('bm-lang',l)}catch(e){}
+  document.querySelectorAll('#lg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===l))}
+
+function render(i){cur=i;inits=[];const d=D[i];
+  let h=`<header class="lh"><div class="num">${i+1}</div><div><h1>${t(d.title)}</h1><p class="src">${d.src} &middot; Dr. Murtadha Alher</p></div></header>`;
+  d.blocks.forEach(b=>h+=block(b));h+=cardsHTML(i)+quizHTML(i)+navHTML(i);
+  $id('main').innerHTML=h;inits.forEach(f=>f());initCards(i);initQuiz(i);updNav();
+  try{history.replaceState(null,'','#l'+(i+1))}catch(e){}window.scrollTo(0,0)}
+
+document.addEventListener('click',e=>{
+  const g=e.target.closest('[data-go]');if(g){render(+g.dataset.go);return}
+  const s=e.target.closest('.sh');if(s)s.setAttribute('aria-expanded',s.getAttribute('aria-expanded')!=='true')});
+document.querySelectorAll('#lg button').forEach(b=>b.onclick=()=>setLang(b.dataset.l));
+const W={};
+const wcard=(h,inner,id)=>`<section class="card" id="${id}"><h2 class="ch">${t(h)}</h2>${inner}</section>`;
+const fld=(lbl,inp)=>`<label class="fld"><span>${t(lbl)}</span>${inp}</label>`;
+const f2=(x,d=2)=>Number(x).toFixed(d);
+
+/* L1: five components, clickable */
+W.tetra=()=>{const id=uid();
+  const N=[
+   [`Structure`,`البنية`,`Arrangement of internal components: subatomic, atomic, microscopic, macroscopic.`,`ترتيب المكونات الداخلية: دون ذري وذري ومجهري وعياني.`],
+   [`Properties`,`الخواص`,`Mechanical, electrical, thermal, magnetic, optical and deteriorative.`,`ميكانيكية وكهربائية وحرارية ومغناطيسية وضوئية وتدهورية.`],
+   [`Processing`,`المعالجة`,`How the material is produced and shaped, for example casting, forging or heat treatment.`,`كيفية إنتاج المادة وتشكيلها، مثل السباكة والطرق والمعالجة الحرارية.`],
+   [`Characterization`,`التوصيف`,`How structure and properties are measured, for example by X-ray diffraction.`,`كيفية قياس البنية والخواص، مثل حيود الأشعة السينية.`],
+   [`Performance`,`الأداء`,`How the material behaves in service, for example inside the body.`,`سلوك المادة أثناء الخدمة، مثل داخل الجسم.`]];
+  inits.push(()=>{const r=$id(id),out=r.querySelector('.od');
+    const show=i=>{r.querySelectorAll('.nd').forEach((x,n)=>x.setAttribute('aria-pressed',n===i));out.innerHTML=`<b>${t([N[i][0],N[i][1]])}</b>`+bi([N[i][2],N[i][3]])};
+    r.querySelectorAll('.nd').forEach((x,n)=>{x.onclick=()=>show(n);x.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show(n)}}});show(0)});
+  const cx=210,cy=130,R=95;const P=N.map((_,i)=>{const a=-Math.PI/2+i*2*Math.PI/5;return [cx+R*Math.cos(a)*1.35,cy+R*Math.sin(a)]});
+  const svg=`<div class="svgbox"><svg viewBox="0 0 420 270" width="100%" style="max-width:520px;display:block;margin:0 auto" role="img" aria-label="Five components">
+  ${P.map(p=>`<line class="ln" x1="${cx}" y1="${cy}" x2="${p[0]}" y2="${p[1]}"/>`).join('')}
+  <circle cx="${cx}" cy="${cy}" r="30" fill="var(--accent-soft)" stroke="var(--line)"/><text x="${cx}" y="${cy+4}" text-anchor="middle" style="font-weight:600">Materials</text>
+  ${P.map((p,i)=>`<g class="nd ${i%2?'c':''}" tabindex="0" role="button" aria-label="${N[i][0]}"><circle cx="${p[0]}" cy="${p[1]}" r="15"/><text x="${p[0]}" y="${p[1]+31}" text-anchor="middle" class="en" style="font-weight:600">${N[i][0]}</text><text x="${p[0]}" y="${p[1]+45}" text-anchor="middle" class="ar" dir="rtl">${N[i][1]}</text></g>`).join('')}</svg></div>`;
+  return wcard([`The five components: tap each node`,`المكونات الخمسة: اضغط على كل عقدة`],svg+`<div class="out od" style="margin-top:8px"></div>`,id)};
+
+/* L2: density calculator */
+W.density=()=>{const id=uid();
+  const PRE={Cu:['FCC',0.128,63.55,1],Al:['FCC',0.143,26.98,1],Fe:['BCC',0.1241,55.85,1],Ti:['HCP',0.1475,47.9,0.4683/0.295]};
+  inits.push(()=>{const r=$id(id),q=s=>r.querySelector(s);
+    const calc=()=>{const s=q('.s').value,R=+q('.R').value,A=+q('.A').value,ca=+q('.ca').value;
+      let n,a,V;if(s==='FCC'){n=4;a=2*R*Math.SQRT2;V=a**3}else if(s==='BCC'){n=2;a=4*R/Math.sqrt(3);V=a**3}else{n=6;a=2*R;V=1.5*Math.sqrt(3)*a*a*(ca*a)}
+      const NA=6.023e23,Vcm=V*1e-21,rho=n*A/(Vcm*NA);
+      q('.o').innerHTML=`<div class="kv"><span>n</span><b>${n}</b></div><div class="kv"><span>a (nm)</span><b>${f2(a,4)}</b></div><div class="kv"><span>V<sub>C</sub> (nm³)</span><b>${f2(V,5)}</b></div><div class="kv"><span>ρ = nA / (V<sub>C</sub>·N<sub>A</sub>)</span><b>${f2(rho)} g/cm³</b></div>`;
+      q('.ca').parentElement.style.opacity=s==='HCP'?1:.4};
+    q('.pre').onchange=e=>{const p=PRE[e.target.value];if(!p)return;q('.s').value=p[0];q('.R').value=p[1];q('.A').value=p[2];q('.ca').value=f2(p[3],4);calc()};
+    r.querySelectorAll('input,select').forEach(x=>x.oninput=calc);r.querySelectorAll('select').forEach(x=>x.onchange=x.classList.contains('pre')?q('.pre').onchange:calc);
+    q('.pre').value='Cu';q('.pre').onchange({target:q('.pre')})});
+  const inner=`<div class="wg"><div class="fr" style="grid-template-columns:1fr 1fr">
+   ${fld([`Preset element`,`عنصر جاهز`],`<select class="pre"><option value="Cu">Cu</option><option value="Al">Al</option><option value="Fe">α-Fe</option><option value="Ti">α-Ti</option><option value="">custom</option></select>`)}
+   ${fld([`Structure`,`البنية`],`<select class="s"><option>FCC</option><option>BCC</option><option>HCP</option></select>`)}
+   ${fld([`Atomic radius R (nm)`,`نصف القطر الذري R (nm)`],`<input class="R" type="number" step="0.001" value="0.128">`)}
+   ${fld([`Atomic weight A (g/mol)`,`الوزن الذري A (g/mol)`],`<input class="A" type="number" step="0.01" value="63.55">`)}
+   ${fld([`c/a (HCP only)`,`c/a (HCP فقط)`],`<input class="ca" type="number" step="0.001" value="1.633">`)}</div>
+   <div class="out o"></div></div><p class="leg">${t([`Theoretical density ρ = nA / (V<sub>C</sub> N<sub>A</sub>), N<sub>A</sub> = 6.023×10²³. FCC: a = 2R√2. BCC: a = 4R/√3. HCP: a = 2R, V<sub>C</sub> = (3√3/2)a²c. Radii for Cu, Al and Fe are typical handbook values; Ti uses the a and c given in lecture 3.`,`الكثافة النظرية ρ = nA / (V<sub>C</sub> N<sub>A</sub>) حيث N<sub>A</sub> = 6.023×10²³. FCC: a = 2R√2. BCC: a = 4R/√3. HCP: a = 2R و V<sub>C</sub> = (3√3/2)a²c. أنصاف أقطار Cu وAl وFe قيم مرجعية معتادة، وTi يستخدم قيمتي a وc الواردتين في المحاضرة 3.`])}</p>`;
+  return wcard([`Density calculator`,`حاسبة الكثافة`],inner,id)};
+
+/* L2: Bragg's law */
+W.bragg=()=>{const id=uid();
+  inits.push(()=>{const r=$id(id),q=s=>r.querySelector(s);
+    const calc=()=>{const l=+q('.l').value,d=+q('.d').value,n=+q('.n').value;const x=n*l/(2*d);
+      if(!(x>0)||x>1){q('.o').innerHTML=`<div class="note">${bi([`No diffraction: nλ/2d = ${isFinite(x)?f2(x,3):'—'} is above 1, so sinθ cannot satisfy Bragg's law. Use a shorter wavelength, larger spacing or lower order n.`,`لا يوجد حيود: القيمة nλ/2d = ${isFinite(x)?f2(x,3):'—'} أكبر من 1 فلا يمكن لـ sinθ تحقيق قانون براغ. استخدم طولاً موجياً أقصر أو تباعداً أكبر أو رتبة n أقل.`])}</div>`;q('.pl').setAttribute('d','M10 90 L290 90');return}
+      const th=Math.asin(x)*180/Math.PI;
+      q('.o').innerHTML=`<div class="kv"><span>sinθ = nλ / 2d</span><b>${f2(x,4)}</b></div><div class="kv"><span>θ</span><b>${f2(th)}°</b></div><div class="kv"><span>2θ (detector angle)</span><b>${f2(2*th)}°</b></div>`;
+      const rad=th*Math.PI/180;q('.pl').setAttribute('d',`M${150-120*Math.cos(rad)} ${90-120*Math.sin(rad)} L150 90 L${150+120*Math.cos(rad)} ${90-120*Math.sin(rad)}`)};
+    r.querySelectorAll('input').forEach(x=>x.oninput=calc);calc()});
+  const inner=`<div class="wg"><div><div class="fr">${fld([`λ (nm)`,`λ (nm)`],`<input class="l" type="number" step="0.001" value="0.154">`)}${fld([`d (nm)`,`d (nm)`],`<input class="d" type="number" step="0.001" value="0.203">`)}${fld([`order n`,`الرتبة n`],`<input class="n" type="number" step="1" min="1" value="1">`)}</div>
+   <div class="svgbox" style="margin-top:10px"><svg viewBox="0 0 300 120" width="100%" style="max-width:320px"><line class="ln" x1="10" y1="90" x2="290" y2="90"/><line class="ln" x1="10" y1="108" x2="290" y2="108" stroke-dasharray="4 3"/><path class="pl ln" d="" style="stroke:var(--accent);stroke-width:2.5"/><text x="296" y="94" text-anchor="end">plane 1</text><text x="296" y="112" text-anchor="end">plane 2 (d below)</text></svg></div></div><div class="out o"></div></div>
+   <p class="leg">${t([`Bragg's law: nλ = 2d sinθ. Defaults: Cu Kα X-rays (0.154 nm) and a spacing of 0.203 nm, typical of an FCC metal plane. Interplanar spacing depends on Miller indices, lattice parameters and crystal structure.`,`قانون براغ: nλ = 2d sinθ. القيم الافتراضية: أشعة Cu Kα (0.154 nm) وتباعد 0.203 nm وهو نموذجي لمستوٍ في معدن FCC. يعتمد التباعد بين المستويات على معاملات ميلر وثوابت الشبكة والبنية البلورية.`])}</p>`;
+  return wcard([`Bragg's law explorer`,`مستكشف قانون براغ`],inner,id)};
+
+/* L3: precipitation hardening */
+W.precip=()=>{const id=uid();
+  inits.push(()=>{const r=$id(id),q=s=>r.querySelector(s);
+    const STEP=[
+     [`Solution heat treating`,`المعالجة الحرارية بالمحلول`,`Heat to a set temperature so all solute atoms dissolve into one single-phase solid solution.`,`التسخين إلى درجة محددة فتذوب كل ذرات المذاب في محلول صلب أحادي الطور.`,'M10 100 L60 30 L120 30','dis'],
+     [`Quenching`,`التبريد السريع`,`Rapidly cool to room temperature. The solute is trapped in the matrix.`,`تبريد سريع إلى درجة حرارة الغرفة فيُحبس المذاب داخل الأساس.`,'M10 100 L60 30 L120 30 L135 100 L200 100','trap'],
+     [`Aging`,`التعتيق`,`Precipitation heat treatment: fine particles of a second phase form evenly throughout the grains.`,`معالجة حرارية للترسيب: تتكوّن جسيمات دقيقة من طور ثانٍ موزعة بانتظام داخل الحبيبات.`,'M10 100 L60 30 L120 30 L135 100 L160 100 L175 65 L260 65','ppt']];
+    const pts=[];for(let i=0;i<7;i++)for(let j=0;j<5;j++)pts.push([30+i*34+(j%2)*10,28+j*28]);
+    const show=k=>{r.querySelectorAll('.tb').forEach((b,n)=>b.setAttribute('aria-selected',n===k));const s=STEP[k];
+      q('.pf').setAttribute('d',s[4]);q('.tx').innerHTML=`<b>${t([s[0],s[1]])}</b>`+bi([s[2],s[3]]);
+      q('.dots').innerHTML=pts.map((p,i)=>{if(k===0)return i%3===0?`<circle cx="${p[0]}" cy="${p[1]}" r="2" fill="var(--muted)"/>`:'';if(k===1)return i%3===0?`<circle cx="${p[0]}" cy="${p[1]}" r="2.5" fill="var(--muted)"/>`:'';return `<circle cx="${p[0]}" cy="${p[1]}" r="${i%3===0?5:4}" fill="var(--bad)"/>`}).join('')};
+    r.querySelectorAll('.tb').forEach((b,n)=>b.onclick=()=>show(n));show(0)});
+  const inner=`<div class="tbs"><button class="tb">${t([`1 Solution treat`,`1 معالجة بالمحلول`])}</button><button class="tb">${t([`2 Quench`,`2 تبريد سريع`])}</button><button class="tb">${t([`3 Age`,`3 تعتيق`])}</button></div>
+   <div class="wg"><div class="svgbox"><svg viewBox="0 0 280 130" width="100%" style="max-width:340px"><line class="ln" x1="8" y1="8" x2="8" y2="112"/><line class="ln" x1="8" y1="112" x2="272" y2="112"/><text x="12" y="18">T</text><text x="268" y="126" text-anchor="end">time</text><path class="pf ln" d="" style="stroke:var(--accent);stroke-width:2.5"/></svg>
+   <svg viewBox="0 0 250 150" width="100%" style="max-width:300px"><rect x="10" y="8" width="230" height="134" rx="6" fill="var(--accent-soft)" stroke="var(--line)"/><g class="dots"></g></svg></div><div class="tx out"></div></div>
+   <p class="leg">${t([`Grey dots are solute atoms. Red dots are the fine second-phase precipitates formed during aging.`,`النقاط الرمادية ذرات المذاب، والنقاط الحمراء هي الرواسب الدقيقة للطور الثاني المتكونة أثناء التعتيق.`])}</p>`;
+  return wcard([`Precipitation hardening in three steps`,`التصلد بالترسيب في ثلاث خطوات`],inner,id)};
+
+/* L3: specific gravities of metals */
+W.dens=()=>{const id=uid();
+  const M=[[`Ti and its alloys`,`التيتانيوم وسبائكه`,4.5],[`316 stainless steel`,`فولاذ 316`,7.9],[`CoCrMo`,`CoCrMo`,8.3],[`CoNiCrMo`,`CoNiCrMo`,9.2],[`NiTi`,`NiTi`,6.7]];
+  const mx=Math.max(...M.map(m=>m[2]));
+  const rows=M.map(m=>`<div class="r"><span>${t([m[0],m[1]])}</span><i style="width:${m[2]/mx*100}%"></i><b>${m[2]}</b></div>`).join('');
+  return wcard([`Density of implant metals (g/cm³)`,`كثافة معادن الغرسات (غ/سم³)`],`<div class="dens">${rows}</div><p class="leg">${t([`Titanium is the lightest, which is why its strength per density is the best of all implant metals. Source: Table 1.5 of the lecture.`,`التيتانيوم الأخف وزناً، ولذلك فإن مقاومته لكل كثافة هي الأفضل بين معادن الغرسات. المصدر: الجدول 1.5 في المحاضرة.`])}</p>`,id)};
+/* L4: lever rule on Cd-Bi eutectic */
+W.lever=()=>{const id=uid();
+  inits.push(()=>{const r=$id(id),q=s=>r.querySelector(s);
+    const calc=()=>{const C=+q('.c').value;q('.cv').textContent=C;
+      const hyp=C<60;let a,b,la,lb;
+      if(hyp){a=(60-C)/60;b=C/60;la=[`Primary Cd`,`Cd أولي`];lb=[`Eutectic structure`,`البنية اليوتكتيكية`]}else{a=(100-C)/40;b=(C-60)/40;la=[`Eutectic structure`,`البنية اليوتكتيكية`];lb=[`Primary Bi`,`Bi أولي`]}
+      if(C===60){a=0;b=1;la=[`Primary phase`,`طور أولي`];lb=[`Eutectic structure`,`البنية اليوتكتيكية`]}
+      const kind=C<60?[`hypoeutectic`,`تحت يوتكتيكية`]:C===60?[`eutectic`,`يوتكتيكية`]:[`hypereutectic`,`فوق يوتكتيكية`];
+      q('.o').innerHTML=`<div class="kv"><span>${t([`Alloy type`,`نوع السبيكة`])}</span><b style="font-size:15px">${t(kind)}</b></div>
+       <div class="kv"><span>${t(la)}</span><b>${f2(a*100,1)}%</b></div><div class="kv"><span>${t(lb)}</span><b>${f2(b*100,1)}%</b></div>
+       <div class="bar2"><span style="width:${a*100}%;background:var(--teal)"></span><span style="width:${b*100}%;background:var(--accent)"></span></div>`};
+    q('.c').oninput=calc;calc()});
+  const inner=`<div class="wg"><div>${fld([`Alloy composition, wt% Bi`,`تركيب السبيكة، % وزنية Bi`],`<input class="c" type="range" min="5" max="95" step="1" value="30">`)}<p style="margin:4px 0">wt% Bi = <b class="cv">30</b></p>
+   <p class="leg">${t([`Cd–Bi eutectic: 60% Bi at 140 °C. Just above T<sub>E</sub>, the lever rule gives primary Cd = (60 − C)/60 (pure Cd has 0% Bi) and eutectic liquid = C/60. On the Bi-rich side, primary Bi = (C − 60)/40 and eutectic = (100 − C)/40.`,`يوتكتيك Cd–Bi: 60% Bi عند 140 °م. فوق T<sub>E</sub> مباشرة تعطي قاعدة الرافعة Cd الأولي = (60 − C)/60 (فـ Cd النقي فيه 0% Bi) والسائل اليوتكتيكي = C/60. وعلى جهة Bi: Bi الأولي = (C − 60)/40 واليوتكتيك = (100 − C)/40.`])}</p></div><div class="out o"></div></div>`;
+  return wcard([`Lever rule: how much primary phase?`,`قاعدة الرافعة: كم مقدار الطور الأولي؟`],inner,id)};
+
+/* L4: Fe-C slow-cooled microstructure */
+W.fec=()=>{const id=uid();
+  inits.push(()=>{const r=$id(id),q=s=>r.querySelector(s);
+    const calc=()=>{const C=+q('.c').value;q('.cv').textContent=f2(C,2);
+      let name,pro,proName,pear,note;
+      if(C<0.76){pro=(0.76-C)/(0.76-0.022);pear=1-pro;proName=[`Proeutectoid ferrite (α)`,`فريت أولي (α)`];name=[`Hypoeutectoid steel`,`فولاذ تحت يوتكتويدي`]}
+      else if(C===0.76||Math.abs(C-0.76)<0.005){pro=0;pear=1;proName=[`Proeutectoid phase`,`طور أولي`];name=[`Eutectoid steel`,`فولاذ يوتكتويدي`]}
+      else if(C<=2){pro=(C-0.76)/(6.70-0.76);pear=1-pro;proName=[`Proeutectoid cementite (Fe₃C)`,`سمنتيت أولي (Fe₃C)`];name=[`Hypereutectoid steel`,`فولاذ فوق يوتكتويدي`]}
+      else{q('.o').innerHTML=`<div class="note">${bi([`Above 2% C the alloy is a cast iron. This tool covers steels (up to 2% C).`,`فوق 2% C تكون السبيكة حديداً زهراً. هذه الأداة تغطي الفولاذ (حتى 2% C).`])}</div>`;return}
+      const wa=(6.70-C)/(6.70-0.022),wc=1-wa;
+      q('.o').innerHTML=`<div class="kv"><span>${t([`Class`,`الصنف`])}</span><b style="font-size:15px">${t(name)}</b></div>
+       <div class="kv"><span>${t(proName)}</span><b>${f2(pro*100,1)}%</b></div><div class="kv"><span>${t([`Pearlite`,`البيرلايت`])}</span><b>${f2(pear*100,1)}%</b></div>
+       <div class="bar2" title="microconstituents"><span style="width:${pro*100}%;background:var(--teal)"></span><span style="width:${pear*100}%;background:var(--accent)"></span></div>
+       <div class="kv"><span>${t([`Total α ferrite`,`مجموع الفريت α`])}</span><b>${f2(wa*100,1)}%</b></div><div class="kv"><span>${t([`Total Fe₃C`,`مجموع Fe₃C`])}</span><b>${f2(wc*100,1)}%</b></div>`};
+    q('.c').oninput=calc;calc()});
+  const inner=`<div class="wg"><div>${fld([`Carbon content C₀ (wt% C)`,`محتوى الكربون C₀ (% وزنية C)`],`<input class="c" type="range" min="0.05" max="2" step="0.01" value="0.38">`)}<p style="margin:4px 0">C₀ = <b class="cv">0.38</b> wt% C</p>
+   <p class="leg">${t([`Slow cooling to just below 727 °C. Hypoeutectoid: proeutectoid α = (0.76 − C₀)/(0.76 − 0.022). Hypereutectoid: proeutectoid Fe₃C = (C₀ − 0.76)/(6.70 − 0.76). Total α = (6.70 − C₀)/(6.70 − 0.022). The bar shows proeutectoid phase (green) and pearlite (blue).`,`تبريد بطيء حتى ما دون 727 °م مباشرة. تحت اليوتكتويدي: α الأولي = (0.76 − C₀)/(0.76 − 0.022). فوق اليوتكتويدي: Fe₃C الأولي = (C₀ − 0.76)/(6.70 − 0.76). مجموع α = (6.70 − C₀)/(6.70 − 0.022). يعرض الشريط الطور الأولي (أخضر) والبيرلايت (أزرق).`])}</p></div><div class="out o"></div></div>`;
+  return wcard([`Steel microstructure calculator`,`حاسبة البنية المجهرية للفولاذ`],inner,id)};
+
+/* L5: radius ratio */
+W.ratio=()=>{const id=uid();
+  const T=[[0,0.155,2,`Linear`,`خطي`],[0.155,0.225,3,`Planar triangle`,`مثلث مستوٍ`],[0.225,0.414,4,`Tetrahedron`,`رباعي أوجه`],[0.414,0.732,6,`Octahedron`,`ثماني أوجه`],[0.732,1.0,8,`Cube`,`مكعب`]];
+  inits.push(()=>{const r=$id(id),q=s=>r.querySelector(s);
+    const calc=()=>{const x=+q('.x').value;q('.xv').textContent=f2(x,3);
+      const k=T.findIndex(z=>x>=z[0]&&x<z[1]);const z=T[k>=0?k:4];
+      q('.o').innerHTML=`<div class="kv"><span>${t([`Coordination number`,`عدد التنسيق`])}</span><b>${z[2]}</b></div><div class="kv"><span>${t([`Geometry`,`الشكل الهندسي`])}</span><b style="font-size:15px">${t([z[3],z[4]])}</b></div><div class="kv"><span>${t([`Valid range`,`المدى`])}</span><b style="font-size:15px">${z[0]} – ${z[1]}</b></div>`;
+      r.querySelectorAll('.rg').forEach((b,n)=>b.style.opacity=n===(k>=0?k:4)?1:.35)};
+    q('.x').oninput=calc;calc()});
+  const bars=T.map(z=>`<span class="rg" style="flex:${(z[1]-z[0]).toFixed(3)};background:var(--accent);border-inline-end:2px solid var(--surface)">${z[2]}</span>`).join('');
+  const inner=`<div class="wg"><div>${fld([`Radius ratio r<sub>C</sub>/r<sub>A</sub>`,`نسبة أنصاف الأقطار r<sub>C</sub>/r<sub>A</sub>`],`<input class="x" type="range" min="0.05" max="0.99" step="0.005" value="0.5">`)}<p style="margin:4px 0">r<sub>C</sub>/r<sub>A</sub> = <b class="xv">0.500</b></p>
+   <div class="bar3" style="margin-top:8px">${bars}</div><p class="leg" style="margin-top:6px">${t([`Numbers inside the bar are coordination numbers; each width is the range of radius ratio.`,`الأرقام داخل الشريط هي أعداد التنسيق، وعرض كل جزء هو مدى نسبة أنصاف الأقطار.`])}</p></div><div class="out o"></div></div>`;
+  return wcard([`Radius ratio to coordination number`,`من نسبة أنصاف الأقطار إلى عدد التنسيق`],inner,id)};
+
+/* L6: Ca/P ratio */
+W.cap=()=>{const id=uid();
+  inits.push(()=>{const r=$id(id),q=s=>r.querySelector(s);
+    const calc=()=>{const ca=+q('.ca').value,p=+q('.p').value;const x=ca/p;let c;
+      if(!(x>0)){q('.o').innerHTML='';return}
+      const m=x<1?[`Ca/P below 1: very soluble, cannot be used for biological implantation.`,`نسبة Ca/P أقل من 1: شديدة الذوبان ولا تصلح للغرس الحيوي.`]:Math.abs(x-1.67)<0.03?[`Matches hydroxyapatite (HA), the stable bone-mineral-like ceramic.`,`تطابق الهيدروكسي أباتايت (HA) المستقر الشبيه بمعدن العظم.`]:Math.abs(x-1.5)<0.03?[`Matches β-tricalcium phosphate (β-TCP), which is more soluble and gets resorbed.`,`تطابق فوسفات الكالسيوم الثلاثي β (β-TCP) الأكثر ذوباناً والقابل للامتصاص.`]:[`Between the standard compounds; compare with HA (1.67) and β-TCP (1.5).`,`تقع بين المركبات المعيارية؛ قارنها بـ HA (1.67) وβ-TCP (1.5).`];
+      q('.o').innerHTML=`<div class="kv"><span>Ca/P</span><b>${f2(x,3)}</b></div>${bi(m)}`};
+    r.querySelectorAll('.pre').forEach(b=>b.onclick=()=>{q('.ca').value=b.dataset.ca;q('.p').value=b.dataset.p;calc()});
+    r.querySelectorAll('input').forEach(x=>x.oninput=calc);calc()});
+  const inner=`<div class="row" style="margin-bottom:10px"><button class="chip pre" data-ca="10" data-p="6">HA Ca₁₀(PO₄)₆(OH)₂</button><button class="chip pre" data-ca="3" data-p="2">TCP Ca₃(PO₄)₂</button></div>
+   <div class="wg"><div class="fr">${fld([`Ca atoms`,`ذرات Ca`],`<input class="ca" type="number" min="1" step="1" value="10">`)}${fld([`P atoms`,`ذرات P`],`<input class="p" type="number" min="1" step="1" value="6">`)}</div><div class="out o"></div></div>`;
+  return wcard([`Ca/P ratio calculator`,`حاسبة نسبة Ca/P`],inner,id)};
+
+/* L6: transformation toughening */
+W.tough=()=>{const id=uid();
+  inits.push(()=>{const r=$id(id),q=s=>r.querySelector(s);
+    const draw=on=>{const g=q('.g');let h='';
+      for(let i=0;i<8;i++)for(let j=0;j<4;j++){const x=30+i*32,y=24+j*30;const near=on&&Math.abs(x-130)<75&&Math.abs(y-70)<45;h+=`<circle cx="${x}" cy="${y}" r="${near?13:9}" class="${near?'m':''}"/>`}
+      g.innerHTML=h+(on?`<path class="cw" d="M130 8 L124 38 L134 60 L128 80 L132 120" style="stroke:var(--bad);stroke-width:3;fill:none"/>`:`<path d="M130 8 L124 38 L134 60 L128 80 L132 120" style="stroke:var(--bad);stroke-width:3;fill:none;stroke-dasharray:3 4;opacity:.7"/>`);
+      q('.tx').innerHTML=on?bi([`The stress at the crack tip turns the metastable tetragonal grains (large teal circles) into monoclinic. They expand about 3–5% locally, squeeze the crack shut and absorb a lot of energy.`,`يحوّل الإجهاد عند طرف الشق الحبيبات الرباعية شبه المستقرة (الدوائر الكبيرة الخضراء) إلى أحادية الميل. فتتمدد محلياً بنحو 3–5% وتضغط الشق فيُغلق وتمتص طاقة كبيرة.`]):bi([`Before loading: yttria-stabilized tetragonal grains (blue) are frozen in the metastable state at room temperature. A crack starts to form.`,`قبل التحميل: حبيبات رباعية مثبَّتة بالإيتريا (زرقاء) محبوسة في حالة شبه مستقرة عند حرارة الغرفة. يبدأ شق بالتكوّن.`]);
+      q('.b').setAttribute('aria-pressed',on)};
+    let on=false;q('.b').onclick=()=>{on=!on;draw(on)};draw(false)});
+  const inner=`<div class="wg"><div class="svgbox"><svg viewBox="0 0 290 135" width="100%" style="max-width:340px" class="cr"><g class="g"></g></svg></div><div class="out"><div class="row"><button class="btn pri b">${t([`Apply stress at crack tip`,`تطبيق إجهاد عند طرف الشق`])}</button></div><div class="tx"></div></div></div>`;
+  return wcard([`Transformation toughening in PSZ`,`التقسية بالتحول في PSZ`],inner,id)};
+
+/* L6: bone composition */
+W.bone=()=>{const id=uid();
+  return wcard([`What bone is made of`,`مم يتكوّن العظم`],`<div class="bar3"><span style="flex:65;background:var(--accent)">60–70%</span><span style="flex:25;background:var(--teal)">20–30%</span><span style="flex:10;background:var(--muted)">&lt;10%</span></div>
+  <div class="row" style="margin-top:8px;gap:16px"><span>${t([`Inorganic: calcium phosphates (like HA)`,`غير عضوي: فوسفات الكالسيوم (مثل HA)`])}</span><span>${t([`Organic: mainly collagen`,`عضوي: غالباً كولاجين`])}</span><span>${t([`Water and other`,`ماء ومكونات أخرى`])}</span></div>`,id)};
+/* ===== Interactive phase diagrams (L4) ===== */
+const PS=(()=>{
+const T=(a,b)=>[a,b];
+const FeC=()=>({
+ id:'fec',name:[`Fe–Fe₃C`,`Fe–Fe₃C`],el:'C',unit:'wt% C',xl:[`Composition (wt% C)`,`التركيب (% وزنية C)`],
+ views:[{n:[`Full diagram`,`المخطط كاملاً`],xmax:6.7,tmin:300,tmax:1700,xt:[0,1,2,3,4,5,6,6.7],tt:[400,600,800,1000,1200,1400,1600],step:0.01},{n:[`Steel zoom (0–2.3% C)`,`تكبير الفولاذ (0–2.3% C)`],xmax:2.3,tmin:300,tmax:1700,xt:[0,0.5,1,1.5,2,2.3],tt:[400,600,800,1000,1200,1400,1600],step:0.01}],
+ ph:{L:[`Liquid`,`سائل`],'α':[`α ferrite (BCC)`,`فريت α (BCC)`],'γ':[`γ austenite (FCC)`,`أوستنيت γ (FCC)`],'δ':[`δ ferrite (BCC)`,`فريت δ (BCC)`],'Fe₃C':[`Cementite Fe₃C`,`سمنتيت Fe₃C`]},
+ regs:[
+  {n:'L',poly:[T(0,1538),T(0.53,1493),T(4.30,1147),T(6.7,1227),T(6.7,1700),T(0,1700)]},
+  {n:'δ',poly:[T(0,1394),T(0,1538),T(0.09,1493)]},
+  {n:'δ + L',two:{L:[T(0.09,1493),T(0,1538)],R:[T(0.53,1493),T(0,1538)],p:['δ','L']}},
+  {n:'δ + γ',two:{L:[T(0,1394),T(0.09,1493)],R:[T(0,1394),T(0.17,1493)],p:['δ','γ']}},
+  {n:'γ',poly:[T(0,912),T(0,1394),T(0.17,1493),T(2.14,1147),T(0.76,727)]},
+  {n:'γ + L',two:{L:[T(2.14,1147),T(0.17,1493)],R:[T(4.30,1147),T(0.53,1493)],p:['γ','L']}},
+  {n:'L + Fe₃C',two:{L:[T(4.30,1147),T(6.7,1227)],R:[T(6.7,1147),T(6.7,1227)],p:['L','Fe₃C']}},
+  {n:'γ + Fe₃C',two:{L:[T(0.76,727),T(2.14,1147)],R:[T(6.7,727),T(6.7,1147)],p:['γ','Fe₃C']}},
+  {n:'α',poly:[T(0,300),T(0,912),T(0.022,727),T(0.005,300)]},
+  {n:'α + γ',two:{L:[T(0.022,727),T(0,912)],R:[T(0.76,727),T(0,912)],p:['α','γ']}},
+  {n:'α + Fe₃C',two:{L:[T(0.005,300),T(0.022,727)],R:[T(6.7,300),T(6.7,727)],p:['α','Fe₃C']}}],
+ iso:[{T:1493,a:0.09,b:0.53,l:`1493 °C`},{T:1147,a:2.14,b:6.7,l:`1147 °C`},{T:727,a:0.022,b:6.7,l:`727 °C`}],
+ pts:[{x:0.76,T:727,l:`0.76`},{x:2.14,T:1147,l:`2.14`},{x:4.30,T:1147,l:`4.30`}],
+ start:{x:0.4,T:1000,v:0},
+ note:[`Peritectic at 1493 °C (L + δ ⇌ γ), eutectic at 1147 °C (L ⇌ γ + Fe₃C), eutectoid at 727 °C (γ ⇌ α + Fe₃C). Redrawn from Fig. 5.10 of the lecture; the thin δ regions are only readable in the zoom-free view by moving the point carefully.`,`بيريتكتيكي عند 1493 °م (L + δ ⇌ γ)، ويوتكتيكي عند 1147 °م (L ⇌ γ + Fe₃C)، ويوتكتويدي عند 727 °م (γ ⇌ α + Fe₃C). أُعيد رسمه من الشكل 5.10 في المحاضرة؛ مناطق δ الرفيعة يصعب قراءتها إلا بتحريك النقطة بعناية.`],
+ micro:(x,t)=>{if(t>=727||x<=0.022||x>2.14)return null;
+   if(x<0.76){const p=(0.76-x)/0.738;return [`Hypoeutectoid steel: ${(p*100).toFixed(1)}% proeutectoid ferrite + ${((1-p)*100).toFixed(1)}% pearlite.`,`فولاذ تحت يوتكتويدي: ${(p*100).toFixed(1)}% فريت أولي + ${((1-p)*100).toFixed(1)}% بيرلايت.`]}
+   if(Math.abs(x-0.76)<0.006)return [`Eutectoid steel: 100% pearlite (lamellae of α + Fe₃C).`,`فولاذ يوتكتويدي: 100% بيرلايت (صفائح α + Fe₃C).`];
+   const p=(x-0.76)/(6.70-0.76);return [`Hypereutectoid steel: ${(p*100).toFixed(1)}% proeutectoid cementite (network) + ${((1-p)*100).toFixed(1)}% pearlite.`,`فولاذ فوق يوتكتويدي: ${(p*100).toFixed(1)}% سمنتيت أولي (شبكة) + ${((1-p)*100).toFixed(1)}% بيرلايت.`]}
+});
+const SYS=[
+ {id:'cuni',name:[`Cu–Ni (isomorphous)`,`Cu–Ni (متشاكل)`],el:'Ni',unit:'wt% Ni',xl:[`Composition (wt% Ni)`,`التركيب (% وزنية Ni)`],
+  views:[{xmax:100,tmin:1000,tmax:1500,xt:[0,20,40,60,80,100],tt:[1000,1100,1200,1300,1400,1500],step:0.5}],
+  ph:{L:[`Liquid`,`سائل`],'α':[`α solid solution (FCC)`,`محلول صلب α (FCC)`]},
+  regs:[{n:'L',poly:[T(0,1083),T(10,1140),T(20,1195),T(31.5,1250),T(40,1290),T(50,1330),T(60,1365),T(70,1395),T(80,1420),T(90,1440),T(100,1458),T(100,1500),T(0,1500)]},
+   {n:'L + α',two:{L:[T(0,1083),T(10,1140),T(20,1195),T(31.5,1250),T(40,1290),T(50,1330),T(60,1365),T(70,1395),T(80,1420),T(90,1440),T(100,1458)].map(p=>[p[0],p[1]]),R:[T(0,1083),T(10,1112),T(20,1158),T(30,1205),T(42.5,1250),T(50,1280),T(60,1320),T(70,1363),T(80,1400),T(90,1432),T(100,1458)],p:['L','α']}},
+   {n:'α',poly:[T(0,1083),T(10,1112),T(20,1158),T(30,1205),T(42.5,1250),T(50,1280),T(60,1320),T(70,1363),T(80,1400),T(90,1432),T(100,1458),T(100,1000),T(0,1000)]}],
+  iso:[],pts:[{x:0,T:1083,l:`C 1083`},{x:100,T:1458,l:`A 1458`}],start:{x:35,T:1250},
+  note:[`Both metals are FCC and dissolve in each other over the whole range. Pure Cu melts at 1083 °C (point C) and pure Ni at 1458 °C (point A); an alloy melts over a freezing range between the liquidus (ABC) and the solidus (ADC). Curves are a smooth redraw, not measured data.`,`الفلزان FCC ويذوبان في بعضهما على كامل المدى. يذوب Cu النقي عند 1083 °م (النقطة C) وNi النقي عند 1458 °م (النقطة A)، وتنصهر السبيكة ضمن مدى تجمد بين الليكويدس (ABC) والسوليدس (ADC). المنحنيات إعادة رسم سلسة وليست بيانات مقاسة.`]},
+ {id:'cdbi',name:[`Cd–Bi (eutectic, no solid solubility)`,`Cd–Bi (يوتكتيكي دون ذوبانية صلبة)`],el:'Bi',unit:'wt% Bi',xl:[`Composition (wt% Bi)`,`التركيب (% وزنية Bi)`],
+  views:[{xmax:100,tmin:100,tmax:360,xt:[0,20,40,60,80,100],tt:[100,150,200,250,300,350],step:0.5}],
+  ph:{L:[`Liquid`,`سائل`],Cd:[`Solid Cd`,`Cd صلب`],Bi:[`Solid Bi`,`Bi صلب`]},
+  regs:[{n:'L',poly:[T(0,321),T(60,140),T(100,271),T(100,360),T(0,360)]},
+   {n:'Cd + L',two:{L:[T(0,140),T(0,321)],R:[T(60,140),T(0,321)],p:['Cd','L']}},
+   {n:'L + Bi',two:{L:[T(60,140),T(100,271)],R:[T(100,140),T(100,271)],p:['L','Bi']}},
+   {n:'Cd + Bi',two:{L:[T(0,100),T(0,140)],R:[T(100,100),T(100,140)],p:['Cd','Bi']}}],
+  iso:[{T:140,a:0,b:100,l:`140 °C`}],pts:[{x:60,T:140,l:`60`}],start:{x:30,T:200},
+  micro:(x,t)=>{if(t>=140)return null;if(Math.abs(x-60)<0.6)return [`Eutectic alloy: 100% eutectic structure (Cd + Bi).`,`سبيكة يوتكتيكية: 100% بنية يوتكتيكية (Cd + Bi).`];
+    if(x<60){const p=(60-x)/60;return [`Hypoeutectic: ${(p*100).toFixed(1)}% primary Cd + ${((1-p)*100).toFixed(1)}% eutectic.`,`تحت يوتكتيكية: ${(p*100).toFixed(1)}% Cd أولي + ${((1-p)*100).toFixed(1)}% يوتكتيك.`]}
+    const p=(x-60)/40;return [`Hypereutectic: ${(p*100).toFixed(1)}% primary Bi + ${((1-p)*100).toFixed(1)}% eutectic.`,`فوق يوتكتيكية: ${(p*100).toFixed(1)}% Bi أولي + ${((1-p)*100).toFixed(1)}% يوتكتيك.`]},
+  note:[`Eutectic at 140 °C and 60% Bi (lecture values). Here the lecture swaps the melting points: Cd melts at 321 °C and Bi at 271 °C, which is what the diagram uses and what makes Cd the primary phase of hypoeutectic alloys.`,`اليوتكتيك عند 140 °م وبتركيب 60% Bi (قيم المحاضرة). وتبدّل المحاضرة هنا نقطتي الانصهار: Cd ينصهر عند 321 °م وBi عند 271 °م، وهذا ما يعتمده المخطط، وهو ما يجعل Cd الطور الأولي للسبائك تحت اليوتكتيكية.`]},
+ {id:'snpb',name:[`Sn–Pb (eutectic with solid solutions)`,`Sn–Pb (يوتكتيكي مع محاليل صلبة)`],el:'Sn',unit:'wt% Sn',xl:[`Composition (wt% Sn)`,`التركيب (% وزنية Sn)`],
+  views:[{xmax:100,tmin:0,tmax:380,xt:[0,20,40,60,80,100],tt:[0,100,200,300],step:0.5}],
+  ph:{L:[`Liquid`,`سائل`],'α':[`α (Sn dissolved in Pb)`,`α (Sn مذاب في Pb)`],'β':[`β (Pb dissolved in Sn)`,`β (Pb مذاب في Sn)`]},
+  regs:[{n:'L',poly:[T(0,327),T(61.9,183),T(100,232),T(100,380),T(0,380)]},
+   {n:'α',poly:[T(0,0),T(0,327),T(18.3,183),T(12,140),T(6,80),T(2,20),T(1.5,0)]},
+   {n:'β',poly:[T(100,0),T(100,232),T(97.8,183),T(98.5,100),T(99,20),T(99.5,0)]},
+   {n:'α + L',two:{L:[T(18.3,183),T(0,327)],R:[T(61.9,183),T(0,327)],p:['α','L']}},
+   {n:'L + β',two:{L:[T(61.9,183),T(100,232)],R:[T(97.8,183),T(100,232)],p:['L','β']}},
+   {n:'α + β',two:{L:[T(1.5,0),T(2,20),T(6,80),T(12,140),T(18.3,183)],R:[T(99.5,0),T(99,20),T(98.5,100),T(97.8,183)],p:['α','β']}}],
+  iso:[{T:183,a:18.3,b:97.8,l:`183 °C`}],pts:[{x:18.3,T:183,l:`18.3`},{x:61.9,T:183,l:`61.9`},{x:97.8,T:183,l:`97.8`}],start:{x:40,T:250},
+  micro:(x,t)=>{if(t>=183)return null;if(x<2)return [`Case 1: a single α solid solution (Pb-rich, up to about 2 wt% Sn).`,`الحالة 1: محلول صلب α واحد (غني بالرصاص حتى نحو 2% Sn).`];
+    if(x<=18.3)return [`Case 2: α with small β precipitates once the solvus line is crossed.`,`الحالة 2: α مع رواسب β صغيرة بعد عبور خط السولفس.`];
+    if(Math.abs(x-61.9)<0.5)return [`Case 3: eutectic composition, 100% eutectic (alternating α and β).`,`الحالة 3: التركيب اليوتكتيكي، 100% يوتكتيك (α وβ متناوبان).`];
+    if(x<61.9){const p=(61.9-x)/(61.9-18.3);return [`Case 4: ${(p*100).toFixed(1)}% primary α + ${((1-p)*100).toFixed(1)}% eutectic.`,`الحالة 4: ${(p*100).toFixed(1)}% α أولي + ${((1-p)*100).toFixed(1)}% يوتكتيك.`]}
+    if(x<97.8){const p=(x-61.9)/(97.8-61.9);return [`Hypereutectic: ${(p*100).toFixed(1)}% primary β + ${((1-p)*100).toFixed(1)}% eutectic.`,`فوق يوتكتيكية: ${(p*100).toFixed(1)}% β أولي + ${((1-p)*100).toFixed(1)}% يوتكتيك.`]}
+    return [`β-rich alloy (almost pure Sn).`,`سبيكة غنية بـ β (قريبة من Sn النقي).`]},
+  note:[`Pb melts at 327 °C and Sn at 232 °C; the eutectic is 61.9% Sn at 183 °C; α dissolves at most 18.3% Sn (about 2% at room temperature) and β at most 97.8% Sn. The lower part of the β solvus is drawn approximately.`,`ينصهر Pb عند 327 °م وSn عند 232 °م؛ واليوتكتيك 61.9% Sn عند 183 °م؛ يذيب α حتى 18.3% Sn كحد أقصى (نحو 2% عند حرارة الغرفة) ويذيب β حتى 97.8% Sn. الجزء السفلي من خط سولفس β مرسوم تقريباً.`]},
+ {id:'agpt',name:[`Ag–Pt (peritectic)`,`Ag–Pt (بيريتكتيكي)`],el:'Pt',unit:'wt% Pt',xl:[`Composition (wt% Pt)`,`التركيب (% وزنية Pt)`],
+  views:[{xmax:100,tmin:800,tmax:1900,xt:[0,20,40,60,80,100],tt:[900,1100,1300,1500,1700,1900],step:0.5}],
+  ph:{L:[`Liquid`,`سائل`],'α':[`α (Pt in Ag)`,`α (Pt في Ag)`],'β':[`β (Pt-rich)`,`β (غني بـ Pt)`]},
+  regs:[{n:'L',poly:[T(0,961),T(10,1090),T(21,1185),T(26,1320),T(33,1420),T(45,1500),T(60,1550),T(75,1610),T(88,1690),T(100,1769),T(100,1900),T(0,1900)]},
+   {n:'L + α',two:{L:[T(0,961),T(10,1090),T(21,1185)],R:[T(0,961),T(40,1185)],p:['L','α']}},
+   {n:'α',poly:[T(0,800),T(0,961),T(40,1185),T(35,800)]},
+   {n:'L + β',two:{L:[T(21,1185),T(26,1320),T(33,1420),T(45,1500),T(60,1550),T(75,1610),T(88,1690),T(100,1769)],R:[T(75,1185),T(100,1769)],p:['L','β']}},
+   {n:'α + β',two:{L:[T(35,800),T(40,1185)],R:[T(80,800),T(75,1185)],p:['α','β']}},
+   {n:'β',poly:[T(80,800),T(75,1185),T(100,1769),T(100,800)]}],
+  iso:[{T:1185,a:21,b:75,l:`1185 °C`}],pts:[{x:40,T:1185,l:`α`}],start:{x:40,T:1400},
+  note:[`Peritectic reaction at 1185 °C: Liquid + β ⇌ α, producing α of one specific composition. Ag melts at 961 °C and Pt at 1769 °C, widely different. Composition values are read approximately from Fig. 5.9.`,`التفاعل البيريتكتيكي عند 1185 °م: سائل + β ⇌ α وينتج α بتركيب محدد. ينصهر Ag عند 961 °م وPt عند 1769 °م وهما متباعدان كثيراً. قيم التراكيب مقروءة تقريباً من الشكل 5.9.`]},
+ FeC()];
+return SYS})();
+
+function polyArea(p){let a=0;for(let i=0;i<p.length;i++){const q=p[(i+1)%p.length];a+=p[i][0]*q[1]-q[0]*p[i][1]}return Math.abs(a)/2}
+function inPoly(x,y,p){let c=false;for(let i=0,j=p.length-1;i<p.length;j=i++){const a=p[i],b=p[j];if((a[1]>y)!==(b[1]>y)&&x<(b[0]-a[0])*(y-a[1])/(b[1]-a[1])+a[0])c=!c}return c}
+function interpT(c,tv){if(tv<=c[0][1])return c[0][0];for(let i=1;i<c.length;i++){if(tv<=c[i][1]){const a=c[i-1],b=c[i];return b[1]===a[1]?b[0]:a[0]+(b[0]-a[0])*(tv-a[1])/(b[1]-a[1])}}return c[c.length-1][0]}
+const HUE=['#3B6FE0','#2FA37A','#E08A2B','#8A5CD0','#D9534F','#17A2B8','#C79A00','#7A8B99','#C2457F','#5B8C2A','#A0623A'];
+
+W.phase=()=>{const id=uid();
+  inits.push(()=>{const r=$id(id),q=s=>r.querySelector(s);
+    let si=0,vi=0,x=PS[0].start.x,Tm=PS[0].start.T,timer=null;
+    const PW=492,PH=300,PL=54,PT=12,VW=560,VH=376;
+    let S,V,regs;
+    const prep=()=>{S=PS[si];V=S.views[Math.min(vi,S.views.length-1)];
+      regs=S.regs.map(g=>{const o={n:g.n,two:g.two};o.poly=g.two?g.two.L.concat(g.two.R.slice().reverse()):g.poly;return o})};
+    const X=v=>PL+v/V.xmax*PW, Y=v=>PT+(V.tmax-v)/(V.tmax-V.tmin)*PH;
+    const find=(xv,tv)=>{for(const dx of [0,V.xmax*0.0015,-V.xmax*0.0015])for(const dt of [0,-0.4,0.4,-1.2,1.2]){const h=regs.findIndex(g=>inPoly(xv+dx,tv+dt,g.poly));if(h>=0)return h}return -1};
+    const phn=k=>t(S.ph[k]||[k,k]);
+    const drawStatic=()=>{
+      let h=`<defs><clipPath id="${id}c"><rect x="${PL}" y="${PT}" width="${PW}" height="${PH}"/></clipPath></defs><g clip-path="url(#${id}c)">`;
+      regs.forEach((g,i)=>{const col=HUE[i%HUE.length];h+=`<polygon data-i="${i}" class="rg" points="${g.poly.map(p=>X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1)).join(' ')}" fill="${col}" fill-opacity="${g.two?0.12:0.26}" stroke="var(--muted)" stroke-width="1"/>`});
+      S.iso.forEach(o=>{h+=`<line x1="${X(o.a)}" x2="${X(o.b)}" y1="${Y(o.T)}" y2="${Y(o.T)}" stroke="var(--ink)" stroke-width="1.6"/>`});
+      h+=`</g>`;
+      // labels
+      regs.forEach((g,i)=>{const pp=g.poly.map(p=>[X(p[0]),Y(p[1])]);
+        const vis=pp.filter(p=>p[0]>=PL-2&&p[0]<=PL+PW+2&&p[1]>=PT-2&&p[1]<=PT+PH+2);if(!vis.length)return;
+        const area=polyArea(pp.map(p=>[Math.max(PL,Math.min(PL+PW,p[0])),Math.max(PT,Math.min(PT+PH,p[1]))]));if(area<900)return;
+        const cx=vis.reduce((a,p)=>a+p[0],0)/vis.length,cy=vis.reduce((a,p)=>a+p[1],0)/vis.length;
+        h+=`<text x="${cx}" y="${cy+4}" text-anchor="middle" style="font-weight:600;font-size:12px;pointer-events:none">${g.n}</text>`});
+      // axes
+      h+=`<rect x="${PL}" y="${PT}" width="${PW}" height="${PH}" fill="none" stroke="var(--ink)"/>`;
+      V.xt.forEach(v=>{h+=`<line x1="${X(v)}" x2="${X(v)}" y1="${PT+PH}" y2="${PT+PH+4}" stroke="var(--ink)"/><text x="${X(v)}" y="${PT+PH+16}" text-anchor="middle" style="font-size:11px">${v}</text>`});
+      V.tt.forEach(v=>{h+=`<line x1="${PL-4}" x2="${PL}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--ink)"/><text x="${PL-7}" y="${Y(v)+4}" text-anchor="end" style="font-size:11px">${v}</text>`});
+      h+=`<text x="${PL+PW/2}" y="${VH-22}" text-anchor="middle" class="en" style="font-size:12px">${S.xl[0]}</text><text x="${PL+PW/2}" y="${VH-6}" text-anchor="middle" class="ar" dir="rtl" style="font-size:12px">${S.xl[1]}</text>`;
+      h+=`<text transform="translate(12 ${PT+PH/2}) rotate(-90)" text-anchor="middle" style="font-size:12px">T (°C)</text>`;
+      S.iso.forEach(o=>{h+=`<text x="${X(Math.min(o.b,V.xmax))-4}" y="${Y(o.T)-4}" text-anchor="end" style="font-size:10px;fill:var(--muted)">${o.l}</text>`});
+      S.pts.forEach(o=>{if(o.x<=V.xmax){h+=`<circle cx="${X(o.x)}" cy="${Y(o.T)}" r="2.5" fill="var(--ink)"/>`}});
+      q('.sv').innerHTML=h+`<g class="dyn"></g>`};
+    const ticksNice=()=>{};
+    const trailFor=(xv,tv)=>{const out=[];const n=160;for(let k=0;k<=n;k++){const tt=V.tmax-(V.tmax-tv)*k/n;const i=find(xv,tt);const nm=i>=0?regs[i].n:'?';if(out[out.length-1]!==nm)out.push(nm)}return out};
+    const update=()=>{
+      q('.xv').textContent=(V.step<0.1?x.toFixed(2):x.toFixed(1))+' '+S.unit.replace('wt% ','wt% ');q('.tv').textContent=Math.round(Tm)+' °C';
+      const i=find(x,Tm),g=i>=0?regs[i]:null;let dyn='',rows='';
+      r.querySelectorAll('.rg').forEach(e=>e.setAttribute('stroke-width',+e.dataset.i===i?2.4:1));
+      if(g){
+        if(g.two){const L=interpT(g.two.L,Tm),R=interpT(g.two.R,Tm),den=R-L;const wl=den<1e-9?1:(R-x)/den,wr=1-wl;
+          dyn+=`<line x1="${X(L)}" x2="${X(R)}" y1="${Y(Tm)}" y2="${Y(Tm)}" stroke="var(--ink)" stroke-width="2.2"/><circle cx="${X(L)}" cy="${Y(Tm)}" r="4" fill="var(--teal)" stroke="var(--surface)" stroke-width="1.5"/><circle cx="${X(R)}" cy="${Y(Tm)}" r="4" fill="var(--teal)" stroke="var(--surface)" stroke-width="1.5"/>`;
+          const ph=g.two.p;
+          rows=`<table style="min-width:0"><thead><tr><th>${t([`Phase`,`الطور`])}</th><th>${t([`Composition`,`التركيب`])}</th><th>${t([`Fraction (lever rule)`,`الكسر (قاعدة الرافعة)`])}</th></tr></thead><tbody>
+           <tr><td>${phn(ph[0])}</td><td>${L.toFixed(V.step<0.1?3:1)} ${S.unit}</td><td><b>${(wl*100).toFixed(1)}%</b></td></tr>
+           <tr><td>${phn(ph[1])}</td><td>${R.toFixed(V.step<0.1?3:1)} ${S.unit}</td><td><b>${(wr*100).toFixed(1)}%</b></td></tr></tbody></table>
+           <p class="leg">${t([`W<sub>${ph[0]}</sub> = (${R.toFixed(V.step<0.1?3:1)} − ${x.toFixed(V.step<0.1?2:1)}) / (${R.toFixed(V.step<0.1?3:1)} − ${L.toFixed(V.step<0.1?3:1)}); the tie line is the black segment.`,`W<sub>${ph[0]}</sub> = (${R.toFixed(V.step<0.1?3:1)} − ${x.toFixed(V.step<0.1?2:1)}) / (${R.toFixed(V.step<0.1?3:1)} − ${L.toFixed(V.step<0.1?3:1)})؛ وخط الربط هو القطعة السوداء.`])}</p>`}
+        else{rows=`<table style="min-width:0"><tbody><tr><td>${phn(g.n)}</td><td>${x.toFixed(V.step<0.1?2:1)} ${S.unit}</td><td><b>100%</b></td></tr></tbody></table>`}
+      }else rows=`<div class="note">${bi([`Move the point inside the diagram.`,`حرّك النقطة داخل المخطط.`])}</div>`;
+      dyn+=`<line x1="${X(x)}" x2="${X(x)}" y1="${PT}" y2="${PT+PH}" stroke="var(--accent)" stroke-dasharray="4 3" stroke-width="1.2"/><circle cx="${X(x)}" cy="${Y(Tm)}" r="6" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>`;
+      q('.dyn').innerHTML=dyn;
+      const tr=trailFor(x,Tm);
+      const mi=S.micro?S.micro(x,Tm):null;
+      q('.pn').innerHTML=`<div class="kv"><span>${t([`Phase field`,`حقل الأطوار`])}</span><b>${g?g.n:'—'}</b></div>${rows}
+        <div style="margin-top:6px"><span class="ct">${t([`Cooling path down to this point`,`مسار التبريد حتى هذه النقطة`])}</span><div class="row" style="margin-top:4px">${tr.map((s,k)=>`${k?'<span class="ct">→</span>':''}<span class="chip" style="cursor:default;padding:3px 9px">${s}</span>`).join('')}</div></div>${mi?`<div class="note" style="margin-top:8px">${bi(mi)}</div>`:''}`;
+      q('.xs').value=x;q('.ts').value=Tm};
+    const build=()=>{prep();q('.xs').min=0;q('.xs').max=V.xmax;q('.xs').step=V.step;q('.ts').min=V.tmin;q('.ts').max=V.tmax;q('.ts').step=1;
+      x=Math.min(x,V.xmax);Tm=Math.min(V.tmax,Math.max(V.tmin,Tm));drawStatic();update();
+      q('.nt').innerHTML=bi(S.note);
+      q('.vs').innerHTML=S.views.length>1?S.views.map((v,k)=>`<button class="chip" data-v="${k}" aria-pressed="${k===vi}">${t(v.n)}</button>`).join(''):'';
+      q('.vs').querySelectorAll('.chip').forEach(b=>b.onclick=()=>{vi=+b.dataset.v;build()})};
+    const setSys=k=>{si=k;vi=S0(k);const s=PS[k].start;x=s.x;Tm=s.T;r.querySelectorAll('.tb').forEach((b,n)=>b.setAttribute('aria-selected',n===k));stop();build()};
+    const S0=k=>PS[k].start.v||0;
+    const stop=()=>{if(timer){cancelAnimationFrame(timer);timer=null;q('.cl').setAttribute('aria-pressed','false')}};
+    q('.cl').onclick=()=>{if(timer){stop();return}q('.cl').setAttribute('aria-pressed','true');Tm=V.tmax;let last=null;
+      const step=ts=>{if(!r.isConnected){return}if(last===null)last=ts;const dt=ts-last;last=ts;Tm-=dt*(V.tmax-V.tmin)/6000;if(Tm<=V.tmin){Tm=V.tmin;update();stop();return}update();timer=requestAnimationFrame(step)};timer=requestAnimationFrame(step)};
+    q('.xs').oninput=()=>{x=+q('.xs').value;update()};q('.ts').oninput=()=>{stop();Tm=+q('.ts').value;update()};
+    const svg=q('.sv');let drag=false;
+    const pick=e=>{const b=svg.getBoundingClientRect();const px=(e.clientX-b.left)/b.width*VW,py=(e.clientY-b.top)/b.height*VH;
+      x=Math.max(0,Math.min(V.xmax,(px-PL)/PW*V.xmax));x=Math.round(x/V.step)*V.step;Tm=Math.round(Math.max(V.tmin,Math.min(V.tmax,V.tmax-(py-PT)/PH*(V.tmax-V.tmin))));update()};
+    svg.onpointerdown=e=>{stop();drag=true;svg.setPointerCapture(e.pointerId);pick(e)};svg.onpointermove=e=>{if(drag)pick(e)};svg.onpointerup=()=>{drag=false};
+    r.querySelectorAll('.tb').forEach((b,k)=>b.onclick=()=>setSys(k));
+    setSys(0)});
+  const tabs=PS.map(s=>`<button class="tb">${t(s.name)}</button>`).join('');
+  return `<section class="card" id="${id}"><h2 class="ch">${t([`Interactive phase diagrams: every alloy in the lecture`,`مخططات الأطوار التفاعلية: كل سبائك المحاضرة`])}</h2>
+   ${bi([`Pick a system, then tap or drag inside the diagram (or use the sliders) to place an alloy at a composition and temperature. You get the phase field, the compositions and amounts of each phase from the lever rule, and the sequence of phase fields the alloy passed while cooling.`,`اختر منظومة ثم اضغط أو اسحب داخل المخطط (أو استعمل المنزلقات) لتضع سبيكة عند تركيب ودرجة حرارة معينة. ستحصل على حقل الأطوار وتراكيب وكميات كل طور بقاعدة الرافعة وتسلسل الحقول التي مرّت بها السبيكة أثناء التبريد.`])}
+   <div class="tbs" role="tablist" style="margin-top:10px">${tabs}</div><div class="row vs" style="margin-bottom:8px"></div>
+   <div class="wg"><div><div class="svgbox"><svg class="sv" viewBox="0 0 560 376" width="100%" style="touch-action:none;cursor:crosshair;max-width:640px;display:block" role="img" aria-label="Phase diagram"></svg></div>
+    <div class="fr" style="margin-top:8px;grid-template-columns:1fr 1fr">${fld([`Composition`,`التركيب`],`<input class="xs" type="range"><span class="ct xv"></span>`)}${fld([`Temperature`,`درجة الحرارة`],`<input class="ts" type="range"><span class="ct tv"></span>`)}</div>
+    <div class="row" style="margin-top:8px"><button class="btn pri cl" aria-pressed="false">${t([`Cool this alloy from the top`,`برّد هذه السبيكة من الأعلى`])}</button></div></div>
+   <div class="out pn"></div></div><div class="note nt" style="margin-top:10px"></div></section>`};
+/* ===== 3D crystal viewer (canvas, drag to rotate) ===== */
+const V3=(()=>{
+const G=[0,.5,1];
+const pts=(f)=>{const o=[];for(const x of G)for(const y of G)for(const z of G){const h=(x===.5)+(y===.5)+(z===.5);if(f(h,x,y,z))o.push([x-.5,y-.5,z-.5])}return o};
+const Q=[[.25,.25,.25],[.75,.75,.25],[.75,.25,.75],[.25,.75,.75]].map(p=>p.map(v=>v-.5));
+const CE=(()=>{const c=[-.5,.5],e=[];for(const x of c)for(const y of c){e.push([[x,y,-.5],[x,y,.5]]);e.push([[x,-.5,y],[x,.5,y]]);e.push([[-.5,x,y],[.5,x,y]])}return e})();
+const at=(arr,s)=>arr.map(p=>({p,s}));
+const BLUE='#4C7DE8',ORG='#E8923A',GRN='#3FB28A',GRY='#8E9BB0';
+const hex=()=>{const c=1.633,A=[],E=[];const ring=(y)=>{A.push({p:[0,y,0],s:0,k:'hf'});for(let i=0;i<6;i++){const a=i*Math.PI/3;A.push({p:[Math.cos(a),y,Math.sin(a)],s:0,k:'hc'})}};ring(c/2);ring(-c/2);
+  for(let i=0;i<3;i++){const a=Math.PI/6+i*2*Math.PI/3;A.push({p:[Math.cos(a)/Math.sqrt(3),0,Math.sin(a)/Math.sqrt(3)],s:0,k:'hi'})}
+  for(let i=0;i<6;i++){const a=i*Math.PI/3,b=(i+1)*Math.PI/3;for(const y of[c/2,-c/2])E.push([[Math.cos(a),y,Math.sin(a)],[Math.cos(b),y,Math.sin(b)]]);E.push([[Math.cos(a),c/2,Math.sin(a)],[Math.cos(a),-c/2,Math.sin(a)]])}
+  return {A,E}};
+const H=hex();
+const mk=(o)=>o;
+const SET={
+ metals:[
+  mk({key:'sc',n:[`Simple cubic (SC)`,`مكعبي بسيط (SC)`],sp:[{n:[`Atom`,`ذرة`],col:GRY,r:.5}],atoms:at(pts(h=>h===0),0),edges:CE,mode:'same',ext:.95,focus:null,cn:6,apf:`0.52`,rel:[`a = 2R`,`a = 2R`],ex:[`Polonium only: low packing density`,`البولونيوم فقط: كثافة تعبئة منخفضة`],d:[`One atom at each corner, shared by 8 cells, so 1 atom per cell.`,`ذرة عند كل ركن مشتركة بين 8 خلايا، فيكون في الخلية ذرة واحدة.`]}),
+  mk({key:'bcc',n:[`Body-centered cubic (BCC)`,`مكعبي مركزي الجسم (BCC)`],sp:[{n:[`Atom`,`ذرة`],col:GRY,r:Math.sqrt(3)/4}],atoms:at(pts(h=>h===0||h===3),0),edges:CE,mode:'same',ext:.95,focus:[0,0,0],cn:8,apf:`0.68`,rel:[`a = 4R/√3`,`a = 4R/√3`],ex:[`α-Fe, Cr, W`,`α-Fe وCr وW`],d:[`Atoms at all eight corners and one at the center: 2 atoms per cell. The atoms touch along the cube diagonal.`,`ذرات في الأركان الثمانية وذرة في المركز: ذرتان في الخلية. تتلامس الذرات على قطر المكعب.`]}),
+  mk({key:'fcc',n:[`Face-centered cubic (FCC)`,`مكعبي مركزي الأوجه (FCC)`],sp:[{n:[`Atom`,`ذرة`],col:GRY,r:Math.SQRT2/4}],atoms:at(pts(h=>h===0||h===2),0),edges:CE,mode:'same',ext:.95,focus:[0,0,-.5],cn:12,apf:`0.74`,rel:[`a = 2R√2`,`a = 2R√2`],ex:[`Cu, Al`,`Cu وAl`],d:[`Atoms at the corners and the centers of the faces: 4 atoms per cell. The atoms touch along the face diagonal.`,`ذرات في الأركان ومراكز الأوجه: 4 ذرات في الخلية. تتلامس الذرات على قطر الوجه.`]}),
+  mk({key:'hcp',n:[`Hexagonal close-packed (HCP)`,`سداسي متراص (HCP)`],sp:[{n:[`Atom`,`ذرة`],col:GRY,r:.5}],atoms:H.A,edges:H.E,mode:'same',ext:1.25,focus:[0,.8165,0],cn:12,apf:`0.74`,rel:[`c/a = 1.633`,`c/a = 1.633`],ex:[`α-Ti`,`α-Ti`],d:[`Two hexagonal layers of 6 atoms around a center atom, plus 3 atoms in a plane between them: 6 atoms per cell.`,`طبقتان سداسيتان من 6 ذرات حول ذرة مركزية، مع 3 ذرات في مستوٍ بينهما: 6 ذرات في الخلية.`]})],
+ ceramics:[
+  mk({key:'rs',n:[`Rock salt (NaCl)`,`ملح الصخر (NaCl)`],sp:[{n:[`Na⁺ (cation)`,`Na⁺ (كاتيون)`],col:BLUE,r:.17},{n:[`Cl⁻ (anion)`,`Cl⁻ (أنيون)`],col:ORG,r:.27}],atoms:[...at(pts(h=>h===1||h===3),0),...at(pts(h=>h===0||h===2),1)],edges:CE,mode:'cross',ext:.95,focus:[0,0,0],cn:6,rel:[`r_C/r_A ≈ 0.414–0.732`,`r_C/r_A ≈ 0.414–0.732`],ex:[`NaCl, MgO, MnS, LiF, FeO`,`NaCl وMgO وMnS وLiF وFeO`],d:[`FCC array of anions, with a cation at the cube center and at the center of each of the 12 edges. Click "Highlight coordination" to see the 6 anions around the central cation.`,`ترتيب FCC للأنيونات مع كاتيون في مركز المكعب وفي منتصف كل حرف من الأحرف الـ12. اضغط "إبراز التنسيق" لترى الأنيونات الستة حول الكاتيون المركزي.`]}),
+  mk({key:'cs',n:[`Cesium chloride (CsCl)`,`كلوريد السيزيوم (CsCl)`],sp:[{n:[`Cs⁺ (cation)`,`Cs⁺ (كاتيون)`],col:BLUE,r:.24},{n:[`Cl⁻ (anion)`,`Cl⁻ (أنيون)`],col:ORG,r:.26}],atoms:[...at(pts(h=>h===3),0),...at(pts(h=>h===0),1)],edges:CE,mode:'cross',ext:.95,focus:[0,0,0],cn:8,rel:[`r_C/r_A between 0.732 and 1.0`,`r_C/r_A بين 0.732 و1.0`],ex:[`CsCl`,`CsCl`],d:[`Anions at the eight corners of a cube and a single cation at the center: coordination number 8 for both ions.`,`أنيونات في الأركان الثمانية للمكعب وكاتيون واحد في المركز: عدد التنسيق 8 لكلا الأيونين.`]}),
+  mk({key:'zb',n:[`Zinc blende (ZnS)`,`الزنك بلند (ZnS)`],sp:[{n:[`Zn (cation)`,`Zn (كاتيون)`],col:BLUE,r:.14},{n:[`S (anion)`,`S (أنيون)`],col:ORG,r:.2}],atoms:[...at(Q,0),...at(pts(h=>h===0||h===2),1)],edges:CE,mode:'cross',ext:.95,focus:Q[0],cn:4,rel:[`all ions tetrahedral`,`كل الأيونات رباعية الأوجه`],ex:[`ZnS, ZnTe, SiC (highly covalent)`,`ZnS وZnTe وSiC (تساهمية بدرجة عالية)`],d:[`S atoms occupy all corner and face positions; Zn atoms fill four interior tetrahedral positions, so each Zn has 4 S neighbors.`,`ذرات S في كل مواضع الأركان والأوجه، وذرات Zn تملأ أربعة مواضع رباعية داخلية، فلكل Zn أربعة جيران من S.`]}),
+  mk({key:'fl',n:[`Fluorite (CaF₂)`,`الفلوريت (CaF₂)`],sp:[{n:[`Ca²⁺ (cation)`,`Ca²⁺ (كاتيون)`],col:BLUE,r:.13},{n:[`F⁻ (anion)`,`F⁻ (أنيون)`],col:ORG,r:.1}],atoms:[...at(Q,0),...at(pts(()=>true),1)],edges:CE,mode:'cross',ext:.95,focus:Q[0],cn:8,rel:[`r_C/r_A ≈ 0.8`,`r_C/r_A ≈ 0.8`],ex:[`CaF₂, ZrO₂, UO₂, PuO₂, ThO₂`,`CaF₂ وZrO₂ وUO₂ وPuO₂ وThO₂`],d:[`Like CsCl, but only half the cube centers hold a Ca²⁺. The cell is eight small cubes with F⁻ at every corner; each Ca²⁺ sits at the center of a cube of 8 F⁻. Twice as many F⁻ as Ca²⁺.`,`كما في CsCl لكن نصف مراكز المكعبات فقط يحمل Ca²⁺. الخلية ثمانية مكعبات صغيرة تحمل F⁻ في كل ركن؛ ويقع كل Ca²⁺ في مركز مكعب من 8 F⁻. عدد F⁻ ضعف عدد Ca²⁺.`]}),
+  mk({key:'pv',n:[`Perovskite (BaTiO₃)`,`البيروفسكايت (BaTiO₃)`],sp:[{n:[`Ba²⁺`,`Ba²⁺`],col:BLUE,r:.2},{n:[`Ti⁴⁺`,`Ti⁴⁺`],col:GRN,r:.12},{n:[`O²⁻`,`O²⁻`],col:ORG,r:.14}],atoms:[...at(pts(h=>h===0),0),...at(pts(h=>h===3),1),...at(pts(h=>h===2),2)],edges:CE,mode:'cross',ext:.95,focus:[0,0,0],cn:6,rel:[`Ti⁴⁺ is surrounded by 6 O²⁻`,`Ti⁴⁺ محاط بـ 6 O²⁻`],ex:[`BaTiO₃`,`BaTiO₃`],d:[`Ba²⁺ at all eight corners, one Ti⁴⁺ at the cube center, and O²⁻ at the center of each of the six faces. Highlighting shows the O²⁻ octahedron around Ti⁴⁺.`,`Ba²⁺ في الأركان الثمانية وTi⁴⁺ واحد في مركز المكعب وO²⁻ في مركز كل وجه من الأوجه الستة. يُظهر الإبراز ثماني الأوجه من O²⁻ حول Ti⁴⁺.`]})],
+ zirconia:[
+  mk({key:'zm',n:[`Monoclinic (room temperature)`,`أحادية الميل (حرارة الغرفة)`],par:{sy:1.1,sh:.24,sc:.982},fl:true,d:[`The natural form of zirconia. The cell is tilted (sheared); it is about 3–5% larger in volume than the tetragonal cell, which is why untreated zirconia cracks when it cools through the change.`,`الشكل الطبيعي للزركونيا. الخلية مائلة (مقصوصة) وحجمها أكبر بنحو 3–5% من الخلية الرباعية، ولهذا تتشقق الزركونيا غير المعالجة عند تبريدها عبر هذا التحول.`]}),
+  mk({key:'zt',n:[`Tetragonal (intermediate)`,`رباعية (متوسطة)`],par:{sy:1.12,sh:0,sc:.963},fl:true,d:[`On heating, monoclinic zirconia becomes tetragonal: the cell has a square base and a different height. PSZ freezes this metastable form at room temperature with Y₂O₃, MgO or CaO.`,`عند التسخين تتحول الزركونيا الأحادية الميل إلى رباعية: قاعدة الخلية مربعة وارتفاعها مختلف. تثبّت PSZ هذا الشكل شبه المستقر عند حرارة الغرفة بإضافة Y₂O₃ أو MgO أو CaO.`]}),
+  mk({key:'zc',n:[`Cubic (high temperature)`,`مكعبة (حرارة عالية)`],par:{sy:1,sh:0,sc:1},fl:true,d:[`At the highest temperatures zirconia is cubic with the fluorite structure of the lecture (ZrO₂ is listed beside CaF₂): each Zr⁴⁺ has 8 O²⁻ neighbors.`,`عند أعلى الدرجات تكون الزركونيا مكعبة ببنية الفلوريت الواردة في المحاضرة (ZrO₂ مذكور بجانب CaF₂): لكل Zr⁴⁺ ثمانية جيران من O²⁻.`]})]};
+SET.zirconia.forEach(z=>{z.sp=[{n:[`Zr⁴⁺`,`Zr⁴⁺`],col:BLUE,r:.13},{n:[`O²⁻`,`O²⁻`],col:ORG,r:.1}];z.atoms=[...at(Q,0),...at(pts(()=>true),1)];z.edges=CE;z.mode='cross';z.ext=1;});
+return SET})();
+/* ===== 3D viewer widget ===== */
+const CATN={corner:[`corners`,`أركان`,'1/8',1/8],edge:[`edges`,`أحرف`,'1/4',1/4],face:[`faces`,`أوجه`,'1/2',1/2],in:[`inside`,`داخل الخلية`,'1',1],hc:[`corners`,`أركان`,'1/6',1/6],hf:[`face centers`,`مراكز الأوجه`,'1/2',1/2],hi:[`inside`,`داخل الخلية`,'1',1]};
+const catOf=a=>{if(a.k)return a.k;const n=a.p.filter(v=>Math.abs(Math.abs(v)-.5)<1e-6).length;return n===3?'corner':n===2?'edge':n===1?'face':'in'};
+const D3=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1],a[2]-b[2]);
+
+function build3D(cfg){
+  const A=cfg.atoms;let d0=1e9;
+  for(let i=0;i<A.length;i++)for(let j=i+1;j<A.length;j++){if(cfg.mode==='cross'&&A[i].s===A[j].s)continue;const d=D3(A[i].p,A[j].p);if(d<d0)d0=d}
+  const bonds=[];for(let i=0;i<A.length;i++)for(let j=i+1;j<A.length;j++){if(cfg.mode==='cross'&&A[i].s===A[j].s)continue;if(D3(A[i].p,A[j].p)<=d0*1.03)bonds.push([i,j])}
+  let fi=-1;if(cfg.focus){let best=1e9;A.forEach((a,i)=>{const d=D3(a.p,cfg.focus);if(d<best){best=d;fi=i}})}
+  const nb=new Set();if(fi>=0)bonds.forEach(([i,j])=>{if(i===fi)nb.add(j);if(j===fi)nb.add(i)});
+  return {bonds,fi,nb,d0}}
+
+function tallyHTML(cfg){
+  return cfg.sp.map((sp,si)=>{const g={};let tot=0;cfg.atoms.forEach(a=>{if(a.s!==si)return;const k=catOf(a);g[k]=(g[k]||0)+1;tot+=CATN[k][3]});
+    const parts=Object.keys(g).map(k=>`${g[k]} ${t([CATN[k][0],CATN[k][1]])} × ${CATN[k][2]}`).join(' + ');
+    return `<div class="kv"><span><i style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${sp.col};margin-inline-end:6px"></i>${t(sp.n)}<br><span class="leg">${parts}</span></span><b>${Math.round(tot*100)/100}</b></div>`}).join('')}
+
+W.v3d=(b)=>{const id=uid(),set=b.set,L=V3[set];
+  const titles={metals:[`3D unit cells of metals`,`خلايا المعادن الوحدة ثلاثية الأبعاد`],ceramics:[`3D ceramic crystal structures`,`البنى البلورية للسيراميك ثلاثية الأبعاد`],zirconia:[`3D zirconia: monoclinic, tetragonal and cubic`,`الزركونيا ثلاثية الأبعاد: أحادية الميل ورباعية ومكعبة`]};
+  inits.push(()=>{const r=$id(id),q=s=>r.querySelector(s),cv=q('canvas'),ctx=cv.getContext('2d');
+    let ci=set==='zirconia'?0:0,cfg=L[ci],B=build3D(cfg);
+    let yaw=-.65,pitch=.42,size=.6,bonds=set!=='metals',hl=false,auto=!matchMedia('(prefers-reduced-motion: reduce)').matches,drag=false,lx=0,ly=0;
+    let cur={sy:1,sh:0,sc:1};
+    const tgt=()=>set==='zirconia'?cfg.par:{sy:1,sh:0,sc:1};
+    const info=()=>{
+      q('.nm').innerHTML=`<b>${t(cfg.n)}</b>`;
+      q('.ds').innerHTML=bi(cfg.d);
+      if(set==='zirconia'){q('.tl').innerHTML=tallyHTML(cfg);q('.mt').innerHTML='';q('.lg').innerHTML=cfg.sp.map(sp=>`<span class="ct" style="display:inline-flex;align-items:center;gap:5px;margin-inline-end:12px"><i style="width:10px;height:10px;border-radius:50%;background:${sp.col}"></i>${t(sp.n)}</span>`).join('');return}
+      q('.tl').innerHTML=`<div class="ct">${t([`Atoms per unit cell`,`الذرات في الخلية الوحدة`])}</div>`+tallyHTML(cfg);
+      const nbc=B.nb.size;
+      q('.mt').innerHTML=`<div class="kv"><span>${t([`Coordination number`,`عدد التنسيق`])}</span><b>${cfg.cn}</b></div>`+(set==='metals'?`<div class="kv"><span>${t([`Atomic packing factor`,`معامل التعبئة الذري`])}</span><b>${cfg.apf}</b></div>`:'')+`<div class="kv"><span>${t([`Relation`,`العلاقة`])}</span><b style="font-size:14px">${t(cfg.rel)}</b></div><div class="kv"><span>${t([`Examples`,`أمثلة`])}</span><b style="font-size:14px;white-space:normal;text-align:end">${t(cfg.ex)}</b></div>`+(hl&&set==='metals'?`<p class="leg">${t([`Highlighted: ${nbc} neighbors inside this cell; the full lattice has ${cfg.cn}, because the other neighbors lie in adjacent cells.`,`المبرز: ${nbc} جيران داخل هذه الخلية؛ وفي الشبكة الكاملة ${cfg.cn} لأن بقية الجيران في خلايا مجاورة.`])}</p>`:hl?`<p class="leg">${t([`Highlighted: ${nbc} nearest neighbors of the selected ion.`,`المبرز: ${nbc} من أقرب الجيران للأيون المحدد.`])}</p>`:'');
+      q('.lg').innerHTML=cfg.sp.map(sp=>`<span class="ct" style="display:inline-flex;align-items:center;gap:5px;margin-inline-end:12px"><i style="width:10px;height:10px;border-radius:50%;background:${sp.col}"></i>${t(sp.n)}</span>`).join('')};
+    const proj=(p,w,h,S)=>{let [x,y,z]=p;const T=tgtCur;y=y*T.sy;x=(x+T.sh*y)*1;x*=T.sc;y*=T.sc;z*=T.sc;
+      const cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);
+      const x1=x*cy+z*sy,z1=-x*sy+z*cy,y2=y*cp-z1*sp,z2=y*sp+z1*cp,k=3.6/(3.6-z2);
+      return {x:w/2+x1*k*S,y:h/2-y2*k*S,z:z2,k}};
+    let tgtCur=cur;
+    const col=(c,a)=>{const n=parseInt(c.slice(1),16);return `rgba(${n>>16},${(n>>8)&255},${n&255},${a})`};
+    const draw=()=>{if(!cv.isConnected)return;
+      const w=cv.clientWidth||400,h=340,dpr=window.devicePixelRatio||1;if(cv.width!==Math.round(w*dpr)||cv.height!==Math.round(h*dpr)){cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr)}
+      ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
+      const tg=tgt();for(const k of ['sy','sh','sc'])cur[k]+=(tg[k]-cur[k])*.14;tgtCur=cur;
+      if(auto&&!drag)yaw+=.006;
+      const cs=getComputedStyle(cv),ink=cs.getPropertyValue('--ink').trim()||'#222';
+      const S=Math.min(w,h)*.42/cfg.ext;const items=[];
+      const P=cfg.atoms.map(a=>proj(a.p,w,h,S));
+      cfg.edges.forEach(e=>{const a=proj(e[0],w,h,S),b2=proj(e[1],w,h,S);items.push({t:'e',a,b:b2,z:(a.z+b2.z)/2-.001})});
+      if(bonds||hl)B.bonds.forEach(([i,j])=>{const on=!hl||i===B.fi||j===B.fi;if(!bonds&&!on)return;items.push({t:'b',a:P[i],b:P[j],z:(P[i].z+P[j].z)/2,on})});
+      cfg.atoms.forEach((a,i)=>{const sp=cfg.sp[a.s];const inF=!hl||i===B.fi||B.nb.has(i);items.push({t:'a',p:P[i],z:P[i].z,r:sp.r*size*S*P[i].k,col:sp.col,dim:!inF,foc:hl&&i===B.fi})});
+      items.sort((u,v)=>u.z-v.z);
+      items.forEach(it=>{
+        if(it.t==='e'){ctx.strokeStyle=ink;ctx.globalAlpha=hl?.25:.45;ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(it.a.x,it.a.y);ctx.lineTo(it.b.x,it.b.y);ctx.stroke();ctx.globalAlpha=1}
+        else if(it.t==='b'){ctx.strokeStyle=ink;ctx.globalAlpha=hl?(it.on?.9:.1):.55;ctx.lineWidth=hl&&it.on?3:1.8;ctx.beginPath();ctx.moveTo(it.a.x,it.a.y);ctx.lineTo(it.b.x,it.b.y);ctx.stroke();ctx.globalAlpha=1}
+        else{ctx.globalAlpha=it.dim?.18:1;ctx.fillStyle=it.col;ctx.beginPath();ctx.arc(it.p.x,it.p.y,Math.max(2,it.r),0,6.2832);ctx.fill();
+          const g=ctx.createRadialGradient(it.p.x-it.r*.35,it.p.y-it.r*.35,it.r*.05,it.p.x,it.p.y,it.r);g.addColorStop(0,'rgba(255,255,255,.55)');g.addColorStop(.6,'rgba(255,255,255,0)');g.addColorStop(1,'rgba(0,0,0,.25)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(it.p.x,it.p.y,Math.max(2,it.r),0,6.2832);ctx.fill();
+          if(it.foc){ctx.strokeStyle=ink;ctx.lineWidth=2.5;ctx.beginPath();ctx.arc(it.p.x,it.p.y,Math.max(2,it.r)+3,0,6.2832);ctx.stroke()}ctx.globalAlpha=1}});
+      requestAnimationFrame(draw)};
+    cv.onpointerdown=e=>{drag=true;lx=e.clientX;ly=e.clientY;cv.setPointerCapture(e.pointerId)};
+    cv.onpointermove=e=>{if(!drag)return;yaw+=(e.clientX-lx)*.01;pitch=Math.max(-1.45,Math.min(1.45,pitch+(e.clientY-ly)*.01));lx=e.clientX;ly=e.clientY};
+    cv.onpointerup=()=>{drag=false};cv.onpointercancel=()=>{drag=false};
+    const sel=k=>{ci=k;cfg=L[k];B=build3D(cfg);r.querySelectorAll('.tb').forEach((x,n)=>x.setAttribute('aria-selected',n===k));if(set!=='zirconia')cur={sy:1,sh:0,sc:1};tgtCur=cur;info()};
+    r.querySelectorAll('.tb').forEach((x,n)=>x.onclick=()=>sel(n));
+    const cb=(s,f)=>{q(s).onchange=e=>{f(e.target.checked);info()}};
+    cb('.cbb',v=>bonds=v);if(q('.cbh'))cb('.cbh',v=>hl=v);cb('.cba',v=>auto=v);
+    q('.sz').oninput=e=>{size=+e.target.value/100;q('.szv').textContent=e.target.value+'%'};
+    q('.rs').onclick=()=>{yaw=-.65;pitch=.42};
+    q('.cbb').checked=bonds;q('.cba').checked=auto;
+    sel(0);requestAnimationFrame(draw)});
+  const tabs=L.map(c=>`<button class="tb">${t(c.n)}</button>`).join('');
+  const hlc=set==='zirconia'?'':`<label class="ct"><input type="checkbox" class="cbh"> ${t([`Highlight coordination`,`إبراز التنسيق`])}</label>`;
+  return `<section class="card" id="${id}"><h2 class="ch">${t(titles[set])}</h2>${bi([`Drag the model to rotate it. Use the size slider to switch between small balls (to see the arrangement) and large hard spheres. Spheres are drawn schematically.`,`اسحب المجسم لتدويره. استعمل منزلق الحجم للتبديل بين كرات صغيرة (لرؤية الترتيب) وكرات صلبة كبيرة. الكرات مرسومة بشكل تخطيطي.`])}
+   <div class="tbs" role="tablist" style="margin-top:10px">${tabs}</div>
+   <div class="wg"><div><canvas style="width:100%;height:340px;display:block;background:var(--bg);border:1px solid var(--line);border-radius:10px;touch-action:none;cursor:grab" aria-label="3D model"></canvas>
+    <div class="row" style="margin-top:8px;align-items:center"><label class="ct"><input type="checkbox" class="cbb"> ${t([`Bonds`,`الروابط`])}</label>${hlc}<label class="ct"><input type="checkbox" class="cba"> ${t([`Auto-rotate`,`دوران تلقائي`])}</label><button class="btn rs">${t([`Reset view`,`إعادة الضبط`])}</button></div>
+    <div class="row" style="margin-top:8px;align-items:center"><span class="ct">${t([`Atom size`,`حجم الذرة`])}</span><input type="range" class="sz" min="20" max="110" value="60" style="flex:1;min-width:120px"><span class="ct szv">60%</span></div></div>
+   <div class="out"><div class="nm"></div><div class="lg"></div><div class="ds"></div><div class="mt"></div><div class="tl out"></div></div></div></section>`};
+
+/* ===== Classification game (L6) ===== */
+W.sort=()=>{const id=uid();
+  const IT=[[`Alumina`,`الألومينا`,0,`Fibrous capsule forms; no chemical bond to bone.`,`تتكوّن كبسولة ليفية؛ ولا ارتباط كيميائي بالعظم.`],
+   [`Zirconia (PSZ)`,`الزركونيا (PSZ)`,0,`First-generation bioinert ceramic with transformation toughening.`,`سيراميك خامل من الجيل الأول مع تقسية بالتحول.`],
+   [`ZTA`,`ZTA`,0,`Alumina toughened by zirconia particles; femoral heads.`,`ألومينا مقواة بجسيمات الزركونيا؛ رؤوس عظم الفخذ.`],
+   [`Hydroxyapatite`,`الهيدروكسي أباتايت`,1,`Bonds chemically to bone; Ca/P = 1.67.`,`يرتبط كيميائياً بالعظم؛ Ca/P = 1.67.`],
+   [`Bioglass 45S5`,`الزجاج الحيوي 45S5`,1,`Class A bioactive: bonds to bone and soft tissue.`,`نشط حيوياً صنف A: يرتبط بالعظم والنسيج الرخو.`],
+   [`β-TCP`,`β-TCP`,2,`More soluble than HA; absorbed and replaced by natural bone.`,`أكثر ذوباناً من HA؛ يُمتص ويحل محله عظم طبيعي.`],
+   [`PLA / PGA`,`PLA / PGA`,2,`Polymers that degrade and are absorbed in the body.`,`بوليمرات تتحلل ويمتصها الجسم.`],
+   [`Magnesium`,`المغنيسيوم`,2,`A metal that dissolves and is absorbed; no second surgery.`,`معدن يذوب ويُمتص؛ دون جراحة ثانية.`]];
+  const CL=[[`Bioinert`,`خامل حيوياً`],[`Bioactive`,`نشط حيوياً`],[`Bioresorbable`,`قابل للامتصاص`]];
+  inits.push(()=>{const r=$id(id);let score=0,done=0;
+    const upd=()=>{r.querySelector('.sc').textContent=score+' / '+IT.length;};
+    r.querySelectorAll('.it').forEach((row,i)=>{row.querySelectorAll('.btn').forEach((b,c)=>b.onclick=()=>{if(row.dataset.done)return;row.dataset.done=1;const ok=c===IT[i][2];if(ok)score++;done++;
+      row.querySelectorAll('.btn').forEach((x,n)=>{x.disabled=true;if(n===IT[i][2])x.style.background='var(--ok-soft)';else if(n===c)x.style.background='var(--bad-soft)'});
+      row.querySelector('.fb').innerHTML=`<b>${t(ok?[`Correct.`,`صحيح.`]:[`Not quite.`,`ليس صحيحاً.`])}</b> ${t([IT[i][3],IT[i][4]])}`;upd()})});
+    r.querySelector('.rs').onclick=()=>{render(5)};upd()});
+  return `<section class="card" id="${id}"><h2 class="ch">${t([`Sort the materials`,`صنّف المواد`])}</h2>${bi([`Choose the class of each material.`,`اختر فئة كل مادة.`])}
+   <div class="out" style="margin-top:10px">${IT.map((x,i)=>`<div class="it" style="border-bottom:1px dashed var(--line);padding:8px 0"><div style="font-weight:600;margin-bottom:6px">${t([x[0],x[1]])}</div><div class="row">${CL.map(c=>`<button class="btn">${t(c)}</button>`).join('')}</div><div class="fb" style="margin-top:6px"></div></div>`).join('')}</div>
+   <div class="row" style="margin-top:10px;align-items:center"><span class="ct">${t([`Score`,`النتيجة`])}: <b class="sc">0</b></span><button class="btn rs">${t([`Start over`,`ابدأ من جديد`])}</button></div></section>`};
+
+/* ===== Cold working (L3) ===== */
+W.cw=()=>{const id=uid();
+  inits.push(()=>{const r=$id(id),q=s=>r.querySelector(s);
+    const E=10,sy=1,sg=e=>e<=sy/E?E*e:sy+1.3*(1-Math.exp(-(e-sy/E)*7));
+    const X=e=>40+e/0.5*330,Y=s=>190-s/2.4*170;
+    const upd=()=>{const e2=+q('.e').value/100,s2=sg(e2),er=e2-s2/E;
+      let c='';for(let k=0;k<=60;k++){const e=k/60*0.5;c+=(k?'L':'M')+X(e).toFixed(1)+' '+Y(sg(e)).toFixed(1)}
+      let up=`M${X(e2)} ${Y(s2)} L${X(er)} ${Y(0)}`;
+      q('.sv').innerHTML=`<line class="ln" x1="40" y1="190" x2="380" y2="190"/><line class="ln" x1="40" y1="190" x2="40" y2="14"/><text x="376" y="206" text-anchor="end">strain ε</text><text x="46" y="20">stress σ</text>
+        <path d="${c}" fill="none" stroke="var(--accent)" stroke-width="2.5"/><path d="${up}" fill="none" stroke="var(--bad)" stroke-width="2" stroke-dasharray="5 3"/>
+        <path d="M${X(er)} ${Y(0)} L${X(e2)} ${Y(s2)}" fill="none" stroke="var(--teal)" stroke-width="2"/>
+        <line x1="40" x2="${X(sy/E)}" y1="${Y(sy)}" y2="${Y(sy)}" stroke="var(--muted)" stroke-dasharray="3 3"/><text x="8" y="${Y(sy)+4}">σy</text>
+        <line x1="40" x2="${X(e2)}" y1="${Y(s2)}" y2="${Y(s2)}" stroke="var(--muted)" stroke-dasharray="3 3"/><text x="8" y="${Y(s2)+4}">σ'y</text>
+        <circle cx="${X(e2)}" cy="${Y(s2)}" r="5" fill="var(--teal)"/><circle cx="${X(er)}" cy="${Y(0)}" r="4" fill="var(--bad)"/><text x="${X(er)}" y="206" text-anchor="middle" style="fill:var(--bad)">residual</text>`;
+      q('.o').innerHTML=`<div class="kv"><span>${t([`Original yield strength σy`,`إجهاد الخضوع الأصلي σy`])}</span><b>${sy.toFixed(2)}</b></div><div class="kv"><span>${t([`New yield strength σ'y`,`إجهاد الخضوع الجديد σ'y`])}</span><b>${s2.toFixed(2)}</b></div><div class="kv"><span>${t([`Increase`,`الزيادة`])}</span><b>+${((s2/sy-1)*100).toFixed(0)}%</b></div><div class="kv"><span>${t([`Permanent set (residual strain)`,`الانفعال الدائم (المتبقي)`])}</span><b>${er.toFixed(3)}</b></div>`};
+    q('.e').oninput=upd;upd()});
+  return wcard([`Cold working: load past yield, unload, reload`,`التشغيل على البارد: تحميل بعد الخضوع ثم إزالة الحمل ثم إعادة التحميل`],`<div class="wg"><div>${fld([`Strain at which you unload`,`الانفعال الذي تزيل عنده الحمل`],`<input class="e" type="range" min="12" max="48" value="30">`)}<div class="svgbox"><svg class="sv" viewBox="0 0 390 216" width="100%" style="max-width:420px"></svg></div></div><div class="out o"></div></div>
+   <p class="leg">${t([`Schematic curve in arbitrary units. Blue: loading. Red dashed: unloading along the elastic slope. Green: reloading, which now yields at σ'y, the stress where you unloaded. The yield strength rose because plastic deformation raised the dislocation density.`,`منحنى تخطيطي بوحدات اعتباطية. الأزرق: التحميل. الأحمر المتقطع: إزالة الحمل بميل المرونة. الأخضر: إعادة التحميل ويخضع الآن عند σ'y وهو الإجهاد الذي أزلت عنده الحمل. ارتفع إجهاد الخضوع لأن التشوه اللدن رفع كثافة الانخلاعات.`])}</p>`,id)};
+
+/* ===== Bond types (L2) ===== */
+W.bonds=()=>{const id=uid();
+  const dots=(n,seed)=>{let s='';for(let i=0;i<n;i++){const a=(i*137.5+seed)%360,rr=(i*53%90)/90;s+=`<circle cx="${40+((i*67+seed)%220)}" cy="${18+((i*41+seed*3)%84)}" r="2.2" fill="${ORGB}"/>`}return s};
+  const ORGB='#E8923A',BL='#4C7DE8';
+  const SV={
+   ion:`<defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--ink)"/></marker></defs><circle cx="95" cy="60" r="20" fill="${BL}"/><text x="95" y="65" text-anchor="middle" style="fill:#fff">Na⁺</text><circle cx="205" cy="60" r="30" fill="${ORGB}"/><text x="205" y="65" text-anchor="middle" style="fill:#fff">Cl⁻</text><path d="M118 40 Q150 12 178 38" fill="none" stroke="var(--ink)" stroke-width="1.5" marker-end="url(#ar)"/><text x="150" y="20" text-anchor="middle">e⁻</text>`,
+   cov:`<circle cx="125" cy="60" r="42" fill="${BL}" fill-opacity=".35" stroke="${BL}"/><circle cx="175" cy="60" r="42" fill="${ORGB}" fill-opacity=".35" stroke="${ORGB}"/><circle cx="150" cy="52" r="3.5" fill="var(--ink)"/><circle cx="150" cy="68" r="3.5" fill="var(--ink)"/><text x="150" y="112" text-anchor="middle">shared e⁻</text>`,
+   met:`${[0,1,2].map(i=>[0,1,2,3].map(j=>`<circle cx="${70+j*55}" cy="${25+i*35}" r="11" fill="${BL}"/><text x="${70+j*55}" y="${29+i*35}" text-anchor="middle" style="fill:#fff;font-size:11px">+</text>`).join('')).join('')}${dots(26,11)}`,
+   vdw:`<ellipse cx="95" cy="60" rx="38" ry="24" fill="${BL}" fill-opacity=".25" stroke="${BL}"/><text x="78" y="64" text-anchor="middle">δ−</text><text x="112" y="64" text-anchor="middle">δ+</text><ellipse cx="205" cy="60" rx="38" ry="24" fill="${ORGB}" fill-opacity=".25" stroke="${ORGB}"/><text x="188" y="64" text-anchor="middle">δ−</text><text x="222" y="64" text-anchor="middle">δ+</text><line x1="133" y1="60" x2="167" y2="60" stroke="var(--ink)" stroke-dasharray="4 3"/>`,
+   hb:`<circle cx="55" cy="60" r="20" fill="${ORGB}"/><text x="55" y="65" text-anchor="middle" style="fill:#fff">F</text><circle cx="92" cy="60" r="9" fill="var(--surface)" stroke="var(--ink)"/><text x="92" y="64" text-anchor="middle" style="font-size:11px">H</text><line x1="75" y1="60" x2="83" y2="60" stroke="var(--ink)" stroke-width="2"/><line x1="102" y1="60" x2="172" y2="60" stroke="var(--ink)" stroke-dasharray="4 3"/><circle cx="195" cy="60" r="20" fill="${ORGB}"/><text x="195" y="65" text-anchor="middle" style="fill:#fff">F</text><circle cx="232" cy="60" r="9" fill="var(--surface)" stroke="var(--ink)"/><text x="232" y="64" text-anchor="middle" style="font-size:11px">H</text><line x1="215" y1="60" x2="223" y2="60" stroke="var(--ink)" stroke-width="2"/>`};
+  const BT=[[`Ionic`,`أيونية`,'ion',[`A metal gives valence electrons to a nonmetal and both become ions that attract each other. Nondirectional. 600–1500 kJ/mol, high melting points. NaCl and other metal–nonmetal compounds.`,`يعطي الفلز إلكترونات التكافؤ للافلز فيصبح الاثنان أيونين يتجاذبان. غير اتجاهية. 600–1500 kJ/mol ودرجات انصهار عالية. NaCl ومركبات الفلز واللافلز.`]],
+   [`Covalent`,`تساهمية`,'cov',[`Neighboring atoms share electrons. Directional: acts only between the sharing atoms. H₂, CH₄, H₂O, diamond, Si, GaAs, SiC and polymer chains.`,`تتشارك الذرات المتجاورة الإلكترونات. اتجاهية: تعمل بين الذرات المتشاركة فقط. H₂ وCH₄ وH₂O والألماس وSi وGaAs وSiC وسلاسل البوليمر.`]],
+   [`Metallic`,`فلزية`,'met',[`Positive ion cores held together by a sea of free valence electrons. Nondirectional, so ions can shift without breaking the crystal (plastic deformation). Melting from −39 to 3410 °C.`,`أيونات موجبة يمسك بها بحر من إلكترونات التكافؤ الحرة. غير اتجاهية، لذا يمكن للأيونات الانزلاق دون تحطيم البلورة (تشوه لدن). الانصهار من −39 إلى 3410 °م.`]],
+   [`Van der Waals`,`فان در فالس`,'vdw',[`Weak attraction between dipoles, fluctuating induced or permanent. About 10 kJ/mol.`,`تجاذب ضعيف بين ثنائيات القطب، المستحثة المتذبذبة أو الدائمة. نحو 10 kJ/mol.`]],
+   [`Hydrogen bond`,`رابطة هيدروجينية`,'hb',[`H bonded to F, O or N is an unscreened proton that attracts the negative end of a neighboring molecule. The strongest secondary bond: up to 51 kJ/mol. HF, H₂O, NH₃.`,`الهيدروجين المرتبط بـ F أو O أو N بروتون غير محجوب يجذب الطرف السالب لجزيء مجاور. أقوى الروابط الثانوية: حتى 51 kJ/mol. HF وH₂O وNH₃.`]]];
+  inits.push(()=>{const r=$id(id),btns=r.querySelectorAll('.tb');const show=k=>{btns.forEach((x,n)=>x.setAttribute('aria-selected',n===k));r.querySelector('.sv').innerHTML=SV[BT[k][2]];r.querySelector('.tx').innerHTML=bi(BT[k][3])};btns.forEach((x,n)=>x.onclick=()=>show(n));show(0)});
+  return `<section class="card" id="${id}"><h2 class="ch">${t([`See the five bond types`,`شاهد أنواع الروابط الخمسة`])}</h2><div class="tbs">${BT.map(b=>`<button class="tb">${t([b[0],b[1]])}</button>`).join('')}</div><div class="wg"><div class="svgbox"><svg class="sv" viewBox="0 0 300 120" width="100%" style="max-width:360px;background:var(--bg);border-radius:8px"></svg></div><div class="tx out"></div></div></section>`};
+D[0]={title:[`Introduction to Materials and Biomaterials`,`مقدمة في المواد والمواد الحيوية`],src:`Ch1: Introduction`,blocks:[
+{t:'sec',h:[`Why study materials?`,`لماذا ندرس المواد؟`],p:[
+[`Materials touch transportation, health, housing, clothing, communication and food production. Societies advanced as they learned to produce and manipulate materials.`,`تدخل المواد في النقل والصحة والسكن والملبس والاتصالات وإنتاج الغذاء، وتقدّمت المجتمعات بقدر ما أتقنت إنتاج المواد وتطويعها.`],
+[`Every engineer, including the biomedical engineer, eventually meets a design problem involving materials: biocompatible implants, orthopedics, orthodontics, surgical tools and instruments.`,`يواجه كل مهندس، ومنهم مهندس الطب الحيوي، مسألة تصميم تتعلق بالمواد: غرسات متوافقة حيوياً، جراحة العظام، تقويم الأسنان، والأدوات والأجهزة الجراحية.`]]},
+{t:'table',h:[`Early civilizations are named after their materials`,`الحضارات المبكرة سُمّيت بحسب موادها`],cols:[[`Age`,`العصر`],[`Starts (approx.)`,`البداية (تقريباً)`]],rows:[[[`Stone Age`,`العصر الحجري`],`2.5 million BC`],[[`Bronze Age`,`العصر البرونزي`],`3500 BC`],[[`Iron Age`,`العصر الحديدي`],`1000 BC`]]},
+{t:'sec',h:[`Materials science vs. materials engineering`,`علم المواد مقابل هندسة المواد`],p:[
+[`<b>Materials science</b> investigates the relationships between the structures and properties of materials.`,`<b>علم المواد</b> يبحث في العلاقات بين بنية المواد وخواصها.`],
+[`<b>Materials engineering</b> uses those structure–property relationships to design the structure of a material so it gives a required set of properties.`,`<b>هندسة المواد</b> تستفيد من علاقات البنية والخواص لتصميم بنية المادة بحيث تعطي مجموعة الخواص المطلوبة.`],
+[`This understanding is only about 100 years old. Besides structure and properties, three more components matter: processing, characterization and performance.`,`هذا الفهم حديث (نحو 100 سنة). وإضافة إلى البنية والخواص هناك ثلاثة مكونات: المعالجة والتوصيف والأداء.`]]},
+{t:'w',k:'tetra'},
+{t:'tabs',h:[`Four levels of structure`,`مستويات البنية الأربعة`],items:[
+{n:[`1 Subatomic`,`1 دون ذرية`],p:[[`Electrons inside individual atoms and their interactions with the nuclei.`,`الإلكترونات داخل الذرات المنفردة وتفاعلاتها مع الأنوية.`]]},
+{n:[`2 Atomic`,`2 ذرية`],p:[[`The organization of atoms or molecules relative to one another.`,`تنظيم الذرات أو الجزيئات بالنسبة لبعضها.`]]},
+{n:[`3 Microscopic`,`3 مجهرية`],p:[[`Large groups of atoms that are normally agglomerated together.`,`مجموعات كبيرة من الذرات تتجمع عادةً مع بعضها.`]]},
+{n:[`4 Macroscopic`,`4 عيانية`],p:[[`Elements that can be viewed with the naked eye.`,`عناصر يمكن رؤيتها بالعين المجردة.`]]}]},
+{t:'sec',h:[`Six families of material properties`,`ست عائلات من خواص المواد`],u:[
+[`<b>Mechanical</b>`,`<b>ميكانيكية</b>`],[`<b>Electrical</b>`,`<b>كهربائية</b>`],[`<b>Thermal</b>`,`<b>حرارية</b>`],[`<b>Magnetic</b>`,`<b>مغناطيسية</b>`],[`<b>Optical</b>`,`<b>ضوئية</b>`],[`<b>Deteriorative</b> (how the material degrades in service)`,`<b>تدهورية</b> (كيف تتدهور المادة أثناء الخدمة)`]]},
+{t:'tabs',h:[`Classification of materials`,`تصنيف المواد`],items:[
+{n:[`Metals`,`المعادن`],p:[[`Combinations of metallic elements with many non-localized electrons, not bound to particular atoms. Many properties come directly from these electrons.`,`تراكيب من عناصر فلزية فيها أعداد كبيرة من الإلكترونات غير المتمركزة وغير المرتبطة بذرات محددة، ومنها تنشأ كثير من خواصها.`]],u:[[`Good conductors of electricity and heat`,`موصلة جيدة للكهرباء والحرارة`],[`Opaque, lustrous when polished`,`معتمة وبراقة عند صقلها`],[`Quite strong, yet deformable`,`قوية نسبياً وقابلة للتشكيل`]]},
+{n:[`Ceramics`,`السيراميك`],p:[[`Compounds between metallic and nonmetallic elements, most often oxides, nitrides and carbides.`,`مركبات بين عناصر فلزية وغير فلزية، وغالباً أكاسيد ونيتريدات وكربيدات.`]],u:[[`Insulators to electricity and heat`,`عازلة للكهرباء والحرارة`],[`More resistant to high temperatures and harsh environments than metals and polymers`,`أكثر مقاومة للحرارة العالية والبيئات القاسية من المعادن والبوليمرات`],[`Hard but very brittle`,`صلبة لكنها هشّة جداً`]]},
+{n:[`Polymers`,`البوليمرات`],p:[[`Plastics and rubbers. Many are organic compounds based on carbon, hydrogen and other nonmetals, with very large molecular structures.`,`اللدائن والمطاط. كثير منها مركبات عضوية أساسها الكربون والهيدروجين وعناصر لا فلزية أخرى، ذات جزيئات كبيرة جداً.`]],u:[[`Low density, may be extremely flexible`,`كثافة منخفضة وقد تكون شديدة المرونة`],[`Most synthetic polymers resist chemical attack, corrosion and moisture, so they degrade slowly in the environment`,`تقاوم معظم البوليمرات الصناعية الهجوم الكيميائي والتآكل والرطوبة، لذلك تتحلل ببطء في البيئة`],[`Poor conductors of electricity and heat (wire insulation)`,`موصلة ضعيفة للكهرباء والحرارة (عزل الأسلاك)`]]},
+{n:[`Composites`,`المواد المركبة`],p:[[`Engineered from more than one material type. Fiberglass is the familiar example: glass fibers embedded in a polymer. A composite is designed to combine strength and flexibility.`,`مواد مهندسة من أكثر من نوع من المواد. مثالها المعروف الألياف الزجاجية: ألياف زجاج مغموسة في بوليمر. تُصمَّم لتجمع بين القوة والمرونة.`]]},
+{n:[`Semiconductors`,`أشباه الموصلات`],p:[[`Electrical properties between those of conductors and insulators. Their behavior is extremely sensitive to tiny concentrations of impurity atoms and to temperature.`,`خواصها الكهربائية بين الموصلات والعوازل، وهي شديدة الحساسية لتراكيز ضئيلة من ذرات الشوائب ولدرجة الحرارة.`]]}]},
+{t:'sec',h:[`What is a biomaterial?`,`ما المادة الحيوية؟`],p:[
+[`Engineering is also about what is inside us: implants, artificial limbs, bandages. Technically any material could be tried, but to succeed it must be compatible with the biological system.`,`الهندسة لا تخص ما حولنا فقط بل ما بداخلنا أيضاً: الغرسات والأطراف الصناعية والضمادات. يمكن نظرياً تجربة أي مادة، لكن نجاحها يتطلب توافقها مع النظام الحيوي.`],
+[`<b>Biomaterial:</b> any substance, synthetic or natural or a combination, used for some time as a whole or part of a system that treats, augments, diagnoses or replaces any tissue, organ or function of the body. It must not produce toxic substances and must be compatible with body tissues.`,`<b>المادة الحيوية:</b> أي مادة، صناعية أو طبيعية أو مزيج منهما، تُستخدم لفترة كاملةً أو جزءاً من منظومة تعالج أو تعزز أو تشخّص أو تعوّض أي نسيج أو عضو أو وظيفة في الجسم. ويجب ألا تنتج مواد سامة وأن تتوافق مع أنسجة الجسم.`],
+[`<b>Biocompatible</b> materials give healthy responses: no blood clots, no infection, normal uncomplicated healing, often for months, years or decades.`,`المواد <b>المتوافقة حيوياً</b> تعطي استجابات سليمة: لا جلطات ولا عدوى والتئام طبيعي غير معقّد، وغالباً لأشهر أو سنوات أو عقود.`]]},
+{t:'tabs',h:[`Four ways a material can interact with the body`,`أربع طرق لتفاعل المادة مع الجسم`],items:[
+{n:[`1 Harm`,`1 تؤذي`],p:[[`It can hurt us: toxic or damaging materials are unusable.`,`قد تؤذينا: المواد السامة أو الضارة لا تصلح للاستخدام.`]]},
+{n:[`2 Dissolve`,`2 تذوب`],p:[[`It can dissolve and be replaced by cells.`,`قد تذوب وتحل محلها الخلايا.`]],note:[`Later lectures call this <b>bioresorbable</b> (e.g. tricalcium phosphate, PLA).`,`تُسمى في المحاضرات اللاحقة <b>قابلة للامتصاص حيوياً</b> (مثل فوسفات الكالسيوم الثلاثي وPLA).`]},
+{n:[`3 Encapsulate`,`3 تُغلَّف`],p:[[`Our body can surround it with a protective layer.`,`قد يحيطها الجسم بطبقة واقية.`]],note:[`This is the <b>bioinert</b> behavior (alumina, zirconia).`,`هذا سلوك المواد <b>الخاملة حيوياً</b> (الألومينا والزركونيا).`]},
+{n:[`4 Bond`,`4 ترتبط`],p:[[`It can bond with living tissue.`,`قد ترتبط بالنسيج الحي.`]],note:[`This is the <b>bioactive</b> behavior (hydroxyapatite, bioglass).`,`هذا سلوك المواد <b>النشطة حيوياً</b> (الهيدروكسي أباتايت والزجاج الحيوي).`]}]},
+{t:'table',h:[`Drugs vs. biomaterials`,`الأدوية مقابل المواد الحيوية`],cols:[[`Biomaterials`,`المواد الحيوية`],[`Drugs`,`الأدوية`]],rows:[
+[[`Structural or carrier role, designed with biocompatibility to house, deliver or replace biological components, with no intrinsic pharmacological action`,`دور هيكلي أو ناقل، مصمم بتوافق حيوي لاحتضان المكونات الحيوية أو توصيلها أو تعويضها دون فعل دوائي ذاتي`],[`Pharmacologically active molecules that alter a biochemical pathway or metabolic function`,`جزيئات فعالة دوائياً تغيّر مساراً كيميائياً حيوياً أو وظيفة أيضية`]],
+[[`Provide mechanical support, replace damaged tissue (bone grafts, heart valves) or carry drugs through the body`,`توفر دعماً ميكانيكياً أو تعوّض نسيجاً تالفاً (طعوم العظام، صمامات القلب) أو تنقل الأدوية في الجسم`],[`Exert direct therapeutic or curative effects on cellular targets`,`تُحدث تأثيراً علاجياً مباشراً على أهداف خلوية`]],
+[[`Work through physical, chemical or structural properties: controlled degradation rate, porosity, surface chemistry`,`تعمل عبر خواص فيزيائية أو كيميائية أو بنيوية: معدل تحلل متحكم به، مسامية، كيمياء السطح`],[`Bind to specific receptors, enzymes or DNA to trigger a physiological response`,`ترتبط بمستقبلات أو إنزيمات أو DNA محددة لإحداث استجابة فيزيولوجية`]]]},
+{t:'sec',h:[`Can drugs and biomaterials work together?`,`هل يمكن أن تعمل الأدوية والمواد الحيوية معاً؟`],p:[
+[`Yes. In drug delivery systems, biomaterials such as polymer nanoparticles, liposomes or hydrogels protect sensitive drugs from degradation and control when the drug is released.`,`نعم. في أنظمة توصيل الدواء تحمي مواد حيوية مثل الجسيمات النانوية البوليمرية والليبوسومات والهلاميات المائية الأدوية الحساسة من التحلل وتتحكم بتوقيت إطلاقها.`]]}],
+cards:[
+[`Materials science`,`علم المواد`,`Studies the relationship between structure and properties.`,`يدرس العلاقة بين البنية والخواص.`],
+[`Materials engineering`,`هندسة المواد`,`Designs a material's structure to obtain a predetermined set of properties.`,`تصمم بنية المادة للحصول على مجموعة خواص محددة مسبقاً.`],
+[`Five components`,`المكونات الخمسة`,`Structure, properties, processing, characterization, performance.`,`البنية، الخواص، المعالجة، التوصيف، الأداء.`],
+[`Ceramic`,`السيراميك`,`Metal + nonmetal compound (oxide, nitride, carbide); insulating, hard, brittle.`,`مركب فلز + لافلز (أكسيد، نيتريد، كربيد)؛ عازل وصلب وهش.`],
+[`Composite`,`مادة مركبة`,`More than one material type, e.g. glass fibers in a polymer.`,`أكثر من نوع من المواد، مثل ألياف زجاج في بوليمر.`],
+[`Semiconductor`,`شبه موصل`,`Conductivity between conductor and insulator; very sensitive to impurities and temperature.`,`توصيله بين الموصل والعازل؛ شديد الحساسية للشوائب والحرارة.`],
+[`Biomaterial`,`مادة حيوية`,`A synthetic or natural substance that treats, augments, diagnoses or replaces tissue, organ or function.`,`مادة صناعية أو طبيعية تعالج أو تعزز أو تشخّص أو تعوّض نسيجاً أو عضواً أو وظيفة.`],
+[`Biocompatible`,`متوافق حيوياً`,`Gives healthy responses: no clots, no infection, normal healing.`,`يعطي استجابات سليمة: لا جلطات ولا عدوى والتئام طبيعي.`]],
+quiz:[
+{q:[`What does materials science investigate?`,`ما الذي يبحث فيه علم المواد؟`],o:[[`The cost of raw materials`,`كلفة المواد الخام`],[`Relationships between structure and properties`,`العلاقات بين البنية والخواص`],[`Only the behavior of metals`,`سلوك المعادن فقط`],[`How drugs bind receptors`,`كيف ترتبط الأدوية بالمستقبلات`]],a:1,e:[`Science studies structure–property relationships; engineering uses them to design materials.`,`العلم يدرس علاقات البنية والخواص، والهندسة تستعملها لتصميم المواد.`]},
+{q:[`Which is NOT one of the five components of materials science and engineering?`,`أي مما يلي ليس من المكونات الخمسة لعلم المواد وهندستها؟`],o:[[`Processing`,`المعالجة`],[`Characterization`,`التوصيف`],[`Performance`,`الأداء`],[`Sterilization`,`التعقيم`]],a:3,e:[`The five are structure, properties, processing, characterization and performance.`,`الخمسة هي البنية والخواص والمعالجة والتوصيف والأداء.`]},
+{q:[`A material that is a metal–nonmetal compound, insulating, hard but very brittle is a:`,`مادة هي مركب فلز–لافلز، عازلة، صلبة وهشّة جداً، هي:`],o:[[`Metal`,`معدن`],[`Ceramic`,`سيراميك`],[`Polymer`,`بوليمر`],[`Semiconductor`,`شبه موصل`]],a:1,e:[`These are the general features of ceramics.`,`هذه هي الخصائص العامة للسيراميك.`]},
+{q:[`Fiberglass, glass fibers in a polymer, is an example of a:`,`الألياف الزجاجية (ألياف زجاج في بوليمر) مثال على:`],o:[[`Composite`,`مادة مركبة`],[`Metal`,`معدن`],[`Semiconductor`,`شبه موصل`],[`Ceramic`,`سيراميك`]],a:0,e:[`A composite combines more than one material type.`,`المادة المركبة تجمع أكثر من نوع من المواد.`]},
+{q:[`Which statement describes a biomaterial (as opposed to a drug)?`,`أي عبارة تصف المادة الحيوية (مقارنة بالدواء)؟`],o:[[`It alters a metabolic pathway`,`تغيّر مساراً أيضياً`],[`It binds receptors or enzymes`,`ترتبط بالمستقبلات أو الإنزيمات`],[`It acts as a structural or carrier material without intrinsic pharmacological action`,`تعمل كمادة هيكلية أو ناقلة دون فعل دوائي ذاتي`],[`It must always be soluble`,`يجب أن تكون دائماً قابلة للذوبان`]],a:2,e:[`Biomaterials rely on physical, chemical or structural properties, not pharmacology.`,`تعتمد المواد الحيوية على خواص فيزيائية وكيميائية وبنيوية لا على الفعل الدوائي.`]},
+{q:[`The electrical behavior of semiconductors is extremely sensitive to:`,`السلوك الكهربائي لأشباه الموصلات شديد الحساسية لـ:`],o:[[`Color`,`اللون`],[`Impurity atoms and temperature`,`ذرات الشوائب ودرجة الحرارة`],[`Density only`,`الكثافة فقط`],[`Magnetic field direction`,`اتجاه المجال المغناطيسي`]],a:1,e:[`Even minute impurity concentrations change semiconductor behavior.`,`حتى التراكيز الضئيلة من الشوائب تغيّر سلوك شبه الموصل.`]},
+{q:[`Which is a typical feature of polymers?`,`أي مما يلي صفة نموذجية للبوليمرات؟`],o:[[`Low density and possible high flexibility`,`كثافة منخفضة ومرونة قد تكون عالية`],[`Excellent electrical conductivity`,`توصيل كهربائي ممتاز`],[`Lustrous opaque surface`,`سطح معتم لامع`],[`Always brittle`,`هشّة دائماً`]],a:0,e:[`Polymers are light, often flexible, and poor conductors.`,`البوليمرات خفيفة وغالباً مرنة وضعيفة التوصيل.`]}]};
+
+D[1]={title:[`Solid Structure: Bonding, Crystals and X-ray Diffraction`,`البنية الصلبة: الروابط والبلورات وحيود الأشعة السينية`],src:`Solid Structure`,blocks:[
+{t:'sec',h:[`Fundamental concepts`,`المفاهيم الأساسية`],p:[
+[`Each atom has a tiny nucleus of protons and neutrons, encircled by moving electrons. Electrons and protons carry charge of magnitude 1.6×10<sup>-19</sup> C (negative for electrons, positive for protons); neutrons are neutral.`,`تتكون الذرة من نواة صغيرة جداً من بروتونات ونيوترونات تحيط بها إلكترونات متحركة. للإلكترون والبروتون شحنة مقدارها 1.6×10<sup>-19</sup> كولوم (سالبة للإلكترون وموجبة للبروتون) والنيوترون متعادل.`],
+[`<b>Atomic number Z</b> = number of protons (defines the element). <b>Mass number A</b> = protons + neutrons. Atoms of one element with different neutron numbers N are <b>isotopes</b>; the atomic weight is the weighted average of the mass numbers of natural isotopes.`,`<b>العدد الذري Z</b> = عدد البروتونات (يحدد العنصر). <b>العدد الكتلي A</b> = البروتونات + النيوترونات. الذرات من العنصر نفسه المختلفة بعدد النيوترونات N تسمى <b>نظائر</b>، والوزن الذري هو المتوسط الموزون للأعداد الكتلية للنظائر الطبيعية.`]]},
+{t:'table',cols:[[`Particle`,`الجسيم`],[`Charge (C)`,`الشحنة (C)`],[`Mass (kg)`,`الكتلة (kg)`]],rows:[[[`Proton`,`بروتون`],`+1.6×10<sup>-19</sup>`,`1.67×10<sup>-27</sup>`],[[`Neutron`,`نيوترون`],`0`,`1.67×10<sup>-27</sup>`],[[`Electron`,`إلكترون`],`-1.6×10<sup>-19</sup>`,`9.11×10<sup>-31</sup>`]]},
+{t:'tabs',h:[`Atomic models: a timeline`,`النماذج الذرية: تسلسل زمني`],items:[
+{n:[`Democritus (442 BC)`,`ديمقريطس (442 ق.م)`],p:[[`Matter consists of invisible, indivisible, solid, homogeneous atoms that differ in size, shape, mass, position and arrangement.`,`المادة تتكون من ذرات غير مرئية وغير قابلة للتجزئة وصلبة ومتجانسة، تختلف في الحجم والشكل والكتلة والموضع والترتيب.`]]},
+{n:[`Dalton (1807)`,`دالتون (1807)`],p:[[`First complete attempt to describe all matter by atoms: atoms are indivisible; atoms of one element are identical; compounds combine different atoms; a chemical reaction rearranges atoms.`,`أول محاولة متكاملة لوصف المادة بالذرات: الذرات غير قابلة للتجزئة؛ ذرات العنصر الواحد متماثلة؛ المركبات اتحاد ذرات مختلفة؛ والتفاعل الكيميائي إعادة ترتيب للذرات.`]]},
+{n:[`Thomson (1904)`,`طومسون (1904)`],p:[[`Plum pudding model: negative electrons distributed in a uniform sea of positive charge.`,`نموذج حلوى البرقوق: إلكترونات سالبة موزعة في بحر منتظم من الشحنة الموجبة.`]]},
+{n:[`Rutherford`,`رذرفورد`],p:[[`Nuclear model: a high charge concentrated in a very small central volume (the nucleus) that also holds most of the atomic mass.`,`النموذج النووي: شحنة عالية متركزة في حجم مركزي صغير جداً (النواة) تحوي أيضاً معظم كتلة الذرة.`]]},
+{n:[`Bohr`,`بور`],p:[[`Electrons revolve in discrete orbits and have quantized energies. An electron changes energy only by a quantum jump to a higher level (absorbing energy) or lower level (emitting energy).`,`تدور الإلكترونات في مدارات محددة وطاقاتها مكمّاة. ولا تتغير طاقة الإلكترون إلا بقفزة كمية إلى مستوى أعلى (امتصاص طاقة) أو أدنى (إصدار طاقة).`]]},
+{n:[`Quantum-mechanical`,`الميكانيكا الكمية`],p:[[`Bohr's model could not explain several electron phenomena. The electron is treated as having both wave-like and particle-like character, and its position is described as a probability rather than an orbit.`,`لم يستطع نموذج بور تفسير عدة ظواهر للإلكترونات. يُعامل الإلكترون بأنه ذو طبيعة موجية وجسيمية معاً، ويوصف موضعه باحتمال وليس بمدار.`]]}]},
+{t:'table',h:[`Atomic bonding in solids`,`الترابط الذري في المواد الصلبة`],cols:[[`Bond`,`الرابطة`],[`Mechanism`,`الآلية`],[`Directional?`,`اتجاهية؟`],[`Energy / notes`,`الطاقة / ملاحظات`],[`Where`,`أين توجد`]],rows:[
+[[`Ionic`,`أيونية`],[`Metal gives valence electrons to nonmetal; both become ions`,`يعطي الفلز إلكترونات التكافؤ للافلز فيصبحان أيونين`],[`No`,`لا`],`600–1500 kJ/mol; high melting`,[`NaCl, metal + nonmetal compounds`,`NaCl ومركبات الفلز واللافلز`]],
+[[`Covalent`,`تساهمية`],[`Atoms share electrons`,`تتشارك الذرات الإلكترونات`],[`Yes`,`نعم`],[`Only between the specific atoms that share`,`فقط بين الذرات المتشاركة المحددة`],[`H<sub>2</sub>, CH<sub>4</sub>, H<sub>2</sub>O, diamond, Si, GaAs, SiC, polymer chains`,`H<sub>2</sub> وCH<sub>4</sub> وH<sub>2</sub>O والألماس والسيليكون وGaAs وSiC وسلاسل البوليمر`]],
+[[`Metallic`,`فلزية`],[`Sea of free valence electrons holds ion cores together`,`بحر من إلكترونات التكافؤ الحرة يمسك الأيونات الموجبة`],[`No`,`لا`],`Melting −39 to 3410 °C`,[`Metals and alloys`,`المعادن وسبائكها`]],
+[[`Van der Waals`,`فان در فالس`],[`Attraction between dipoles`,`تجاذب بين ثنائيات القطب`],[`—`,`—`],`≈ 10 kJ/mol (weak)`,[`Induced and permanent dipoles`,`ثنائيات قطب مستحثة ودائمة`]],
+[[`Hydrogen bond`,`رابطة هيدروجينية`],[`H covalently bonded to F, O or N is a bare, unscreened proton attracting the negative end of a neighbor`,`الهيدروجين المرتبط تساهمياً بـ F أو O أو N بروتون عارٍ غير محجوب يجذب الطرف السالب لجار`],[`—`,`—`],`up to 51 kJ/mol (strongest secondary)`,`HF, H<sub>2</sub>O, NH<sub>3</sub>`]]},
+{t:'w',k:'bonds'},
+{t:'sec',h:[`Types of secondary (van der Waals) bonds`,`أنواع الروابط الثانوية (فان در فالس)`],u:[
+[`<b>Fluctuating induced dipole:</b> constant vibration briefly distorts an electrically symmetric atom, creating a tiny dipole that induces a dipole in a neighbor. These forces are temporary.`,`<b>ثنائي قطب مستحث متذبذب:</b> الاهتزاز الدائم يشوّه مؤقتاً تماثل ذرة متماثلة كهربائياً فينشأ ثنائي قطب صغير يستحث ثنائي قطب في الجار. وهذه القوى مؤقتة.`],
+[`<b>Permanent dipole:</b> polar molecules (e.g. HCl) have an asymmetrical arrangement of positive and negative regions.`,`<b>ثنائي قطب دائم:</b> الجزيئات القطبية (مثل HCl) فيها توزيع غير متماثل للمناطق الموجبة والسالبة.`],
+[`<b>Hydrogen bond:</b> the strongest secondary bond, a special case of polar-molecule bonding.`,`<b>الرابطة الهيدروجينية:</b> أقوى الروابط الثانوية وهي حالة خاصة من ترابط الجزيئات القطبية.`]]},
+{t:'sec',h:[`Crystalline vs. amorphous, and the unit cell`,`البلورية مقابل غير المتبلورة، والخلية الوحدة`],p:[
+[`A <b>crystalline</b> material has atoms in a repeating, periodic array over large distances (long-range order). All metals, many ceramics and some polymers are crystalline. Materials without this order are <b>non-crystalline (amorphous)</b>.`,`المادة <b>البلورية</b> ذراتها في ترتيب دوري متكرر على مسافات كبيرة (نظام بعيد المدى). كل المعادن وكثير من السيراميكات وبعض البوليمرات بلورية. أما المواد التي تفتقر لهذا النظام فهي <b>غير بلورية (غير متبلورة)</b>.`],
+[`In the <b>hard-sphere model</b> atoms are solid spheres touching their nearest neighbors. A <b>lattice</b> is the 3-D array of points at atom positions. The <b>unit cell</b> is the basic building block that defines the crystal structure by its geometry and atom positions.`,`في <b>نموذج الكرات الصلبة</b> تُعد الذرات كرات صلبة تتلامس مع أقرب جيرانها. <b>الشبكة</b> مصفوفة ثلاثية الأبعاد من النقاط عند مواضع الذرات. و<b>الخلية الوحدة</b> هي وحدة البناء الأساسية التي تحدد البنية البلورية بهندستها ومواضع الذرات فيها.`]]},
+{t:'table',h:[`Common metallic crystal structures`,`البنى البلورية الشائعة للمعادن`],cols:[[`Structure`,`البنية`],[`Atoms / cell`,`ذرات / خلية`],[`Coordination no.`,`عدد التنسيق`],[`APF`,`معامل التعبئة`],[`a–R relation`,`العلاقة a–R`],[`Example`,`مثال`]],rows:[
+[`SC`,`1`,`6`,`0.52`,`a = 2R`,[`Polonium only (low packing)`,`البولونيوم فقط (تعبئة منخفضة)`]],
+[`BCC`,`2`,`8`,`0.68`,`a = 4R/√3`,`α-Fe`],
+[`FCC`,`4`,`12`,`0.74`,`a = 2R√2`,`Cu, Al`],
+[`HCP`,`6`,`12`,`0.74`,`c/a ≈ 1.633`,`α-Ti`]],note:[`The lecture leaves the BCC packing factor as a question: it is <b>0.68</b>. SC and HCP atom counts and the SC values are standard figures that the lecture does not print.`,`تركت المحاضرة معامل التعبئة لبنية BCC كسؤال: قيمته <b>0.68</b>. أما قيم SC وعدد ذرات HCP فهي قيم معيارية لم تُطبع في المحاضرة.`]},
+{t:'w',k:'v3d',set:'metals'},
+{t:'w',k:'density'},
+{t:'sec',h:[`Polymorphism and allotropy`,`تعدد الأشكال البلورية والتآصل`],p:[
+[`Some materials have more than one crystal structure: <b>polymorphism</b>. For elements only, the term is <b>allotropy</b>. The stable structure depends on temperature and pressure.`,`بعض المواد لها أكثر من بنية بلورية: <b>تعدد الأشكال البلورية</b>. وللعناصر فقط يُسمى <b>التآصل</b>. وتعتمد البنية المستقرة على درجة الحرارة والضغط.`],
+[`Examples: carbon is graphite at ambient conditions and diamond at extreme pressure; α-iron is BCC at room temperature and becomes FCC at 912 °C.`,`أمثلة: الكربون جرافيت في الظروف العادية وألماس عند ضغط عالٍ جداً؛ والحديد α بنيته BCC عند درجة حرارة الغرفة ويتحول إلى FCC عند 912 °م.`]]},
+{t:'sec',h:[`Single crystals and the Czochralski (CZ) method`,`البلورات المفردة وطريقة تشوخرالسكي`],p:[
+[`In a <b>single crystal</b> the periodic arrangement is perfect and runs through the whole specimen; all unit cells have the same orientation.`,`في <b>البلورة المفردة</b> الترتيب الدوري كامل ويمتد عبر العينة كلها، وكل الخلايا الوحدة لها الاتجاه نفسه.`],
+[`<b>CZ method</b> (Jan Czochralski, 1916) grows a large single-crystal ingot in three steps:`,`<b>طريقة CZ</b> (يان تشوخرالسكي، 1916) تُنمّي سبيكة بلورة مفردة كبيرة بثلاث خطوات:`]],u:[
+[`1. Melting the raw material in a crucible`,`1. صهر المادة الخام في بوتقة`],[`2. Seeding: dipping a small seed crystal into the melt`,`2. التبذير: غمس بلورة بذرة صغيرة في المصهور`],[`3. Rotating and slowly pulling the seed upward`,`3. تدوير البذرة وسحبها ببطء إلى الأعلى`]]},
+{t:'sec',h:[`Polycrystalline materials`,`المواد متعددة البلورات`],p:[
+[`Most crystalline solids consist of many small crystals called <b>grains</b>, each with identical atomic arrangement inside. Orientation differs from grain to grain, so atoms mismatch where two grains meet: the <b>grain boundary</b>.`,`معظم المواد البلورية تتكون من بلورات صغيرة كثيرة تسمى <b>حبيبات</b>، الترتيب الذري داخل كل منها متطابق. يختلف الاتجاه من حبيبة لأخرى فينشأ عدم تطابق ذري عند ملتقى حبيبتين: <b>حد الحبيبة</b>.`]]},
+{t:'w',k:'bragg'}],
+cards:[
+[`Atomic number (Z)`,`العدد الذري (Z)`,`Number of protons in the nucleus; defines the element.`,`عدد البروتونات في النواة؛ يحدد العنصر.`],
+[`Isotopes`,`النظائر`,`Atoms of one element with different numbers of neutrons.`,`ذرات العنصر نفسه بأعداد مختلفة من النيوترونات.`],
+[`Ionic bond`,`الرابطة الأيونية`,`Electron transfer from metal to nonmetal; nondirectional; 600–1500 kJ/mol.`,`انتقال إلكترونات من الفلز إلى اللافلز؛ غير اتجاهية؛ 600–1500 kJ/mol.`],
+[`Covalent bond`,`الرابطة التساهمية`,`Electron sharing between adjacent atoms; directional.`,`تشارك الإلكترونات بين ذرات متجاورة؛ اتجاهية.`],
+[`Metallic bond`,`الرابطة الفلزية`,`Sea of free electrons gluing ion cores together.`,`بحر من الإلكترونات الحرة يمسك الأيونات الموجبة معاً.`],
+[`Unit cell`,`الخلية الوحدة`,`Basic building block of a crystal structure.`,`وحدة البناء الأساسية للبنية البلورية.`],
+[`Coordination number`,`عدد التنسيق`,`Number of nearest neighbors: FCC 12, BCC 8.`,`عدد أقرب الجيران: FCC تساوي 12 وBCC تساوي 8.`],
+[`Polymorphism`,`تعدد الأشكال البلورية`,`A material having more than one crystal structure (allotropy for elements).`,`امتلاك المادة أكثر من بنية بلورية (التآصل للعناصر).`],
+[`Grain boundary`,`حد الحبيبة`,`Region of atomic mismatch where two grains meet.`,`منطقة عدم تطابق ذري عند التقاء حبيبتين.`],
+[`Bragg's law`,`قانون براغ`,`nλ = 2d sinθ`,`nλ = 2d sinθ`]],
+quiz:[
+{q:[`The atomic number Z equals the number of:`,`العدد الذري Z يساوي عدد:`],o:[[`Neutrons`,`النيوترونات`],[`Protons`,`البروتونات`],[`Protons + neutrons`,`البروتونات + النيوترونات`],[`Electron shells`,`مدارات الإلكترون`]],a:1,e:[`Z is the number of protons; A is protons plus neutrons.`,`Z عدد البروتونات، أما A فهو البروتونات مع النيوترونات.`]},
+{q:[`Which bond is directional?`,`أي رابطة اتجاهية؟`],o:[[`Ionic`,`أيونية`],[`Metallic`,`فلزية`],[`Covalent`,`تساهمية`],[`None of them`,`لا شيء منها`]],a:2,e:[`Covalent bonds exist only along the line between the sharing atoms.`,`الروابط التساهمية توجد فقط على الخط بين الذرتين المتشاركتين.`]},
+{q:[`The strongest secondary bond is the:`,`أقوى الروابط الثانوية هي:`],o:[[`Fluctuating induced dipole bond`,`ثنائي القطب المستحث المتذبذب`],[`Hydrogen bond`,`الرابطة الهيدروجينية`],[`Ionic bond`,`الرابطة الأيونية`],[`Metallic bond`,`الرابطة الفلزية`]],a:1,e:[`Up to 51 kJ/mol, versus about 10 kJ/mol for typical van der Waals bonds.`,`حتى 51 kJ/mol مقابل نحو 10 kJ/mol لروابط فان در فالس النموذجية.`]},
+{q:[`How many atoms does an FCC unit cell contain?`,`كم ذرة تحتوي الخلية الوحدة FCC؟`],o:[[`1`,`1`],[`2`,`2`],[`4`,`4`],[`6`,`6`]],a:2,e:[`8 corners × 1/8 + 6 faces × 1/2 = 4.`,`8 زوايا × 1/8 + 6 أوجه × 1/2 = 4.`]},
+{q:[`The atomic packing factor of BCC is:`,`معامل التعبئة الذري لبنية BCC هو:`],o:[[`0.52`,`0.52`],[`0.68`,`0.68`],[`0.74`,`0.74`],[`0.91`,`0.91`]],a:1,e:[`BCC = 0.68, FCC and HCP = 0.74, SC = 0.52.`,`BCC تساوي 0.68، وFCC وHCP تساوي 0.74، وSC تساوي 0.52.`]},
+{q:[`Bragg's law is:`,`قانون براغ هو:`],o:[[`nλ = d sinθ`,`nλ = d sinθ`],[`nλ = 2d sinθ`,`nλ = 2d sinθ`],[`λ = 2d cosθ`,`λ = 2d cosθ`],[`d = nλ sinθ`,`d = nλ sinθ`]],a:1,e:[`Path difference of 2d sinθ must equal a whole number of wavelengths.`,`يجب أن يساوي فرق المسار 2d sinθ عدداً صحيحاً من الأطوال الموجية.`]},
+{q:[`Which technique pulls a rotating seed crystal out of a melt to make a single-crystal ingot?`,`أي تقنية تسحب بلورة بذرة دوارة من مصهور لإنتاج سبيكة بلورة مفردة؟`],o:[[`Czochralski (CZ) method`,`طريقة تشوخرالسكي (CZ)`],[`Precipitation hardening`,`التصلد بالترسيب`],[`Cold working`,`التشغيل على البارد`],[`Passivation`,`التخميل`]],a:0,e:[`Melting, seeding, then rotating and pulling.`,`صهر ثم تبذير ثم تدوير وسحب.`]},
+{q:[`At what temperature does α-iron (BCC) change to FCC iron?`,`عند أي درجة حرارة يتحول الحديد α (BCC) إلى حديد FCC؟`],o:[[`727 °C`,`727 °م`],[`912 °C`,`912 °م`],[`1147 °C`,`1147 °م`],[`1538 °C`,`1538 °م`]],a:1,e:[`This allotropic change happens at 912 °C.`,`يحدث هذا التحول التآصلي عند 912 °م.`]}]};
+D[2]={title:[`Metallic Biomaterials`,`المواد الحيوية المعدنية`],src:`Metallic Biomaterials`,blocks:[
+{t:'sec',h:[`Why metals in the body?`,`لماذا المعادن في الجسم؟`],p:[
+[`Metallic bonding is essentially non-directional, so metal ions can shift without destroying the crystal: the solid deforms plastically.`,`الترابط الفلزي غير اتجاهي أساساً، لذا يمكن أن تنزاح الأيونات الفلزية دون تدمير البلورة، فيتشوه الصلب لدنياً.`]],u:[
+[`<b>Passive substitutes for hard tissue:</b> total hip and knee joints, bone plates and screws, spinal fixation, dental implants (excellent mechanical properties and corrosion resistance).`,`<b>بدائل سلبية للنسيج الصلب:</b> مفاصل الورك والركبة الكاملة، صفائح العظام ومسامير تثبيتها، تثبيت العمود الفقري، غرسات الأسنان (خواص ميكانيكية ممتازة ومقاومة تآكل).`],
+[`<b>Passive devices delivered through catheters:</b> vascular stents, catheter guide wires.`,`<b>أجهزة سلبية تُوصَل عبر القسطرة:</b> دعامات الأوعية الدموية وأسلاك توجيه القسطرة.`],
+[`<b>Active implants:</b> pacemakers and cochlear implants.`,`<b>غرسات فعّالة:</b> أجهزة تنظيم ضربات القلب وغرسات القوقعة.`],
+[`The first alloy made for human use was <b>vanadium steel</b> (Sherman bone plates and screws). Fe, Cr, Co, Ni, Ti, Ta, Nb, Mo, W are tolerated only in minute amounts; Fe helps red blood cells and Co takes part in vitamin B12, but large amounts are not tolerated.`,`أول سبيكة صُنعت للاستخدام البشري هي <b>الفاناديوم ستيل</b> (صفائح ومسامير شيرمان للعظام). تتحمل الأجسام Fe وCr وCo وNi وTi وTa وNb وMo وW بكميات ضئيلة فقط؛ فالحديد يفيد كريات الدم الحمراء والكوبالت يشارك في فيتامين B12، لكن الكميات الكبيرة غير مقبولة.`],
+[`Main worry: <b>corrosion in vivo</b>. It weakens the implant and the corrosion products harm surrounding tissues and organs.`,`القلق الرئيسي: <b>التآكل داخل الجسم</b>، فهو يضعف الغرسة وتؤذي نواتجه الأنسجة والأعضاء المجاورة.`]]},
+{t:'sec',h:[`Stainless steels: from 18-8 to 316L`,`الفولاذ المقاوم للصدأ: من 18-8 إلى 316L`],u:[
+[`<b>18-8</b> (type 302) was the first stainless steel for implants: stronger and more corrosion resistant than vanadium steel, which is no longer used in vivo.`,`<b>18-8</b> (النوع 302) أول فولاذ مقاوم للصدأ للغرسات: أقوى وأكثر مقاومة للتآكل من الفاناديوم ستيل الذي لم يعد يُستخدم داخل الجسم.`],
+[`Adding a little Mo gave <b>type 316</b>: better corrosion resistance in chloride solution and against pitting.`,`إضافة قليل من Mo أعطت <b>النوع 316</b>: مقاومة تآكل أفضل في محلول الكلوريد وضد التنقر.`],
+[`In the 1950s carbon was cut from 0.08% to max 0.03%: <b>316L</b>. Less carbon means fewer carbides, less chromium depletion near the grains, and no <b>intergranular corrosion</b> (sensitization).`,`في الخمسينيات خُفّض الكربون من 0.08% إلى 0.03% كحد أقصى: <b>316L</b>. كربون أقل يعني كربيدات أقل ونضوباً أقل للكروم قرب الحبيبات، وبالتالي لا <b>تآكل بين الحبيبات</b> (التحسس).`],
+[`Chromium must be at least <b>11%</b> for corrosion resistance; passivating in 30% nitric acid gives excellent resistance.`,`يجب ألا يقل الكروم عن <b>11%</b> للمقاومة؛ والتخميل في حمض النيتريك 30% يعطي مقاومة ممتازة.`],
+[`Nickel stabilizes the FCC <b>austenitic</b> phase; the alloy is nonmagnetic. ASTM recommends 316L over 316 for implants.`,`النيكل يثبّت الطور <b>الأوستنيتي</b> FCC؛ والسبيكة غير مغناطيسية. وتوصي ASTM بـ316L بدلاً من 316 للغرسات.`],
+[`Even 316L can corrode in highly stressed, oxygen-depleted spots (under the screws of a fracture plate), so it suits only <b>temporary</b> devices: fracture plates, screws, hip nails. Passivation and nitrogen-ion implantation improve corrosion, wear and fatigue.`,`حتى 316L قد يتآكل في مناطق عالية الإجهاد ناقصة الأكسجين (تحت مسامير صفيحة الكسر)، لذلك يناسب الأجهزة <b>المؤقتة</b> فقط: صفائح الكسور والمسامير ومسامير الورك. وتحسّن عملية التخميل وزرع أيونات النيتروجين المقاومة للتآكل والبلى والكلال.`]]},
+{t:'tabs',h:[`Why 316 / 316L cannot be hardened by heat treatment`,`لماذا لا يمكن تصليد 316 / 316L بالمعالجة الحرارية`],items:[
+{n:[`1 Austenitic structure`,`1 بنية أوستنيتية`],p:[[`High nickel keeps the crystal FCC at all temperatures from room temperature to melting.`,`النيكل العالي يُبقي البلورة FCC عند كل الدرجات من حرارة الغرفة حتى الانصهار.`]]},
+{n:[`2 No phase change`,`2 لا تحول طوري`],p:[[`Normal hardening heats steel to austenite then quenches to trap carbon as hard martensite. Because 316 stays austenitic, quenching does not change its hardness.`,`التصليد المعتاد يسخّن الفولاذ إلى أوستنيت ثم يُبرَّد فجأة لحبس الكربون في المارتنسيت الصلب. ولأن 316 يبقى أوستنيتياً فإن التبريد السريع لا يغيّر صلادته.`]]},
+{n:[`3 Low carbon`,`3 كربون منخفض`],p:[[`With at most 0.08% (0.03% for 316L) carbon there are too few carbon atoms to trigger martensitic transformation.`,`مع كربون لا يزيد عن 0.08% (0.03% في 316L) لا توجد ذرات كربون كافية لإحداث التحول المارتنسيتي.`]]}],},
+{t:'table',h:[`Composition of 316L (ASTM F139)`,`تركيب 316L (ASTM F139)`],cols:[[`Element`,`العنصر`],[`Composition (%)`,`النسبة (%)`]],rows:[[[`Carbon`,`كربون`],`0.03 max`],[[`Manganese`,`منغنيز`],`2.00 max`],[[`Phosphorus`,`فوسفور`],`0.03 max`],[[`Sulfur`,`كبريت`],`0.03 max`],[[`Silicon`,`سيليكون`],`0.75 max`],[[`Chromium`,`كروم`],`17.00–20.00`],[[`Nickel`,`نيكل`],`12.00–14.00`],[[`Molybdenum`,`موليبدينوم`],`2.00–4.00`]]},
+{t:'table',h:[`Mechanical properties of 316L for implants`,`الخواص الميكانيكية لـ316L للغرسات`],cols:[[`Condition`,`الحالة`],[`UTS min (MPa)`,`مقاومة الشد القصوى (MPa)`],[`Yield 0.2% (MPa)`,`الخضوع 0.2% (MPa)`],[`Elongation (%)`,`الاستطالة (%)`],`Rockwell`],rows:[[[`Annealed`,`ملدّن`],`485`,`172`,`40`,`95 HRB`],[[`Cold-worked`,`مشغّل على البارد`],`860`,`690`,`12`,`—`]],note:[`Cold working raises strength a lot but cuts ductility: elongation drops from 40% to 12%.`,`التشغيل على البارد يرفع المقاومة كثيراً لكنه يقلل الليونة: تنخفض الاستطالة من 40% إلى 12%.`]},
+{t:'w',k:'precip'},
+{t:'sec',h:[`Cold working (strain hardening)`,`التشغيل على البارد (التصلب بالانفعال)`],p:[
+[`Load a ductile metal past yielding (point 1) up to point 2 and unload: permanent plastic deformation remains, the <b>residual strain</b> or permanent set. Reload it, and it now yields only at point 2. The yield strength has risen.`,`حمّل معدناً ليّناً بعد الخضوع (النقطة 1) حتى النقطة 2 ثم أزل الحمل: تبقى تشوهات لدنة دائمة هي <b>الانفعال المتبقي</b>. أعد التحميل فلا يخضع إلا عند النقطة 2. أي ارتفع إجهاد الخضوع.`],
+[`Cause: plastic deformation increases the <b>dislocation density</b>, and the dislocations interact with each other and resist further motion.`,`السبب: التشوه اللدن يزيد <b>كثافة الانخلاعات</b> وتتفاعل الانخلاعات مع بعضها فتقاوم الحركة اللاحقة.`]]},
+{t:'w',k:'cw'},
+{t:'sec',h:[`Cobalt–chromium alloys`,`سبائك الكوبالت–كروم`],p:[
+[`Two basic types: <b>castable CoCrMo</b> (dentistry for decades, more recently artificial joints) and <b>wrought CoNiCrMo</b> (hot forged; stems of prostheses for heavily loaded joints such as knee and hip).`,`نوعان أساسيان: <b>CoCrMo القابلة للسباكة</b> (في طب الأسنان منذ عقود وأخيراً المفاصل الصناعية) و<b>CoNiCrMo المطاوعة</b> (تُطرق ساخنة؛ سيقان الأطقم الاصطناعية للمفاصل عالية الحمل كالركبة والورك).`],
+[`Mo gives finer grains (higher strength after casting or forging); Cr improves corrosion resistance and solid-solution strengthening.`,`يعطي Mo حبيبات أدق (مقاومة أعلى بعد السباكة أو الطرق)؛ ويحسّن Cr مقاومة التآكل ويقوّي المحلول الصلب.`]]},
+{t:'table',h:[`ASTM CoCr alloys for surgical implants`,`سبائك CoCr حسب ASTM للغرسات الجراحية`],cols:[[`Code`,`الرمز`],[`Alloy`,`السبيكة`],[`Form`,`الشكل`]],rows:[[`F75`,`CoCrMo`,[`Cast`,`مسبوكة`]],[`F90`,`CoCrWNi`,[`Wrought`,`مطاوعة`]],[`F562`,`CoNiCrMo`,[`Wrought`,`مطاوعة`]],[`F563`,`CoNiCrMoWFe`,[`Wrought`,`مطاوعة`]]]},
+{t:'sec',h:[`More on CoNiCrMo and biological response`,`المزيد عن CoNiCrMo والاستجابة الحيوية`],u:[
+[`About 35% Co and 35% Ni; highly corrosion resistant even in chloride under stress. Cold working is difficult for large parts, so only <b>hot forging</b> makes large implants such as hip stems.`,`نحو 35% Co و35% Ni؛ شديدة المقاومة للتآكل حتى في الكلوريد تحت الإجهاد. التشغيل على البارد صعب للقطع الكبيرة، فالطرق الساخن وحده يصنع الغرسات الكبيرة كسيقان الورك.`],
+[`Superior fatigue and tensile strength suit long service life; replacing a failed stem deep in the femoral canal is hard and revision surgery usually gives poorer fixation.`,`مقاومة الكلال والشد المتفوقة تناسب العمر الطويل؛ فاستبدال ساق فاشلة في عمق قناة عظم الفخذ صعب، والجراحة التصحيحية غالباً أسوأ تثبيتاً.`],
+[`Nickel release at 37 °C in Ringer's solution was about <b>3×10<sup>-10</sup> g/cm²/day</b> for both CoNiCrMo and 316L, although CoNiCrMo has about three times the nickel.`,`كان تحرر النيكل عند 37 °م في محلول رينغر نحو <b>3×10<sup>-10</sup> غ/سم²/يوم</b> لكل من CoNiCrMo وسبيكة 316L رغم أن نيكل CoNiCrMo يعادل ثلاثة أضعاف تقريباً.`],
+[`In vitro, particulate Co is toxic to osteoblast-like cells (it inhibits type-I collagen, osteocalcin, alkaline phosphatase); particulate Cr and CoCr are well tolerated. Co and Ni extracts at 50% were highly toxic; Cr extract was less toxic.`,`في المختبر، جسيمات Co سامة للخلايا الشبيهة بالبانيات للعظم (تثبط الكولاجين من النوع I والأوستيوكالسين والفوسفاتاز القلوي)، بينما جسيمات Cr وسبيكة CoCr مقبولة جيداً. وكانت مستخلصات Co وNi بتركيز 50% شديدة السمية، ومستخلص Cr أقل سمية.`],
+[`Modulus of elasticity of CoCr alloys: <b>220–234 GPa</b>, higher than stainless steel, which changes how load transfers to bone.`,`معامل المرونة لسبائك CoCr: <b>220–234 GPa</b> وهو أعلى من الفولاذ المقاوم للصدأ، مما يغيّر نمط انتقال الحمل إلى العظم.`]]},
+{t:'sec',h:[`Titanium and Ti-6Al-4V`,`التيتانيوم وسبيكة Ti-6Al-4V`],u:[
+[`Light (4.5 g/cm³) with good mechanical and corrosion properties. Four grades of commercially pure Ti are separated by impurities; oxygen strongly affects ductility and strength.`,`خفيف (4.5 غ/سم³) وذو خواص ميكانيكية ومقاومة تآكل جيدة. أربع رتب من Ti التجاري النقي تتمايز بالشوائب، ولـالأكسجين تأثير كبير في الليونة والمقاومة.`],
+[`<b>Ti-6Al-4V:</b> Al 5.5–6.5%, V 3.5–4.5%; fatigue strength about 550 MPa, similar to CoCr.`,`<b>Ti-6Al-4V:</b> Al بنسبة 5.5–6.5% وV بنسبة 3.5–4.5%؛ مقاومة كلال نحو 550 MPa أي قريبة من CoCr.`],
+[`Ti is allotropic: <b>α-Ti (HCP)</b> up to 882 °C, <b>β-Ti (BCC)</b> above. <b>Al stabilizes α</b> (raises the transformation temperature); <b>V stabilizes β</b> (lowers it).`,`التيتانيوم متآصل: <b>α-Ti (HCP)</b> حتى 882 °م و<b>β-Ti (BCC)</b> فوقها. <b>الألمنيوم يثبّت α</b> (يرفع درجة التحول) و<b>الفاناديوم يثبّت β</b> (يخفضها).`],
+[`Modulus about 110 GPa; best specific strength (strength per density) of all implant materials; but poor shear strength, so less desirable for bone screws and plates.`,`المعامل نحو 110 GPa؛ أفضل مقاومة نوعية (المقاومة لكل كثافة) بين مواد الغرسات؛ لكن مقاومة القص ضعيفة فلا يفضّل لمسامير وصفائح العظام.`],
+[`Corrosion resistance comes from a solid <b>TiO<sub>2</sub> oxide layer about 10 nm</b> thick.`,`تأتي مقاومة التآكل من طبقة صلبة من <b>أكسيد TiO<sub>2</sub> بسماكة نحو 10 نانومتر</b>.`]]},
+{t:'table',h:[`Mechanical properties of Ti and its alloys (ASTM F136)`,`الخواص الميكانيكية للتيتانيوم وسبائكه (ASTM F136)`],cols:[[`Property`,`الخاصية`],`Grade 1`,`Grade 2`,`Grade 3`,`Grade 4`,`Ti-6Al-4V`,`Ti-13Nb-13Zr`],rows:[
+[[`Tensile strength (MPa)`,`مقاومة الشد (MPa)`],`240`,`345`,`450`,`550`,`860`,`1030`],
+[[`Yield 0.2% (MPa)`,`الخضوع 0.2% (MPa)`],`170`,`275`,`380`,`485`,`795`,`900`],
+[[`Elongation (%)`,`الاستطالة (%)`],`24`,`20`,`18`,`15`,`10`,`15`],
+[[`Reduction of area (%)`,`نقص المساحة (%)`],`30`,`30`,`30`,`25`,`25`,`45`]]},
+{t:'w',k:'dens'},
+{t:'rev',h:[`Worked example: volume change of Ti at 882 °C`,`مثال محلول: تغير حجم التيتانيوم عند 882 °م`],p:[[`Titanium changes from HCP (a = 2.95 Å, c = 4.683 Å) to BCC (a = 3.32 Å) at 882 °C. Find the volume change in cm³/g. Density 4.54 g/cm³, atomic weight 47.9 g/mol.`,`يتحول التيتانيوم من HCP (a = 2.95 Å، c = 4.683 Å) إلى BCC (a = 3.32 Å) عند 882 °م. احسب تغير الحجم بوحدة سم³/غ. الكثافة 4.54 غ/سم³ والوزن الذري 47.9 غ/مول.`]],run:()=>{
+  const a1=2.95,c=4.683,a2=3.32;const V1=1.5*Math.sqrt(3)*a1*a1*c,v1=V1/6,V2=a2**3,v2=V2/2,r=v2/v1,s0=1/4.54,ds=s0*(r-1);
+  const f=x=>x.toFixed(3);
+  return bi([`<b>1.</b> HCP cell volume = (3√3/2)·a²·c = ${V1.toFixed(2)} Å³ with 6 atoms, so ${f(v1)} Å³ per atom.`,`<b>1.</b> حجم خلية HCP = (3√3/2)·a²·c = ${V1.toFixed(2)} Å³ وفيها 6 ذرات، أي ${f(v1)} Å³ للذرة.`])+
+  bi([`<b>2.</b> BCC cell volume = a³ = ${V2.toFixed(2)} Å³ with 2 atoms, so ${f(v2)} Å³ per atom.`,`<b>2.</b> حجم خلية BCC = a³ = ${V2.toFixed(2)} Å³ وفيها ذرتان، أي ${f(v2)} Å³ للذرة.`])+
+  bi([`<b>3.</b> Volume ratio = ${f(r)}, an expansion of ${((r-1)*100).toFixed(1)}%.`,`<b>3.</b> نسبة الحجم = ${f(r)} أي تمدد بنسبة ${((r-1)*100).toFixed(1)}%.`])+
+  bi([`<b>4.</b> Specific volume before = 1/4.54 = ${s0.toFixed(4)} cm³/g, so ΔV = ${s0.toFixed(4)} × ${(r-1).toFixed(4)} ≈ <b>+${ds.toFixed(4)} cm³/g</b>.`,`<b>4.</b> الحجم النوعي قبل التحول = 1/4.54 = ${s0.toFixed(4)} سم³/غ، فيكون ΔV = ${s0.toFixed(4)} × ${(r-1).toFixed(4)} ≈ <b>+${ds.toFixed(4)} سم³/غ</b>.`])}}],
+cards:[
+[`316L`,`316L`,`Austenitic stainless steel with ≤0.03% C; ASTM-recommended for implants; temporary devices only.`,`فولاذ أوستنيتي مقاوم للصدأ بكربون ≤0.03%؛ توصي به ASTM للغرسات؛ للأجهزة المؤقتة فقط.`],
+[`Intergranular corrosion`,`التآكل بين الحبيبات`,`Corrosion along grain regions depleted of Cr by carbide formation; avoided by low carbon.`,`تآكل في مناطق الحبيبات التي نضب منها Cr بسبب تكوّن الكربيدات؛ يُتجنب بخفض الكربون.`],
+[`Passivation`,`التخميل`,`Treatment (e.g. 30% nitric acid) that forms a protective oxide film.`,`معالجة (مثل حمض النيتريك 30%) تكوّن طبقة أكسيد واقية.`],
+[`Strain hardening`,`التصلب بالانفعال`,`Yield strength rises after plastic deformation because dislocation density increases.`,`يرتفع إجهاد الخضوع بعد التشوه اللدن لأن كثافة الانخلاعات تزداد.`],
+[`Precipitation hardening`,`التصلد بالترسيب`,`Solution treat, quench, age: fine precipitates form inside grains.`,`معالجة بالمحلول ثم تبريد سريع ثم تعتيق: تتكون رواسب دقيقة داخل الحبيبات.`],
+[`CoNiCrMo (F562)`,`CoNiCrMo (F562)`,`Wrought, hot-forged alloy for hip and knee stems; excellent fatigue strength.`,`سبيكة مطاوعة تُطرق ساخنة لسيقان الورك والركبة؛ مقاومة كلال ممتازة.`],
+[`Ti-6Al-4V`,`Ti-6Al-4V`,`Widely used Ti alloy: Al stabilizes α, V stabilizes β; fatigue strength ≈ 550 MPa.`,`سبيكة تيتانيوم واسعة الاستخدام: Al يثبّت α وV يثبّت β؛ مقاومة كلال ≈ 550 MPa.`],
+[`α-Ti / β-Ti`,`α-Ti / β-Ti`,`HCP up to 882 °C, BCC above.`,`HCP حتى 882 °م وBCC فوقها.`]],
+quiz:[
+{q:[`Why is carbon reduced from 0.08% to 0.03% in 316L?`,`لماذا يُخفض الكربون من 0.08% إلى 0.03% في 316L؟`],o:[[`To make it magnetic`,`ليصبح مغناطيسياً`],[`To reduce carbide formation and Cr depletion, avoiding intergranular corrosion`,`لتقليل تكوّن الكربيدات ونضوب Cr وتجنب التآكل بين الحبيبات`],[`To raise the density`,`لرفع الكثافة`],[`To allow heat hardening`,`ليسمح بالتصليد الحراري`]],a:1,e:[`Fewer carbides means chromium stays in the grain regions.`,`كربيدات أقل تعني بقاء الكروم في مناطق الحبيبات.`]},
+{q:[`316L can be strengthened by:`,`يمكن تقوية 316L عن طريق:`],o:[[`Quench hardening`,`التصليد بالتبريد السريع`],[`Cold working`,`التشغيل على البارد`],[`Martensitic transformation`,`التحول المارتنسيتي`],[`Cooling slowly`,`التبريد البطيء`]],a:1,e:[`It stays austenitic, so only cold working hardens it.`,`يبقى أوستنيتياً لذا لا يصلّده إلا التشغيل على البارد.`]},
+{q:[`Minimum chromium for corrosion resistance in stainless steel:`,`أدنى نسبة كروم لمقاومة التآكل في الفولاذ المقاوم للصدأ:`],o:[[`2%`,`2%`],[`5%`,`5%`],[`11%`,`11%`],[`30%`,`30%`]],a:2,e:[`11% Cr is the minimum effective concentration.`,`نسبة 11% هي أدنى تركيز فعّال.`]},
+{q:[`Which alloy is hot forged for hip prosthesis stems?`,`أي سبيكة تُطرق ساخنة لسيقان أطقم الورك؟`],o:[[`Wrought CoNiCrMo`,`CoNiCrMo المطاوعة`],[`Vanadium steel`,`فاناديوم ستيل`],[`Pure Ti grade 1`,`Ti نقي رتبة 1`],[`Type 302`,`النوع 302`]],a:0,e:[`Only hot forging can shape large CoNiCrMo implants.`,`الطرق الساخن وحده يشكّل غرسات CoNiCrMo الكبيرة.`]},
+{q:[`In titanium alloys, which element stabilizes the β phase?`,`في سبائك التيتانيوم أي عنصر يثبّت الطور β؟`],o:[[`Aluminum`,`الألمنيوم`],[`Vanadium`,`الفاناديوم`],[`Oxygen`,`الأكسجين`],[`Iron oxide`,`أكسيد الحديد`]],a:1,e:[`Al stabilizes α; V lowers the α→β temperature.`,`Al يثبّت α وV يخفض درجة تحول α→β.`]},
+{q:[`Titanium resists corrosion because of:`,`يقاوم التيتانيوم التآكل بسبب:`],o:[[`A TiO₂ layer about 10 nm thick`,`طبقة TiO₂ سماكتها نحو 10 نانومتر`],[`High nickel content`,`محتوى نيكل عالٍ`],[`High carbon`,`كربون عالٍ`],[`Its high density`,`كثافته العالية`]],a:0,e:[`The solid oxide layer protects the metal.`,`طبقة الأكسيد الصلبة تحمي المعدن.`]},
+{q:[`Correct order of precipitation hardening:`,`الترتيب الصحيح للتصلد بالترسيب:`],o:[[`Aging, quenching, solution treating`,`تعتيق ثم تبريد سريع ثم معالجة بالمحلول`],[`Solution treating, quenching, aging`,`معالجة بالمحلول ثم تبريد سريع ثم تعتيق`],[`Quenching, aging, solution treating`,`تبريد سريع ثم تعتيق ثم معالجة بالمحلول`],[`Cold working, aging, quenching`,`تشغيل على البارد ثم تعتيق ثم تبريد سريع`]],a:1,e:[`Dissolve solute, trap it by rapid cooling, then let fine precipitates form.`,`تذويب المذاب ثم حبسه بالتبريد السريع ثم ترك الرواسب الدقيقة تتكوّن.`]},
+{q:[`Strain hardening happens because plastic deformation increases:`,`يحدث التصلب بالانفعال لأن التشوه اللدن يزيد:`],o:[[`Grain size`,`حجم الحبيبات`],[`Dislocation density`,`كثافة الانخلاعات`],[`Chromium content`,`محتوى الكروم`],[`Temperature`,`درجة الحرارة`]],a:1,e:[`Dislocation–dislocation interactions resist further deformation.`,`تفاعلات الانخلاعات مع بعضها تقاوم التشوه اللاحق.`]}]};
+D[3]={title:[`Phase Diagrams`,`مخططات الأطوار`],src:`Phase Diagrams`,blocks:[
+{t:'sec',h:[`Basic concepts`,`المفاهيم الأساسية`],p:[
+[`Phase diagrams matter because microstructure strongly correlates with mechanical properties.`,`تكمن أهمية مخططات الأطوار في أن البنية المجهرية ترتبط ارتباطاً قوياً بالخواص الميكانيكية.`]],u:[
+[`<b>System:</b> the series of possible alloys made of the same components, regardless of composition (e.g. the iron–carbon system).`,`<b>المنظومة:</b> سلسلة السبائك الممكنة المكوّنة من المكونات نفسها بغض النظر عن التركيب (مثل منظومة الحديد–كربون).`],
+[`<b>Solid solution:</b> atoms of at least two types; solute atoms sit in substitutional or interstitial positions in the solvent lattice.`,`<b>المحلول الصلب:</b> ذرات من نوعين على الأقل؛ تحتل ذرات المذاب مواقع إحلالية أو بينية في شبكة المذيب.`],
+[`<b>Solubility limit:</b> the maximum solute concentration that dissolves in the solvent. Beyond it, another solid solution or compound with a clearly different composition forms.`,`<b>حد الذوبانية:</b> أقصى تركيز من المذاب يذوب في المذيب. وما زاد عنه يكوّن محلولاً صلباً آخر أو مركباً بتركيب مختلف بوضوح.`],
+[`<b>Phase:</b> a homogeneous portion of a system with uniform physical and chemical characteristics. Every pure material, and every solid, liquid or gaseous solution, is a phase.`,`<b>الطور:</b> جزء متجانس من المنظومة له خواص فيزيائية وكيميائية موحدة. كل مادة نقية، وكل محلول صلب أو سائل أو غازي، يُعد طوراً.`]]},
+{t:'tabs',h:[`Types of phase diagram`,`أنواع مخططات الأطوار`],items:[
+{n:[`Isomorphous`,`متشاكل`],p:[[`Cu–Ni: the liquids mix in all proportions and the solids form one substitutional solid solution α over the whole range. Both are FCC, so α is FCC.`,`Cu–Ni: تمتزج السوائل بكل النسب وتكوّن الصلبة محلولاً صلباً إحلالياً واحداً α على كامل المدى. وكلا الفلزين FCC لذا فإن α هو FCC.`],
+  [`Melting points: Ni 1458 °C (point A) and Cu 1083 °C (point C). An alloy freezes over a <b>freezing range</b>. The line ABC is the <b>liquidus</b>, the line ADC is the <b>solidus</b>, and between them L + α coexist.`,`نقطتا الانصهار: Ni عند 1458 °م (النقطة A) وCu عند 1083 °م (النقطة C). تتجمد السبيكة ضمن <b>مدى تجمد</b>. الخط ABC هو <b>الليكويدس</b> والخط ADC هو <b>السوليدس</b>، وبينهما يتعايش L + α.`]],note:[`Liquid ⇌ α (cooling ⟶, heating ⟵).`,`سائل ⇌ α (تبريد ⟶، تسخين ⟵).`]},
+{n:[`Eutectic`,`يوتكتيكي`],p:[[`Reaction: Liquid ⇌ α + β, at one specific composition (eutectic composition) and one temperature (eutectic temperature). "Eutectic" means low melting: it is the lowest melting temperature in the system.`,`التفاعل: سائل ⇌ α + β عند تركيب محدد (التركيب اليوتكتيكي) ودرجة حرارة محددة (درجة الحرارة اليوتكتيكية). ومعنى "يوتكتيكي" هو الانصهار المنخفض: وهي أدنى درجة انصهار في المنظومة.`]],
+  u:[[`<b>Case 1, no solid solubility (Cd–Bi):</b> Liquid ⇌ A + B. Eutectic at 140 °C and 60% Bi / 40% Cd; Bi melts at 321 °C and Cd at 271 °C.`,`<b>الحالة 1، دون ذوبانية صلبة (Cd–Bi):</b> سائل ⇌ A + B. اليوتكتيك عند 140 °م وبتركيب 60% Bi / 40% Cd؛ ينصهر Bi عند 321 °م وCd عند 271 °م.`],
+  [`<b>Case 2, with solid solutions (Sn–Pb):</b> α is Sn dissolved in Pb, β is Pb dissolved in Sn. Eutectic alloy: 61.9% Sn, 38.1% Pb, at 183 °C.`,`<b>الحالة 2، مع محاليل صلبة (Sn–Pb):</b> α هو Sn مذاب في Pb وβ هو Pb مذاب في Sn. السبيكة اليوتكتيكية: 61.9% Sn و38.1% Pb عند 183 °م.`]]},
+{n:[`Peritectic`,`بيريتكتيكي`],p:[[`Reaction: Liquid + β ⇌ α, at a specific peritectic temperature, giving α of a specific composition. It usually occurs when the two metals have widely different melting points. Example: Ag–Pt.`,`التفاعل: سائل + β ⇌ α عند درجة حرارة بيريتكتيكية محددة وينتج α بتركيب محدد. يحدث عادةً حين تكون نقطتا انصهار الفلزين متباعدتين كثيراً. مثال: Ag–Pt.`]]},
+{n:[`Eutectoid`,`يوتكتويدي`],p:[[`Upon cooling, one solid phase transforms into two other solid phases: S1 ⇌ S2 + S3 (reverse on heating). What separates eutectoid from eutectic is that a <b>solid</b>, not a liquid, transforms into two solids at a single temperature. It occurs in the iron–carbon system.`,`عند التبريد يتحول طور صلب واحد إلى طورين صلبين آخرين: S1 ⇌ S2 + S3 (والعكس عند التسخين). الفرق بين اليوتكتويدي واليوتكتيكي أن الذي يتحول هو <b>صلب</b> وليس سائلاً، إلى صلبين عند درجة حرارة واحدة. ويوجد في منظومة الحديد–كربون.`]]}]},
+{t:'sec',h:[`Microstructure development in a eutectic system`,`تطور البنية المجهرية في منظومة يوتكتيكية`],u:[
+[`<b>Eutectic alloy</b> solidifies like a pure metal at the eutectic temperature, which is lower than the melting points of either metal. Its structure has two phases, whose amounts follow from the lever rule.`,`<b>السبيكة اليوتكتيكية</b> تتجمد كمعدن نقي عند درجة الحرارة اليوتكتيكية الأقل من نقطتي انصهار الفلزين. بنيتها من طورين تُحسب كمياتهما بقاعدة الرافعة.`],
+[`<b>Hypoeutectic alloy</b> (less than 60% Bi in Cd–Bi) solidifies in two stages: primary Cd separates from the liquid between T1 and T<sub>E</sub>; then the remaining liquid, now at eutectic composition, freezes as eutectic structure. Use the lever rule just above T<sub>E</sub>.`,`<b>السبيكة تحت اليوتكتيكية</b> (أقل من 60% Bi في Cd–Bi) تتجمد على مرحلتين: يتفصل Cd الأولي من السائل بين T1 وT<sub>E</sub>؛ ثم يتجمد السائل المتبقي، وقد صار بتركيب يوتكتيكي، كبنية يوتكتيكية. تُطبَّق قاعدة الرافعة فوق T<sub>E</sub> مباشرة.`],
+[`<b>Hypereutectic</b> alloys follow the same logic on the other side.`,`<b>السبائك فوق اليوتكتيكية</b> تتبع المنطق نفسه من الجهة الأخرى.`]]},
+{t:'tabs',h:[`The four Pb–Sn microstructure cases`,`الحالات الأربع للبنية المجهرية في Pb–Sn`],items:[
+{n:[`1`,`1`],p:[[`Compositions between pure Pb and the maximum room-temperature solubility (about 0 to 2 wt% Sn): a single α solid solution.`,`تراكيب بين Pb النقي وأقصى ذوبانية عند حرارة الغرفة (نحو 0 إلى 2% Sn): محلول صلب α واحد.`]]},
+{n:[`2`,`2`],p:[[`From the room-temperature solubility limit up to the maximum solubility at the eutectic temperature (about 2 to 18.3 wt% Sn, Pb-rich alloys).`,`من حد الذوبانية عند حرارة الغرفة حتى أقصى ذوبانية عند الدرجة اليوتكتيكية (نحو 2 إلى 18.3% Sn، سبائك غنية بالرصاص).`]]},
+{n:[`3`,`3`],p:[[`The eutectic composition, 61.9 wt% Sn. Nothing changes until 183 °C; crossing the eutectic isotherm the liquid transforms into α and β together.`,`التركيب اليوتكتيكي 61.9% Sn. لا يتغير شيء حتى 183 °م؛ وعند عبور خط اليوتكتيك يتحول السائل إلى α وβ معاً.`]]},
+{n:[`4`,`4`],p:[[`All compositions between the maximum solubility at the eutectic temperature and the eutectic point.`,`كل التراكيب بين أقصى ذوبانية عند الدرجة اليوتكتيكية والنقطة اليوتكتيكية.`]]}]},
+{t:'w',k:'phase'},
+{t:'sec',h:[`The iron–iron carbide (Fe–Fe₃C) diagram`,`مخطط الحديد–كربيد الحديد (Fe–Fe₃C)`],p:[
+[`Alloys with less than 2% carbon are <b>steels</b>; more than 2% are <b>cast irons</b>. The diagram has three invariant reactions:`,`السبائك التي فيها أقل من 2% كربون هي <b>فولاذ</b>، وما زاد عن ذلك <b>حديد زهر</b>. يحوي المخطط ثلاثة تفاعلات ثابتة:`]],u:[
+[`<b>Peritectic</b> at 1493 °C: Liquid + δ ⇌ γ (minor importance)`,`<b>بيريتكتيكي</b> عند 1493 °م: سائل + δ ⇌ γ (أهمية ثانوية)`],
+[`<b>Eutectic</b> at 1147 °C: Liquid ⇌ γ + Fe₃C (important for cast iron)`,`<b>يوتكتيكي</b> عند 1147 °م: سائل ⇌ γ + Fe₃C (مهم للحديد الزهر)`],
+[`<b>Eutectoid</b> at 727 °C: γ ⇌ α + Fe₃C (important for steel)`,`<b>يوتكتويدي</b> عند 727 °م: γ ⇌ α + Fe₃C (مهم للفولاذ)`]]},
+{t:'table',h:[`Phases of iron and carbon`,`أطوار الحديد والكربون`],cols:[[`Phase`,`الطور`],[`Structure`,`البنية`],[`Notes`,`ملاحظات`]],rows:[
+[[`Ferrite (α)`,`الفريت (α)`],`BCC`,[`Stable at room temperature. Max carbon solubility 0.022 wt% at 727 °C.`,`مستقر عند حرارة الغرفة. أقصى ذوبانية للكربون 0.022% عند 727 °م.`]],
+[[`Austenite (γ)`,`الأوستنيت (γ)`],`FCC`,[`Forms from ferrite at 912 °C. Max carbon solubility 2.14 wt% at 1147 °C.`,`يتكوّن من الفريت عند 912 °م. أقصى ذوبانية للكربون 2.14% عند 1147 °م.`]],
+[[`δ ferrite`,`فريت δ`],`BCC`,[`Austenite returns to BCC at 1493 °C; melts at 1538 °C.`,`يعود الأوستنيت إلى BCC عند 1493 °م؛ ويذوب عند 1538 °م.`]],
+[[`Cementite (Fe₃C)`,`السمنتيت (Fe₃C)`],`—`,[`Intermediate compound at 6.7 wt% C (= 100 wt% Fe₃C). Very hard and brittle; raises the strength of some steels.`,`مركب وسيط عند 6.7% C (= 100% Fe₃C). صلب وهش جداً؛ يرفع مقاومة بعض الفولاذات.`]]],
+note:[`Carbon is an interstitial impurity in iron and forms interstitial solid solutions with α, δ and γ.`,`الكربون شائبة بينية في الحديد ويكوّن محاليل صلبة بينية مع α وδ وγ.`]},
+{t:'w',k:'fec'},
+{t:'tabs',h:[`Microstructures of slow-cooled steel`,`البنى المجهرية للفولاذ المبرّد ببطء`],items:[
+{n:[`Eutectoid (0.76% C)`,`يوتكتويدي (0.76% C)`],p:[[`Above 727 °C the alloy is entirely austenite. At the eutectoid temperature austenite transforms into alternating lamellae of α ferrite and Fe₃C, formed together. This is <b>pearlite</b>.`,`فوق 727 °م تكون السبيكة كلها أوستنيت. عند الدرجة اليوتكتويدية يتحول الأوستنيت إلى صفائح متناوبة من فريت α وFe₃C تتكوّن معاً. وهذا هو <b>البيرلايت</b>.`]],note:[`The slide text says "above 527 °C", which looks like a typo: the alloy is fully austenite just above 727 °C.`,`يذكر نص الشريحة "فوق 527 °م"، ويبدو أنه خطأ مطبعي: تكون السبيكة أوستنيتاً كاملاً فوق 727 °م مباشرة.`]},
+{n:[`Hypoeutectoid (0.022–0.76% C)`,`تحت يوتكتويدي (0.022–0.76% C)`],p:[[`At about 875 °C it is all γ. In the α + γ region (about 775 °C) small α particles form along the original γ grain boundaries. Just above 727 °C, α holds 0.022 wt% C and γ has the eutectoid composition 0.76 wt% C (tie line). Below 727 °C the γ becomes pearlite; the earlier α (proeutectoid α) stays as a continuous matrix around pearlite colonies.`,`عند نحو 875 °م تكون كلها γ. وفي منطقة α + γ (نحو 775 °م) تتكوّن جسيمات α صغيرة على حدود حبيبات γ الأصلية. فوق 727 °م مباشرة يحوي α نسبة 0.022% C ولـγ التركيب اليوتكتويدي 0.76% C (خط الربط). وتحت 727 °م يتحول γ إلى بيرلايت، ويبقى α السابق (α أولي) كأساس متصل حول مستعمرات البيرلايت.`]]},
+{n:[`Hypereutectoid (0.76–2.14% C)`,`فوق يوتكتويدي (0.76–2.14% C)`],p:[[`At point g it is all γ. In the γ + Fe₃C field, cementite forms along the γ grain boundaries: <b>proeutectoid cementite</b>, of constant composition 6.70 wt% C. The austenite composition moves toward the eutectoid, and below 727 °C it all converts to pearlite. Result: pearlite plus proeutectoid cementite (a network around the colonies).`,`عند النقطة g تكون كلها γ. وفي حقل γ + Fe₃C يتكوّن السمنتيت على حدود حبيبات γ: <b>السمنتيت الأولي</b> بتركيب ثابت 6.70% C. يتحرك تركيب الأوستنيت نحو التركيب اليوتكتويدي، وتحت 727 °م يتحول كله إلى بيرلايت. النتيجة: بيرلايت مع سمنتيت أولي (شبكة حول المستعمرات).`]]}]}],
+cards:[
+[`Phase`,`الطور`,`A homogeneous portion of a system with uniform physical and chemical characteristics.`,`جزء متجانس من المنظومة له خواص فيزيائية وكيميائية موحدة.`],
+[`Solubility limit`,`حد الذوبانية`,`Maximum solute concentration that dissolves in the solvent.`,`أقصى تركيز من المذاب يذوب في المذيب.`],
+[`Liquidus / Solidus`,`الليكويدس / السوليدس`,`Liquidus: temperature above which the alloy is fully liquid. Solidus: below which it is fully solid.`,`الليكويدس: ما فوقه تكون السبيكة سائلة كلياً. السوليدس: ما تحته تكون صلبة كلياً.`],
+[`Eutectic reaction`,`التفاعل اليوتكتيكي`,`Liquid ⇌ α + β at the lowest melting temperature of the system.`,`سائل ⇌ α + β عند أدنى درجة انصهار في المنظومة.`],
+[`Peritectic reaction`,`التفاعل البيريتكتيكي`,`Liquid + β ⇌ α.`,`سائل + β ⇌ α.`],
+[`Eutectoid reaction`,`التفاعل اليوتكتويدي`,`One solid phase transforms into two other solids: S1 ⇌ S2 + S3. In steel: γ ⇌ α + Fe₃C at 727 °C.`,`طور صلب واحد يتحول إلى صلبين آخرين: S1 ⇌ S2 + S3. في الفولاذ: γ ⇌ α + Fe₃C عند 727 °م.`],
+[`Pearlite`,`البيرلايت`,`Alternating lamellae of α ferrite and cementite formed from austenite at the eutectoid.`,`صفائح متناوبة من فريت α وسمنتيت تتكوّن من الأوستنيت عند النقطة اليوتكتويدية.`],
+[`Steel vs. cast iron`,`الفولاذ مقابل الحديد الزهر`,`Steel: < 2% C. Cast iron: > 2% C.`,`الفولاذ: أقل من 2% C. الحديد الزهر: أكثر من 2% C.`],
+[`Cementite`,`السمنتيت`,`Fe₃C, 6.7 wt% C; very hard and brittle.`,`Fe₃C بنسبة 6.7% C؛ صلب وهش جداً.`]],
+quiz:[
+{q:[`Which line of a phase diagram separates "liquid" from "liquid + solid"?`,`أي خط في مخطط الأطوار يفصل "سائل" عن "سائل + صلب"؟`],o:[[`Solidus`,`السوليدس`],[`Liquidus`,`الليكويدس`],[`Solvus`,`السولفس`],[`Tie line`,`خط الربط`]],a:1,e:[`ABC is the liquidus; ADC is the solidus.`,`الخط ABC هو الليكويدس والخط ADC هو السوليدس.`]},
+{q:[`The reaction Liquid ⇌ α + β is:`,`التفاعل سائل ⇌ α + β هو:`],o:[[`Peritectic`,`بيريتكتيكي`],[`Eutectoid`,`يوتكتويدي`],[`Eutectic`,`يوتكتيكي`],[`Isomorphous`,`متشاكل`]],a:2,e:[`A liquid transforming into two solids at one temperature is eutectic.`,`تحول سائل إلى صلبين عند درجة واحدة هو تفاعل يوتكتيكي.`]},
+{q:[`What distinguishes eutectoid from eutectic?`,`ما الفرق بين اليوتكتويدي واليوتكتيكي؟`],o:[[`A solid, not a liquid, transforms`,`الذي يتحول طور صلب وليس سائلاً`],[`It is always above 1000 °C`,`يكون دائماً فوق 1000 °م`],[`It forms only in steels with Ni`,`يتكون فقط في فولاذ فيه Ni`],[`It has three phases`,`له ثلاثة أطوار`]],a:0,e:[`S1 ⇌ S2 + S3 is a solid-state reaction.`,`التفاعل S1 ⇌ S2 + S3 تفاعل في الحالة الصلبة.`]},
+{q:[`The Sn–Pb eutectic alloy is:`,`السبيكة اليوتكتيكية لـ Sn–Pb هي:`],o:[[`61.9% Sn at 183 °C`,`61.9% Sn عند 183 °م`],[`40% Sn at 140 °C`,`40% Sn عند 140 °م`],[`18.3% Sn at 183 °C`,`18.3% Sn عند 183 °م`],[`61.9% Sn at 321 °C`,`61.9% Sn عند 321 °م`]],a:0,e:[`140 °C is the Cd–Bi eutectic temperature, not Sn–Pb.`,`140 °م هي درجة اليوتكتيك لـ Cd–Bi وليس Sn–Pb.`]},
+{q:[`Steel is defined as an Fe–C alloy with carbon below:`,`يُعرَّف الفولاذ بأنه سبيكة Fe–C ذات كربون أقل من:`],o:[[`0.022%`,`0.022%`],[`0.76%`,`0.76%`],[`2%`,`2%`],[`6.7%`,`6.7%`]],a:2,e:[`Above 2% C the alloy is cast iron.`,`فوق 2% C تكون السبيكة حديداً زهراً.`]},
+{q:[`The eutectoid composition and temperature of steel are:`,`التركيب والحرارة اليوتكتويديان للفولاذ هما:`],o:[[`0.76 wt% C, 727 °C`,`0.76% C و727 °م`],[`2.14 wt% C, 1147 °C`,`2.14% C و1147 °م`],[`0.022 wt% C, 912 °C`,`0.022% C و912 °م`],[`4.3 wt% C, 727 °C`,`4.3% C و727 °م`]],a:0,e:[`Austenite of 0.76 wt% C becomes pearlite at 727 °C.`,`يتحول أوستنيت 0.76% C إلى بيرلايت عند 727 °م.`]},
+{q:[`A 0.40 wt% C steel is cooled slowly below 727 °C. What is the proeutectoid ferrite fraction? (lever rule with 0.022 and 0.76)`,`فولاذ 0.40% C بُرّد ببطء تحت 727 °م. ما كسر الفريت الأولي؟ (قاعدة الرافعة مع 0.022 و0.76)`],o:[[`0.49`,`0.49`],[`0.51`,`0.51`],[`0.40`,`0.40`],[`0.76`,`0.76`]],a:0,e:[`(0.76 − 0.40) / (0.76 − 0.022) = 0.488, about 0.49.`,`(0.76 − 0.40) / (0.76 − 0.022) = 0.488 أي نحو 0.49.`]},
+{q:[`Cementite has a composition of:`,`تركيب السمنتيت هو:`],o:[[`0.76 wt% C`,`0.76% C`],[`2.14 wt% C`,`2.14% C`],[`6.7 wt% C`,`6.7% C`],[`100 wt% C`,`100% C`]],a:2,e:[`Fe₃C corresponds to 6.7 wt% C.`,`يقابل Fe₃C نسبة 6.7% C.`]}]};
+D[4]={title:[`Bioceramics: Crystal Structures`,`السيراميك الحيوي: البنى البلورية`],src:`Bioceramics / Crystal Structure`,blocks:[
+{t:'sec',h:[`Why ceramic crystals are more complex`,`لماذا بنى السيراميك البلورية أكثر تعقيداً`],p:[
+[`Ceramics contain at least two elements, often more, so their crystal structures are generally more complex than those of metals. Bonding ranges from purely ionic to totally covalent, and many ceramics mix both. The degree of ionic character depends on the electronegativities of the atoms.`,`يتكوّن السيراميك من عنصرين على الأقل وغالباً أكثر، لذا فبناه البلورية أعقد عموماً من بنى المعادن. يتراوح الترابط من أيوني بحت إلى تساهمي تام، وكثير من السيراميكات تجمع النوعين. وتعتمد درجة الصفة الأيونية على السالبية الكهربية للذرات.`],
+[`When bonding is mostly ionic, the crystal is pictured as electrically charged <b>ions</b> rather than atoms.`,`وعندما يكون الترابط أيونياً في الغالب تُتخيل البلورة كـ<b>أيونات</b> مشحونة كهربائياً وليس كذرات.`]]},
+{t:'tabs',h:[`Two characteristics that shape the structure`,`خاصيتان تحددان البنية`],items:[
+{n:[`1 Charge`,`1 الشحنة`],p:[[`The crystal must be electrically neutral: all cation positive charges are balanced by an equal total of anion negative charges.`,`يجب أن تكون البلورة متعادلة كهربائياً: كل الشحنات الموجبة للكاتيونات توازنها شحنات الأنيونات السالبة بالمقدار نفسه.`],
+  [`Example: in CaF₂ each calcium is Ca²⁺ and each fluorine is F⁻, so there must be twice as many F⁻ as Ca²⁺. That is why the formula is CaF₂.`,`مثال: في CaF₂ كل كالسيوم Ca²⁺ وكل فلور F⁻، لذا يجب أن يكون عدد F⁻ ضعف عدد Ca²⁺. ولهذا الصيغة CaF₂.`]]},
+{n:[`2 Size`,`2 الحجم`],p:[[`Metals give up electrons when ionized, so cations are usually smaller than anions and the ratio r<sub>C</sub>/r<sub>A</sub> is less than 1.`,`تفقد الفلزات إلكترونات عند التأين، لذا تكون الكاتيونات عادةً أصغر من الأنيونات وتكون النسبة r<sub>C</sub>/r<sub>A</sub> أقل من 1.`],
+  [`Each cation wants as many anion neighbors as possible. A stable structure forms when all anions around a cation touch it. For each coordination number there is a minimum r<sub>C</sub>/r<sub>A</sub> that allows this contact, found from pure geometry.`,`يفضّل كل كاتيون أكبر عدد ممكن من الأنيونات المجاورة. وتتكوّن البنية المستقرة حين تلامس كل الأنيونات المحيطة بالكاتيون. ولكل عدد تنسيق نسبة r<sub>C</sub>/r<sub>A</sub> دنيا تسمح بهذا التلامس، وتُحسب من الهندسة البحتة.`]]}]},
+{t:'table',h:[`Radius ratio and coordination number`,`نسبة أنصاف الأقطار وعدد التنسيق`],cols:[[`r<sub>C</sub>/r<sub>A</sub>`],[`Coordination number`,`عدد التنسيق`],[`Cation sits at the center of`,`يقع الكاتيون في مركز`]],rows:[
+[`&lt; 0.155`,`2`,[`A line (linear)`,`خط (خطي)`]],[`0.155 – 0.225`,`3`,[`A planar equilateral triangle`,`مثلث متساوي الأضلاع مستوٍ`]],[`0.225 – 0.414`,`4`,[`A tetrahedron`,`رباعي أوجه`]],[`0.414 – 0.732`,`6`,[`An octahedron`,`ثماني أوجه`]],[`0.732 – 1.0`,`8`,[`A cube (anions at the corners)`,`مكعب (الأنيونات في الأركان)`]]]},
+{t:'w',k:'ratio'},
+{t:'rev',h:[`Worked example 6-1: minimum ratio for coordination number 3`,`مثال محلول 6-1: النسبة الدنيا لعدد التنسيق 3`],p:[[`Show that the minimum cation-to-anion radius ratio for coordination number 3 is 0.155.`,`أثبت أن النسبة الدنيا بين نصفي قطري الكاتيون والأنيون لعدد التنسيق 3 هي 0.155.`]],run:()=>{
+  const v=2/Math.sqrt(3)-1;
+  return bi([`<b>1.</b> Three anions of radius r<sub>A</sub> touch each other at the corners of an equilateral triangle, so the side of the triangle is 2r<sub>A</sub>.`,`<b>1.</b> ثلاثة أنيونات نصف قطر كل منها r<sub>A</sub> تتلامس عند رؤوس مثلث متساوي الأضلاع، فضلع المثلث 2r<sub>A</sub>.`])+
+  bi([`<b>2.</b> The cation sits at the centroid. The centroid-to-corner distance in an equilateral triangle of side s is s/√3 = 2r<sub>A</sub>/√3.`,`<b>2.</b> يقع الكاتيون في مركز المثلث. والمسافة من المركز إلى الرأس في مثلث متساوي الأضلاع ضلعه s هي s/√3 = 2r<sub>A</sub>/√3.`])+
+  bi([`<b>3.</b> Contact means this distance equals r<sub>A</sub> + r<sub>C</sub>: 2r<sub>A</sub>/√3 = r<sub>A</sub> + r<sub>C</sub>.`,`<b>3.</b> التلامس يعني أن هذه المسافة تساوي r<sub>A</sub> + r<sub>C</sub>: 2r<sub>A</sub>/√3 = r<sub>A</sub> + r<sub>C</sub>.`])+
+  bi([`<b>4.</b> Therefore r<sub>C</sub>/r<sub>A</sub> = 2/√3 − 1 = <b>${v.toFixed(3)}</b> ≈ 0.155.`,`<b>4.</b> إذن r<sub>C</sub>/r<sub>A</sub> = 2/√3 − 1 = <b>${v.toFixed(3)}</b> ≈ 0.155.`])}},
+{t:'sec',h:[`AX-type structures (equal numbers of cations and anions)`,`بنى النوع AX (أعداد متساوية من الكاتيونات والأنيونات)`],p:[[`Each structure is named after a common material that has it.`,`تُسمّى كل بنية باسم مادة شائعة تتخذها.`]]},
+{t:'table',cols:[[`Structure`,`البنية`],[`Coordination`,`التنسيق`],[`Unit cell`,`الخلية الوحدة`],[`Examples`,`أمثلة`]],rows:[
+[[`Rock salt (NaCl)`,`ملح الصخر (NaCl)`],[`6 for both ions (r<sub>C</sub>/r<sub>A</sub> ≈ 0.414–0.732)`,`6 لكلا الأيونين (r<sub>C</sub>/r<sub>A</sub> ≈ 0.414–0.732)`],[`FCC array of anions; cations at the cube center and at the center of each of 12 edges. Equivalent to two interpenetrating FCC lattices.`,`ترتيب FCC للأنيونات؛ والكاتيونات في مركز المكعب وفي منتصف كل حرف من الأحرف الـ12. تكافئ شبكتين FCC متداخلتين.`],`NaCl, MgO, MnS, LiF, FeO`],
+[[`Cesium chloride (CsCl)`,`كلوريد السيزيوم (CsCl)`],[`8 for both ions`,`8 لكلا الأيونين`],[`Anions at the cube corners; a single cation at the center.`,`الأنيونات في أركان المكعب؛ وكاتيون واحد في المركز.`],`CsCl`],
+[[`Zinc blende (ZnS)`,`الزنك بلند (ZnS)`],[`4 (all ions tetrahedral)`,`4 (كل الأيونات رباعية الأوجه)`],[`S at all corner and face positions; Zn fills interior tetrahedral positions. Bonding is highly covalent.`,`S في كل مواضع الأركان والأوجه؛ وZn يملأ المواضع الرباعية الداخلية. الترابط تساهمي بدرجة عالية.`],`ZnS, ZnTe, SiC`]]},
+{t:'sec',h:[`Structures with unequal charges or two cations`,`بنى بشحنات غير متساوية أو بكاتيونين`],u:[
+[`<b>A<sub>m</sub>X<sub>p</sub> type, fluorite (CaF₂):</b> r<sub>C</sub>/r<sub>A</sub> ≈ 0.8, so coordination number 8. Ca²⁺ at cube centers, F⁻ at corners. Only half as many Ca²⁺ as F⁻, so it resembles CsCl with only half the cube centers occupied. One unit cell is eight cubes. Also ZrO₂, UO₂, PuO₂, ThO₂.`,`<b>النوع A<sub>m</sub>X<sub>p</sub>، الفلوريت (CaF₂):</b> r<sub>C</sub>/r<sub>A</sub> ≈ 0.8 لذا عدد التنسيق 8. أيونات Ca²⁺ في مراكز المكعبات وF⁻ في الأركان. عدد Ca²⁺ نصف عدد F⁻، فتشبه CsCl مع إشغال نصف مراكز المكعبات فقط. الخلية الوحدة ثمانية مكعبات. وتتخذها أيضاً ZrO₂ وUO₂ وPuO₂ وThO₂.`],
+[`<b>A<sub>m</sub>B<sub>n</sub>X<sub>p</sub> type, perovskite (BaTiO₃):</b> two cation types. Ba²⁺ at all eight cube corners, one Ti⁴⁺ at the cube center, and O²⁻ at the center of each of the six faces.`,`<b>النوع A<sub>m</sub>B<sub>n</sub>X<sub>p</sub>، البيروفسكايت (BaTiO₃):</b> نوعان من الكاتيونات. Ba²⁺ في الأركان الثمانية وTi⁴⁺ واحد في مركز المكعب وO²⁻ في مركز كل وجه من الأوجه الستة.`]]},
+{t:'w',k:'v3d',set:'ceramics'},
+{t:'w',k:'perov'}],
+cards:[
+[`Electroneutrality`,`التعادل الكهربائي`,`Total cation charge must equal total anion charge (so CaF₂ has twice as many F⁻ as Ca²⁺).`,`مجموع شحنات الكاتيونات يجب أن يساوي مجموع شحنات الأنيونات (لذا في CaF₂ عدد F⁻ ضعف Ca²⁺).`],
+[`r_C / r_A`,`r_C / r_A`,`Cation-to-anion radius ratio; usually below 1; sets the coordination number.`,`نسبة نصف قطر الكاتيون إلى الأنيون؛ أقل من 1 عادةً؛ تحدد عدد التنسيق.`],
+[`CN 4, 6, 8`,`CN 4 و6 و8`,`Tetrahedron (0.225–0.414), octahedron (0.414–0.732), cube (0.732–1.0).`,`رباعي أوجه (0.225–0.414) وثماني أوجه (0.414–0.732) ومكعب (0.732–1.0).`],
+[`Minimum ratio for CN 3`,`النسبة الدنيا لـ CN 3`,`2/√3 − 1 = 0.155.`,`2/√3 − 1 = 0.155.`],
+[`Rock salt`,`ملح الصخر`,`CN 6; FCC anions with cations in the octahedral holes; NaCl, MgO, LiF, FeO.`,`CN = 6؛ أنيونات FCC وكاتيونات في الفجوات الثمانية؛ NaCl وMgO وLiF وFeO.`],
+[`Cesium chloride`,`كلوريد السيزيوم`,`CN 8 for both ions; anions at corners, cation at the center.`,`CN = 8 لكلا الأيونين؛ الأنيونات في الأركان والكاتيون في المركز.`],
+[`Zinc blende`,`الزنك بلند`,`CN 4; ZnS, ZnTe, SiC; highly covalent.`,`CN = 4؛ ZnS وZnTe وSiC؛ تساهمي بدرجة عالية.`],
+[`Fluorite`,`الفلوريت`,`CaF₂, r_C/r_A ≈ 0.8, CN 8; also ZrO₂, UO₂.`,`CaF₂ مع r_C/r_A ≈ 0.8 وCN = 8؛ وكذلك ZrO₂ وUO₂.`],
+[`Perovskite`,`البيروفسكايت`,`BaTiO₃: Ba²⁺ at corners, Ti⁴⁺ at center, O²⁻ on face centers.`,`BaTiO₃: Ba²⁺ في الأركان وTi⁴⁺ في المركز وO²⁻ في مراكز الأوجه.`]],
+quiz:[
+{q:[`In CaF₂ the ratio of F⁻ to Ca²⁺ ions is 2:1 because of:`,`في CaF₂ نسبة F⁻ إلى Ca²⁺ هي 2:1 بسبب:`],o:[[`Electrical neutrality`,`التعادل الكهربائي`],[`Magnetic ordering`,`الترتيب المغناطيسي`],[`Covalent sharing`,`التشارك التساهمي`],[`Grain boundaries`,`حدود الحبيبات`]],a:0,e:[`Ca²⁺ carries +2, F⁻ carries −1.`,`شحنة Ca²⁺ تساوي +2 وشحنة F⁻ تساوي −1.`]},
+{q:[`A cation with r_C/r_A = 0.30 has coordination number:`,`كاتيون نسبته r_C/r_A = 0.30 له عدد تنسيق:`],o:[[`3`,`3`],[`4`,`4`],[`6`,`6`],[`8`,`8`]],a:1,e:[`0.225–0.414 gives a tetrahedron, CN 4.`,`المدى 0.225–0.414 يعطي رباعي أوجه أي CN = 4.`]},
+{q:[`Rock salt (NaCl) type has coordination number:`,`عدد التنسيق في بنية ملح الصخر (NaCl):`],o:[[`4`,`4`],[`6`,`6`],[`8`,`8`],[`12`,`12`]],a:1,e:[`6 for both cations and anions.`,`6 لكلٍّ من الكاتيونات والأنيونات.`]},
+{q:[`Which structure has all ions tetrahedrally coordinated and is highly covalent?`,`أي بنية كل أيوناتها رباعية التنسيق وتساهمية بدرجة عالية؟`],o:[[`CsCl`,`CsCl`],[`Zinc blende (ZnS)`,`الزنك بلند (ZnS)`],[`Fluorite`,`الفلوريت`],[`Rock salt`,`ملح الصخر`]],a:1,e:[`ZnS, ZnTe and SiC adopt it.`,`ZnS وZnTe وSiC تتخذها.`]},
+{q:[`Which ceramic of this lecture has the perovskite structure?`,`أي سيراميك في هذه المحاضرة له بنية البيروفسكايت؟`],o:[[`BaTiO₃`,`BaTiO₃`],[`CaF₂`,`CaF₂`],[`MgO`,`MgO`],[`SiC`,`SiC`]],a:0,e:[`Ba²⁺ corners, Ti⁴⁺ center, O²⁻ face centers.`,`Ba²⁺ في الأركان وTi⁴⁺ في المركز وO²⁻ في مراكز الأوجه.`]},
+{q:[`In fluorite (CaF₂), what fraction of the cube centers is occupied by Ca²⁺?`,`في الفلوريت (CaF₂) ما كسر مراكز المكعبات المشغول بأيونات Ca²⁺؟`],o:[[`All`,`كلها`],[`Half`,`النصف`],[`A quarter`,`الربع`],[`None`,`لا شيء`]],a:1,e:[`There are half as many Ca²⁺ as F⁻.`,`عدد Ca²⁺ نصف عدد F⁻.`]},
+{q:[`The minimum r_C/r_A for coordination number 3 is:`,`النسبة r_C/r_A الدنيا لعدد التنسيق 3 هي:`],o:[[`0.155`,`0.155`],[`0.225`,`0.225`],[`0.414`,`0.414`],[`0.732`,`0.732`]],a:0,e:[`2/√3 − 1 = 0.155.`,`2/√3 − 1 = 0.155.`]}]};
+W.perov=()=>{const id=uid();
+  const I=[[`Ba²⁺`,`corners`,`الأركان`,8,1/8,`8 × 1/8`],[`Ti⁴⁺`,`cube center`,`مركز المكعب`,1,1,`1 × 1`],[`O²⁻`,`face centers`,`مراكز الأوجه`,6,1/2,`6 × 1/2`]];
+  inits.push(()=>{const r=$id(id),q=s=>r.querySelector(s);const on=[true,false,false];
+    const draw=()=>{let tot=on.map((o,i)=>o?I[i][3]*I[i][4]:0);
+      r.querySelectorAll('.chip').forEach((b,i)=>b.setAttribute('aria-pressed',on[i]));
+      q('.o').innerHTML=I.map((x,i)=>on[i]?`<div class="kv"><span>${x[0]} ${t([x[1],x[2]])}: ${x[5]}</span><b>${tot[i]}</b></div>`:'').join('')+
+       (on.every(Boolean)?`<div class="note">${bi([`Per unit cell: 1 Ba, 1 Ti, 3 O, so the formula is <b>BaTiO₃</b>.`,`في الخلية الوحدة: 1 Ba و1 Ti و3 O، فتكون الصيغة <b>BaTiO₃</b>.`])}</div>`:`<p class="leg">${t([`Turn on all three ions to see the formula.`,`فعّل الأيونات الثلاثة لترى الصيغة.`])}</p>`)};
+    r.querySelectorAll('.chip').forEach((b,i)=>b.onclick=()=>{on[i]=!on[i];draw()});draw()});
+  return wcard([`Count the atoms in a perovskite cell`,`عدّ الذرات في خلية البيروفسكايت`],`<div class="row" style="margin-bottom:10px">${I.map(x=>`<button class="chip">${x[0]}</button>`).join('')}</div><div class="out o"></div><p class="leg">${t([`A corner atom is shared by 8 cells, a face atom by 2, a center atom by none.`,`ذرة الركن مشتركة بين 8 خلايا، وذرة الوجه بين خليتين، وذرة المركز لا تُشارَك.`])}</p>`,id)};
+
+D[5]={title:[`Bioceramics Classification`,`تصنيف السيراميك الحيوي`],src:`Bioceramics Classification`,blocks:[
+{t:'sec',h:[`Why ceramics can talk to bone`,`لماذا يتفاعل السيراميك مع العظم`],p:[
+[`The inorganic mineral phase of bone is mainly a calcium phosphate similar to hydroxyapatite, so some bioceramics interact favorably with natural bone and support bone regeneration.`,`الطور المعدني غير العضوي في العظم هو أساساً فوسفات كالسيوم شبيه بالهيدروكسي أباتايت، لذا تتفاعل بعض السيراميكات الحيوية جيداً مع العظم الطبيعي وتدعم تجدده.`],
+[`<b>Bioceramics</b> are ceramics used to repair and replace diseased or damaged skeletal tissue and to augment hard and soft tissue.`,`<b>السيراميكات الحيوية</b> سيراميكات تُستخدم لإصلاح واستبدال النسيج الهيكلي المصاب أو التالف ولتعزيز الأنسجة الصلبة والرخوة.`]]},
+{t:'w',k:'bone'},
+{t:'table',h:[`Three categories`,`ثلاث فئات`],cols:[[`Category`,`الفئة`],[`Behavior in the body`,`السلوك في الجسم`],[`Examples`,`أمثلة`]],rows:[
+[[`Bioinert`,`خاملة حيوياً`],[`Minimal interaction with surrounding tissue`,`تفاعل ضئيل مع النسيج المحيط`],[`Alumina, zirconia`,`الألومينا والزركونيا`]],
+[[`Bioactive`,`نشطة حيوياً`],[`Bond with tissue at the interface`,`ترتبط بالنسيج عند السطح البيني`],[`Calcium phosphate (HA), bioglasses`,`فوسفات الكالسيوم (HA) والزجاج الحيوي`]],
+[[`Bioresorbable`,`قابلة للامتصاص حيوياً`],[`Degrade and are replaced by host tissue`,`تتحلل ويحل محلها نسيج المضيف`],[`Tricalcium phosphate`,`فوسفات الكالسيوم الثلاثي`]]]},
+{t:'sec',h:[`Bioinert ceramics: zirconia`,`السيراميك الخامل: الزركونيا`],p:[
+[`Alumina, zirconia, silica and titania are the first-generation ceramics, widely used for their excellent mechanical properties.`,`الألومينا والزركونيا والسيليكا والتيتانيا هي سيراميكات الجيل الأول، وتُستخدم على نطاق واسع لخواصها الميكانيكية الممتازة.`],
+[`Pure zirconia comes from chemical conversion of zircon (ZrSiO₄). It is naturally monoclinic and, with rising temperature, becomes tetragonal and then cubic. Advantages: transformation toughening, low thermal conductivity, abrasion resistance and desirable biocompatibility; used in bulk or as a coating.`,`يُحصل على الزركونيا النقية بتحويل كيميائي للزركون (ZrSiO₄). وهي أحادية الميل في الطبيعة، ومع ارتفاع الحرارة تصبح رباعية ثم مكعبة. ومزاياها: التقسية بالتحول وانخفاض التوصيل الحراري ومقاومة البلى والتوافق الحيوي المرغوب؛ وتُستخدم كتلة صلبة أو طلاءً.`],
+[`Pure zirconia suffers destructive volume changes (about 3–5%) and cracking when it changes phase on heating and cooling. <b>Partially stabilized zirconia (PSZ)</b> adds small amounts of yttria (Y₂O₃), magnesia (MgO) or calcia (CaO), which freeze a metastable tetragonal structure at room temperature.`,`تعاني الزركونيا النقية من تغيرات حجمية مدمّرة (نحو 3–5%) وتشققات عند تغير الطور بالتسخين والتبريد. أما <b>الزركونيا المثبّتة جزئياً (PSZ)</b> فتُضاف إليها كميات صغيرة من الإيتريا (Y₂O₃) أو المغنيسيا (MgO) أو الكالسيا (CaO) فتثبّت بنية رباعية شبه مستقرة عند حرارة الغرفة.`],
+[`Zirconia has higher flexural strength and fracture toughness than other ceramics, so it resists chewing forces in precisely fitted crowns. Zirconia implants have shown less bacterial accumulation and a lower rate of inflammation-related processes than titanium.`,`للزركونيا مقاومة انحناء وصلابة كسر أعلى من السيراميكات الأخرى، فتقاوم قوى المضغ في التيجان الدقيقة الملاءمة. وقد أظهرت غرسات الزركونيا تراكماً أقل للبكتيريا ومعدلاً أقل للعمليات المرتبطة بالالتهاب مقارنةً بالتيتانيوم.`]]},
+{t:'w',k:'tough'},
+{t:'w',k:'v3d',set:'zirconia'},
+{t:'sec',h:[`Bioinert ceramics: alumina and ZTA`,`السيراميك الخامل: الألومينا وZTA`],p:[
+[`High-purity alumina comes from bauxite and native corundum; common α-alumina is made by calcining alumina trihydrate. ASTM requires implant alumina to contain <b>99.5% Al₂O₃</b> and <b>less than 0.1% SiO₂</b>.`,`تأتي الألومينا عالية النقاوة من البوكسيت والكوروندوم الطبيعي، وتُحضَّر ألومينا α الشائعة بتكليس ثلاثي هيدرات الألومينا. وتشترط ASTM أن تحوي ألومينا الغرسات <b>99.5% Al₂O₃</b> و<b>أقل من 0.1% SiO₂</b>.`],
+[`The host isolates it with a thin, non-adherent fibrous capsule. It does not chemically bond to bone, so stability relies on mechanical fixation (press-fitting or interlocking porous networks).`,`يعزلها المضيف بكبسولة ليفية رقيقة غير ملتصقة. ولا ترتبط كيميائياً بالعظم، لذا يعتمد الثبات على التثبيت الميكانيكي (الضغط أو الشبكات المسامية المتشابكة).`],
+[`Alumina femoral heads paired with ceramic or polyethylene liners greatly reduce wear in hip sockets and extend implant life.`,`رؤوس عظم الفخذ من الألومينا مع بطانات سيراميك أو بولي إيثيلين تقلل البلى في تجويف الورك كثيراً وتطيل عمر الغرسة.`],
+[`<b>ZTA (zirconia-toughened alumina)</b> blends the hardness of alumina with the fracture toughness of zirconia. When a microscopic crack starts, the surrounding zirconia particles transform from tetragonal to monoclinic and trigger the toughening mechanism, arresting the crack. It is used for femoral heads in total hip replacement.`,`<b>ZTA (الألومينا المقواة بالزركونيا)</b> تجمع صلادة الألومينا وصلابة كسر الزركونيا. عند بدء شق مجهري تتحول جسيمات الزركونيا المحيطة من رباعية إلى أحادية الميل وتُفعّل آلية التقسية فتوقف الشق. وتُستخدم لرؤوس عظم الفخذ في استبدال مفصل الورك الكامل.`]]},
+{t:'sec',h:[`Bioactive ceramics and Hench's bioglass`,`السيراميك النشط حيوياً وزجاج هينش الحيوي`],p:[
+[`A bioactive material elicits a specific biological response at its interface that results in a bond between tissue and material. Per Hench, these show bioactivity to varying degrees: 45S5, KGS Ceravital, 55S4.3 Bioglass, A-W GC, HA, KGX Ceravital. 45S5 and 55S4.3 were named by Hench and contain SiO₂, CaO, Na₂O and P₂O₅ in specific proportions.`,`المادة النشطة حيوياً تثير استجابة حيوية محددة عند سطحها البيني ينتج عنها ارتباط بين النسيج والمادة. وبحسب هينش تُظهر المواد التالية نشاطاً حيوياً بدرجات متفاوتة: 45S5 وKGS Ceravital و55S4.3 Bioglass وA-W GC وHA وKGX Ceravital. والاسمان 45S5 و55S4.3 من تسمية هينش وفيهما SiO₂ وCaO وNa₂O وP₂O₅ بنسب محددة.`],
+[`Larry Hench's idea was to combine the elements the body is rich in, in proportions that favor Ca- and P-rich surface layers. The base is Na₂O–CaO–SiO₂ with a small fixed P₂O₅ of <b>6 wt.%</b>, which speeds formation of hydroxyapatite and hydroxy-carbonate apatite layers.`,`كانت فكرة لاري هينش أن يجمع العناصر الوفيرة في الجسم بنسب تُسهّل تكوّن طبقات غنية بالكالسيوم والفوسفور. الأساس هو Na₂O–CaO–SiO₂ مع P₂O₅ ثابت وصغير بنسبة <b>6% وزنية</b> يسرّع تكوّن طبقات الهيدروكسي أباتايت والأباتايت الهيدروكسي كربوناتي.`]]},
+{t:'tabs',h:[`Bioglass vs. window glass`,`الزجاج الحيوي مقابل زجاج النوافذ`],items:[
+{n:[`Compare`,`مقارنة`],p:[[`Na₂O–CaO–SiO₂ is also the base of soda-lime silicate glass (windows, bottles, containers). Bioactive glasses differ in three ways, which make the surface highly reactive in an aqueous medium:`,`النظام Na₂O–CaO–SiO₂ هو أيضاً أساس زجاج الصودا والجير (النوافذ والزجاجات والأوعية). وتختلف الزجاجات النشطة حيوياً بثلاثة أمور تجعل سطحها شديد التفاعل في الوسط المائي:`]],u:[[`SiO₂ content below 60 mol%`,`محتوى SiO₂ أقل من 60 مول%`],[`High Na₂O and high CaO content`,`محتوى Na₂O وCaO عالٍ`],[`High CaO/P₂O₅ ratio`,`نسبة CaO/P₂O₅ عالية`]]}]},
+{t:'w',k:'regions'},
+{t:'sec',h:[`Hydroxyapatite (HA) and calcium phosphates`,`الهيدروكسي أباتايت وفوسفات الكالسيوم`],u:[
+[`Calcium phosphates (CaP) are widely used in orthopedics and dentistry because they resemble bone mineral. The most common are <b>HA (Ca/P = 1.67)</b> and <b>β-TCP (Ca/P = 1.5)</b>. If Ca/P is below 1 the ceramic is very soluble and cannot be used for implantation.`,`تُستخدم فوسفات الكالسيوم (CaP) على نطاق واسع في جراحة العظام والأسنان لشبهها بمعدن العظم. أشهرها <b>HA (Ca/P = 1.67)</b> و<b>β-TCP (Ca/P = 1.5)</b>. وإذا كانت Ca/P أقل من 1 فالسيراميك شديد الذوبان ولا يصلح للغرس.`],
+[`HA, Ca₁₀(PO₄)₆(OH)₂, is the main mineral of teeth and bone. It is osteoconductive, has a controlled degradation rate and bonds chemically to form new bone.`,`HA وصيغته Ca₁₀(PO₄)₆(OH)₂ هو المعدن الرئيسي للأسنان والعظام. وهو موصِّل للعظم ومعدل تحلله متحكم به ويرتبط كيميائياً ليكوّن عظماً جديداً.`],
+[`Natural HA comes from corals or bovine bone and is not pure (trace Mg, Sr, CO₃…). Synthetic HA is made by direct precipitation, hydrothermal techniques, hydrolysis of other CaP, or solid-state reaction.`,`يُستخلص HA الطبيعي من المرجان أو عظم البقر وهو غير نقي (آثار Mg وSr وCO₃…). ويُصنَّع HA الصناعي بالترسيب المباشر أو التقنيات المائية الحرارية أو التحلل المائي لفوسفات كالسيوم أخرى أو التفاعل في الحالة الصلبة.`]]},
+{t:'w',k:'cap'},
+{t:'sec',h:[`Bioresorbable ceramics`,`السيراميك القابل للامتصاص`],p:[
+[`These are designed for a temporary function, then degrade and are absorbed or eliminated naturally, which removes the need for a second surgery to remove the implant. Degradation products are metabolized or excreted while host tissue heals and replaces the material. Examples: magnesium (metal), polylactic acid (PLA) and polyglycolic acid (PGA) (polymers).`,`صُمّمت لأداء وظيفة مؤقتة ثم تتحلل ويمتصها الجسم أو يتخلص منها طبيعياً، وهذا يلغي الحاجة إلى جراحة ثانية لإزالة الغرسة. تُستقلب نواتج التحلل أو تُطرح بينما يلتئم نسيج المضيف ويحل محل المادة. أمثلتها: المغنيسيوم (معدن) وحمض البولي لاكتيك PLA وحمض البولي غليكوليك PGA (بوليمرات).`],
+[`<b>Tricalcium phosphate (TCP), Ca₃(PO₄)₂</b>, is a biodegradable bioceramic, soluble in media, used as a degradable bone graft, with superior osteoconductivity, cell adhesion and mediation of accelerated differentiation. <b>β-TCP</b> is more soluble than HA, is gradually absorbed and replaced by natural bone, and is processed like HA.`,`<b>فوسفات الكالسيوم الثلاثي (TCP)، Ca₃(PO₄)₂</b>، سيراميك حيوي قابل للتحلل ويذوب في الأوساط، ويُستخدم طعماً عظمياً قابلاً للتحلل، وله توصيل عظمي متفوق والتصاق خلوي وتوسط في تسريع التمايز. و<b>β-TCP</b> أكثر ذوباناً من HA ويُمتص تدريجياً ويحل محله عظم طبيعي، ويُعالج بطرق مشابهة لـ HA.`]]},
+{t:'w',k:'sort'}],
+cards:[
+[`Three bioceramic classes`,`ثلاث فئات للسيراميك الحيوي`,`Bioinert (alumina, zirconia), bioactive (CaP, bioglasses), bioresorbable (TCP).`,`خاملة (ألومينا وزركونيا) ونشطة (فوسفات الكالسيوم والزجاج الحيوي) وقابلة للامتصاص (TCP).`],
+[`Bone composition`,`تركيب العظم`,`60–70% inorganic calcium phosphates, 20–30% organic (collagen), < 10% water and other.`,`60–70% فوسفات كالسيوم غير عضوية، 20–30% عضوي (كولاجين)، أقل من 10% ماء وغيره.`],
+[`PSZ`,`PSZ`,`Zirconia with Y₂O₃, MgO or CaO that freezes metastable tetragonal at room temperature.`,`زركونيا مع Y₂O₃ أو MgO أو CaO تثبّت الطور الرباعي شبه المستقر عند حرارة الغرفة.`],
+[`Transformation toughening`,`التقسية بالتحول`,`Stress at a crack turns tetragonal grains monoclinic; local expansion squeezes the crack shut.`,`الإجهاد عند الشق يحوّل الحبيبات الرباعية إلى أحادية الميل؛ والتمدد المحلي يغلق الشق.`],
+[`Implant alumina (ASTM)`,`ألومينا الغرسات (ASTM)`,`≥ 99.5% Al₂O₃ and < 0.1% SiO₂; fibrous capsule, mechanical fixation.`,`≥ 99.5% Al₂O₃ و< 0.1% SiO₂؛ كبسولة ليفية وتثبيت ميكانيكي.`],
+[`ZTA`,`ZTA`,`Alumina hardness plus zirconia toughness; used for femoral heads.`,`صلادة الألومينا مع صلابة الزركونيا؛ تُستخدم لرؤوس عظم الفخذ.`],
+[`Bioglass 45S5`,`الزجاج الحيوي 45S5`,`Na₂O–CaO–SiO₂–P₂O₅ (6 wt% P₂O₅); bonds to bone so strongly it cannot be removed without destroying it.`,`Na₂O–CaO–SiO₂–P₂O₅ (6% وزنية P₂O₅)؛ يرتبط بالعظم بقوة بحيث لا يمكن نزعه دون تدميره.`],
+[`Hydroxyapatite`,`الهيدروكسي أباتايت`,`Ca₁₀(PO₄)₆(OH)₂, Ca/P = 1.67; osteoconductive; main mineral of bone and teeth.`,`Ca₁₀(PO₄)₆(OH)₂ مع Ca/P = 1.67؛ موصِّل للعظم؛ المعدن الرئيسي للعظام والأسنان.`],
+[`β-TCP`,`β-TCP`,`Ca₃(PO₄)₂, Ca/P = 1.5; more soluble than HA; resorbed and replaced by bone.`,`Ca₃(PO₄)₂ مع Ca/P = 1.5؛ أكثر ذوباناً من HA؛ يُمتص ويحل محله عظم.`]],
+quiz:[
+{q:[`Which is a bioinert ceramic?`,`أي مما يلي سيراميك خامل حيوياً؟`],o:[[`Alumina`,`الألومينا`],[`Hydroxyapatite`,`الهيدروكسي أباتايت`],[`β-TCP`,`β-TCP`],[`Bioglass 45S5`,`الزجاج الحيوي 45S5`]],a:0,e:[`Alumina and zirconia are the bioinert examples.`,`الألومينا والزركونيا هما مثالا السيراميك الخامل.`]},
+{q:[`In partially stabilized zirconia, a crack triggers a change from:`,`في الزركونيا المثبتة جزئياً يؤدي الشق إلى تحول من:`],o:[[`Monoclinic to cubic`,`أحادية الميل إلى مكعبة`],[`Metastable tetragonal to monoclinic`,`رباعية شبه مستقرة إلى أحادية الميل`],[`Cubic to tetragonal`,`مكعبة إلى رباعية`],[`Amorphous to crystalline`,`غير متبلورة إلى بلورية`]],a:1,e:[`The expansion squeezes the crack shut.`,`التمدد يضغط الشق فيُغلق.`]},
+{q:[`What does the host body form around an alumina implant?`,`ماذا يكوّن الجسم حول غرسة الألومينا؟`],o:[[`A chemical bond with bone`,`ارتباطاً كيميائياً بالعظم`],[`A thin non-adherent fibrous capsule`,`كبسولة ليفية رقيقة غير ملتصقة`],[`A hydroxyapatite layer`,`طبقة هيدروكسي أباتايت`],[`Nothing; it dissolves`,`لا شيء؛ إذ تذوب`]],a:1,e:[`Hence stability depends on mechanical fixation.`,`لذا يعتمد الثبات على التثبيت الميكانيكي.`]},
+{q:[`The Ca/P ratio of hydroxyapatite is:`,`نسبة Ca/P في الهيدروكسي أباتايت هي:`],o:[[`1.0`,`1.0`],[`1.5`,`1.5`],[`1.67`,`1.67`],[`2.0`,`2.0`]],a:2,e:[`10 Ca / 6 P = 1.67; β-TCP is 1.5.`,`10 Ca / 6 P = 1.67، أما β-TCP فتساوي 1.5.`]},
+{q:[`Class A bioactive glasses (area 1) are:`,`الزجاجات النشطة من الصنف A (المنطقة 1) هي:`],o:[[`Osteoproductive: bind bone and soft tissue`,`منتجة للعظم: ترتبط بالعظم والنسيج الرخو`],[`Fully resorbed in 10–30 days`,`تُمتص كلياً في 10–30 يوماً`],[`Bioinert`,`خاملة حيوياً`],[`Unable to form glass`,`لا تشكّل زجاجاً`]],a:0,e:[`Class B (area 2) are osteoconductive and bind only to bone.`,`الصنف B (المنطقة 2) موصِّل للعظم ويرتبط بالعظم فقط.`]},
+{q:[`Which feature differs in bioactive glass compared with window glass?`,`أي ميزة تختلف في الزجاج الحيوي عن زجاج النوافذ؟`],o:[[`SiO₂ above 60 mol%`,`SiO₂ فوق 60 مول%`],[`Low Na₂O and CaO`,`Na₂O وCaO منخفضان`],[`High CaO/P₂O₅ ratio`,`نسبة CaO/P₂O₅ عالية`],[`No phosphorus anywhere`,`لا فوسفور إطلاقاً`]],a:2,e:[`Also SiO₂ below 60 mol% and high Na₂O and CaO.`,`وأيضاً SiO₂ أقل من 60 مول% وNa₂O وCaO عاليان.`]},
+{q:[`Which material is designed to be absorbed so a second removal surgery is not needed?`,`أي مادة صُمّمت لتُمتص بحيث لا حاجة إلى جراحة ثانية لإزالتها؟`],o:[[`Zirconia`,`الزركونيا`],[`β-TCP`,`β-TCP`],[`316L steel`,`فولاذ 316L`],[`Alumina`,`الألومينا`]],a:1,e:[`β-TCP is gradually absorbed and replaced by natural bone.`,`يُمتص β-TCP تدريجياً ويحل محله عظم طبيعي.`]},
+{q:[`The fixed P₂O₅ content in the Na₂O–CaO–SiO₂–P₂O₅ diagram is:`,`محتوى P₂O₅ الثابت في مخطط Na₂O–CaO–SiO₂–P₂O₅ هو:`],o:[[`2 wt%`,`2% وزنية`],[`6 wt%`,`6% وزنية`],[`20 wt%`,`20% وزنية`],[`45 wt%`,`45% وزنية`]],a:1,e:[`It accelerates formation of the HA layer.`,`وهو يسرّع تكوّن طبقة HA.`]}]};
+
+W.regions=()=>{const id=uid();
+  const R=[[`1 (red)`,`1 (أحمر)`,`Class A bioactive: osteoproductive, bonds to bone and soft tissue and activates genes. HA layer appears within several hours. Bioglass 45S5 is here: it bonds so strongly that the implant cannot be removed without destroying it.`,`نشط حيوياً صنف A: منتج للعظم يرتبط بالعظم والنسيج الرخو وينشّط الجينات. تظهر طبقة HA خلال ساعات. ينتمي الزجاج 45S5 إلى هذه المنطقة: فارتباطه قوي بحيث لا يمكن نزع الغرسة دون تدميرها.`],
+   [`2 (green)`,`2 (أخضر)`,`Class B: osteoconductive, bonds only to bone. HA layer forms 24 to 96 h after integration.`,`الصنف B: موصِّل للعظم يرتبط بالعظم فقط. تتكوّن طبقة HA بعد 24 إلى 96 ساعة من الاندماج.`],
+   [`3 (orange)`,`3 (برتقالي)`,`Cerabone-type bioglass ceramics: apatite crystals Ca₁₀(PO₄)₆(OH,F)₂ and wollastonite (CaO·SiO₂) in a residual SiO₂ glassy matrix. Here P₂O₅ content may vary.`,`زجاج سيراميكي حيوي من نوع Cerabone: بلورات أباتايت Ca₁₀(PO₄)₆(OH,F)₂ وولاستونايت (CaO·SiO₂) في أساس زجاجي من SiO₂ المتبقي. وهنا قد يتغير محتوى P₂O₅.`],
+   [`4 (purple)`,`4 (بنفسجي)`,`Fully resorbed in the body within 10 to 30 days, with minimal restoration of damaged bone.`,`تُمتص كلياً في الجسم خلال 10 إلى 30 يوماً مع ترميم ضئيل للعظم التالف.`],
+   [`5 (gray)`,`5 (رمادي)`,`Does not bond even to bone; behaves like a bioinert material.`,`لا ترتبط حتى بالعظم؛ وتسلك سلوك مادة خاملة حيوياً.`],
+   [`6 (white)`,`6 (أبيض)`,`Glass formation is not observed.`,`لا يتكوّن زجاج.`]];
+  inits.push(()=>{const r=$id(id),btns=r.querySelectorAll('.tb'),pan=r.querySelector('.tp');
+    const show=k=>{btns.forEach((x,n)=>x.setAttribute('aria-selected',n===k));pan.innerHTML=bi([R[k][2],R[k][3]])};btns.forEach((x,n)=>x.onclick=()=>show(n));show(0)});
+  return `<section class="card" id="${id}"><h2 class="ch">${t([`Reading the Na₂O–CaO–SiO₂ diagram (P₂O₅ fixed at 6 wt.%)`,`قراءة مخطط Na₂O–CaO–SiO₂ (P₂O₅ ثابت عند 6% وزنية)`])}</h2><div class="tbs">${R.map(x=>`<button class="tb">${t([x[0],x[1]])}</button>`).join('')}</div><div class="tp"></div><p class="leg">${t([`The six areas refer to the colored regions of Fig. 7-4 in the lecture.`,`المناطق الست تشير إلى المناطق الملونة في الشكل 7-4 في المحاضرة.`])}</p></section>`};
+setLang(lang);
+(function(){let i=0;const m=/^#l([1-6])$/.exec(location.hash);if(m)i=+m[1]-1;render(i)})();
+</script>
+
+</body></html>
